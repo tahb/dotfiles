@@ -3,7 +3,7 @@ dotfiles
 
 Clone into home
   
-<pre>git clone git://github.com/tomhipkin/dotfiles.git</pre>
+<pre>git clone git://github.com/hippers/dotfiles.git</pre>
 
 Make the script executable and run it:
 
