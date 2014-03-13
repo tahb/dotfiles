@@ -7,6 +7,15 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="miloshadzic"
 
+# Customize to your needs...
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/bin
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Load RVM into a shell session *as a function*:
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
 # Aliases
 alias ..='cd ..'            # Go up one directory
 alias ...='cd ../..'        # Go up two directories
@@ -14,11 +23,22 @@ alias ....='cd ../../..'    # And for good measure
 alias l='ls -lah'           # Long view, show hidden
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
+alias gcma="git checkout master"
 alias z="zeus test spec"
-alias ocs="cd sites/ocs"
-alias ocsm="cd sites/ocs-middleware"
 alias ~="cd ~"
-alias padstart="tsocks bundle exec padrino start -p 3003 -e production"
+alias unstage="git reset --hard"
+alias rake="noglob rake"
+
+# DXW
+alias cnp='cd ~/sites/clientsandprojects'
+
+# TVH
+alias ocs="cd ~/sites/ocs"
+alias ocsm="cd ~/sites/ocs-middleware"
+alias padstart="tsocks bundle exec padrino start -p 3003 -e development"
+alias padstartp="tsocks bundle exec padrino start -p 3003 -e production"
+alias testcon="tsocks bundle exec rspec --tag type:connection"
+alias sidekiqplz="tsocks sidekiq -C ./config/sidekiq.yml -r ./config/boot.rb"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -52,14 +72,6 @@ alias padstart="tsocks bundle exec padrino start -p 3003 -e production"
 plugins=(git rails textmate ruby brew rails3 osx bundler)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Load RVM into a shell session *as a function*:
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 VISUAL="vim"
 EDITOR="vi"
