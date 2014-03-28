@@ -7,14 +7,11 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="miloshadzic"
 
-# Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/bin
+# Path variable
+export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$PATH'
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Load RVM into a shell session *as a function*:
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
+# Ruby build environment
+eval "$(rbenv init -)"
 
 # Aliases
 alias ..='cd ..'            # Go up one directory
@@ -69,10 +66,13 @@ alias sidekiqplz="tsocks sidekiq -C ./config/sidekiq.yml -r ./config/boot.rb"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails textmate ruby brew rails3 osx bundler)
+plugins=(git textmate brew osx)
 
 source $ZSH/oh-my-zsh.sh
 
 VISUAL="vim"
 EDITOR="vi"
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
