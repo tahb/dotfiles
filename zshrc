@@ -22,6 +22,7 @@ alias gcma="git checkout master"
 alias z="zeus test spec"
 alias ~="cd ~"
 alias unstage="git reset --hard"
+alias unstage-commit="git reset --soft HEAD~1"
 alias rake="noglob rake"
 
 # Internal
@@ -33,10 +34,14 @@ alias honcho='cd ~/sites/honcho'
 # Client
 alias ocs="cd ~/sites/tvh/ocs"
 alias ocsm="cd ~/sites/tvh/ocs-middleware"
+alias tvh-my="cd ~/sites/tvh/ocs"
+alias tvh-api="cd ~/sites/tvh/api"
 alias padstart="tsocks bundle exec padrino start -p 3003 -e development"
 alias padstartp="tsocks bundle exec padrino start -p 3003 -e production"
 alias testcon="tsocks bundle exec rspec --tag type:connection"
-alias sidekiqplz="tsocks sidekiq -C ./config/sidekiq.yml -r ./config/boot.rb"
+
+alias mytvh-mw-sidekiq="tsocks bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6 -C ./config/sidekiq.yml -r ./config/boot.rb"
+alias mytvh-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
