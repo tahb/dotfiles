@@ -5,8 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="miloshadzic"
 
+# Ruby build environment
+eval "$(rbenv init -)"
+
 # Path variable
-export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$PATH'
+# export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$PATH'
+export PATH='~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin'
 
 # Ruby build environment
 eval "$(rbenv init -)"
