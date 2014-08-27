@@ -16,34 +16,41 @@ export PATH='~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin'
 eval "$(rbenv init -)"
 
 # Aliases
-alias ..='cd ..'            # Go up one directory
-alias ...='cd ../..'        # Go up two directories
-alias ....='cd ../../..'    # And for good measure
-alias l='ls -lah'           # Long view, show hidden
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias l='ls -lah'           
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
 alias gcma="git checkout master"
 alias z="zeus test spec"
 alias ~="cd ~"
 alias unstage="git reset --hard"
+alias unstage-commit="git reset --soft HEAD~1"
 alias rake="noglob rake"
 
-# In house
+# Internal
 alias cnp='cd ~/sites/clientsandprojects'
 alias prio='cd ~/sites/tools/priotal'
+alias cardprinter='cd ~/sites/tools/gds_pivotal_card_printer'
+alias honcho='cd ~/sites/honcho'
 
 # Client
-alias ocs="cd ~/sites/ocs"
-alias ocsm="cd ~/sites/ocs-middleware"
+alias ocs="cd ~/sites/tvh/ocs"
+alias ocsm="cd ~/sites/tvh/ocs-middleware"
+alias tvh-my="cd ~/sites/tvh/ocs"
+alias tvh-api="cd ~/sites/tvh/api"
 alias padstart="tsocks bundle exec padrino start -p 3003 -e development"
 alias padstartp="tsocks bundle exec padrino start -p 3003 -e production"
 alias testcon="tsocks bundle exec rspec --tag type:connection"
-alias sidekiqplz="tsocks sidekiq -C ./config/sidekiq.yml -r ./config/boot.rb"
+
+alias mytvh-mw-sidekiq="tsocks bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6 -C ./config/sidekiq.yml -r ./config/boot.rb"
+alias mytvh-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git textmate brew osx ruby rails heroku)
+plugins=(git textmate brew osx heroku)
 
 source $ZSH/oh-my-zsh.sh
 
