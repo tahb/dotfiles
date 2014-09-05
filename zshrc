@@ -24,24 +24,20 @@ alias ~="cd ~"
 alias unstage="git reset --hard"
 alias unstage-commit="git reset --soft HEAD~1"
 alias rake="noglob rake"
+alias b="bundle"
+alias be="bundle exec"
 
-# Internal
 alias cnp='cd ~/sites/clientsandprojects'
 alias prio='cd ~/sites/tools/priotal'
 alias cardprinter='cd ~/sites/tools/gds_pivotal_card_printer'
 alias honcho='cd ~/sites/honcho'
 
-# Client
-alias ocs="cd ~/sites/tvh/ocs"
-alias ocsm="cd ~/sites/tvh/ocs-middleware"
-alias tvh-my="cd ~/sites/tvh/ocs"
+alias tvh-web="cd ~/sites/tvh/ocs"
 alias tvh-api="cd ~/sites/tvh/api"
-alias padstart="tsocks bundle exec padrino start -p 3003 -e development"
-alias padstartp="tsocks bundle exec padrino start -p 3003 -e production"
+alias tvh-pay="cd ~/sites/tvh/pay"
 alias testcon="tsocks bundle exec rspec --tag type:connection"
-
-alias mytvh-mw-sidekiq="tsocks bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6 -C ./config/sidekiq.yml -r ./config/boot.rb"
-alias mytvh-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
+alias tvh-api-sidekiq="tsocks bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6 -C ./config/sidekiq.yml -r ./config/boot.rb"
+alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
