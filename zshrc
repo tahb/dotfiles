@@ -10,7 +10,7 @@ eval "$(rbenv init -)"
 
 # Path variable
 # export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$PATH'
-export PATH='~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin'
+#export PATH='~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin'
 
 # Ruby build environment
 eval "$(rbenv init -)"
@@ -30,7 +30,7 @@ alias unstage-commit="git reset --soft HEAD~1"
 alias rake="noglob rake"
 alias b="bundle"
 alias be="bundle exec"
-
+alias sites="cd ~/sites"
 alias cnp='cd ~/sites/clientsandprojects'
 alias prio='cd ~/sites/tools/priotal'
 alias cardprinter='cd ~/sites/tools/gds_pivotal_card_printer'
@@ -55,3 +55,4 @@ EDITOR="vi"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
