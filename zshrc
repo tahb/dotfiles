@@ -30,6 +30,8 @@ alias unstage-commit="git reset --soft HEAD~1"
 alias rake="noglob rake"
 alias b="bundle"
 alias be="bundle exec"
+alias rt="bundle exec rspec ."
+alias dbreset="rake db:drop db:create db:migrate db:test:prepare"
 
 alias cnp='cd ~/sites/clientsandprojects'
 alias prio='cd ~/sites/tools/priotal'
@@ -40,7 +42,7 @@ alias tvh-web="cd ~/sites/tvh/ocs"
 alias tvh-api="cd ~/sites/tvh/api"
 alias tvh-pay="cd ~/sites/tvh/pay"
 alias testcon="tsocks bundle exec rspec --tag type:connection"
-alias tvh-api-sidekiq="tsocks bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6 -C ./config/sidekiq.yml -r ./config/boot.rb"
+alias tvh-api-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
 alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
