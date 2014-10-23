@@ -32,6 +32,8 @@ alias tvh-pay="cd ~/sites/tvh/pay"
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
 alias gcma="git checkout master"
+alias gl='git pull --prune'
+alias gc='git commit'
 alias unstage="git reset --hard"
 alias unstage-commit="git reset --soft HEAD~1"
 
@@ -47,6 +49,8 @@ alias rake="noglob rake"
 # Sidekiq
 alias tvh-api-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
 alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
+
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Custom plugins
 plugins=(git textmate brew osx heroku)
