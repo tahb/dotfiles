@@ -12,26 +12,26 @@ eval "$(rbenv init -)"
 ## Aliases ##
 
 # Navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias l='ls -lah'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias l="ls -lah"
 alias ~="cd ~"
-alias sites="cd ~/sites"
-alias cnp='cd ~/sites/clientsandprojects'
-alias prio='cd ~/sites/tools/priotal'
-alias cardprinter='cd ~/sites/tools/gds_pivotal_card_printer'
-alias honcho='cd ~/sites/honcho'
-alias tvh-web="cd ~/sites/tvh/ocs"
-alias tvh-api="cd ~/sites/tvh/api"
-alias tvh-pay="cd ~/sites/tvh/pay"
+alias sites="cd $SITES"
+alias cnp="cd $SITES/clientsandprojects"
+alias prio="cd $SITES/tools/priotal"
+alias cardprinter="cd $SITES/tools/gds_pivotal_card_printer"
+alias honcho="cd $SITES/honcho"
+alias tvh-web="cd $SITES/tvh/ocs"
+alias tvh-api="cd $SITES/tvh/api"
+alias tvh-pay="cd $SITES/tvh/pay"
 
 # Git
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
 alias gcma="git checkout master"
-alias gl='git pull --prune'
-alias gc='git commit'
+alias gl="git pull --prune"
+alias gc="git commit"
 alias unstage="git reset --hard"
 alias unstage-commit="git reset --soft HEAD~1"
 
