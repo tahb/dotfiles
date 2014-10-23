@@ -4,12 +4,10 @@ ZSH=$HOME/.oh-my-zsh
 # Theme
 ZSH_THEME="miloshadzic"
 
+export SITES="~/sites"
+
 # Ruby build environment
 eval "$(rbenv init -)"
-
-# Path variable
-# export PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:$PATH'
-export PATH='~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin'
 
 ## Aliases ##
 
@@ -60,8 +58,7 @@ source $ZSH/oh-my-zsh.sh
 VISUAL="vim"
 EDITOR="vi"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+### Load path
+export PATH="/bin:/usr/local/bin:/usr/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
 
-# RBENV
-export PATH="$HOME/.rbenv/bin:$PATH"
+
