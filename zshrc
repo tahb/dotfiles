@@ -4,6 +4,9 @@ ZSH=$HOME/.oh-my-zsh
 # Theme
 ZSH_THEME="miloshadzic"
 
+### Load path
+export PATH="/bin:/usr/local/bin:/usr/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
+
 export SITES="~/sites"
 
 # Ruby build environment
@@ -57,8 +60,3 @@ source $ZSH/oh-my-zsh.sh
 
 VISUAL="vim"
 EDITOR="vi"
-
-### Load path
-export PATH="/bin:/usr/local/bin:/usr/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
-
-
