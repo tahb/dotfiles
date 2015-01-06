@@ -73,3 +73,7 @@ source $ZSH/oh-my-zsh.sh
 
 VISUAL="vim"
 EDITOR="vi"
+
+
+export TINYTDS_FREETDS_VERSION="current"
+export TINYTDS_ICONV_VERSION="1.13.1"
