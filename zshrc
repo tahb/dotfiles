@@ -5,7 +5,8 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="miloshadzic"
 
 ### Load path
-export PATH="/bin:/usr/sbin:/usr/local/bin:/usr/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin:${PATH}"
+#export PATH="/bin:/usr/sbin:/usr/local/bin:/usr/bin:./bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin:${PATH}"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
 
 export SITES="~/sites"
 
@@ -30,13 +31,16 @@ alias ....="cd ../../.."
 alias l="ls -lah"
 alias ~="cd ~"
 alias sites="cd $SITES"
-alias cnp="cd $SITES/clientsandprojects"
-alias prio="cd $SITES/tools/priotal"
-alias cardprinter="cd $SITES/tools/gds_pivotal_card_printer"
-alias honcho="cd $SITES/honcho"
-alias tvh-web="cd $SITES/tvh/ocs"
-alias tvh-api="cd $SITES/tvh/api"
-alias tvh-pay="cd $SITES/tvh/pay"
+
+alias cnp="cd $SITES/dxw/clientsandprojects"
+alias prio="cd $SITES/dxw/priotal"
+alias cardprinter="cd $SITES/dxw/gds_pivotal_card_printer"
+alias honcho="cd $SITES/dxw/honcho"
+alias dxw-staff="cd $SITES/dxw/staff.dxw.net"
+
+alias tvh-web="cd $SITES/tvh/mytvh-web"
+alias tvh-mid="cd $SITES/tvh/mytvh-mid"
+alias tvh-pay="cd $SITES/tvh/mytvh-pay"
 
 # Git
 alias gcd="git checkout develop"
@@ -60,7 +64,7 @@ alias dbreset="rake db:drop db:create db:migrate db:test:prepare"
 alias rake="noglob rake"
 
 # Sidekiq
-alias tvh-api-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
+alias tvh-mid-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
 alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 alias tvh-pay-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
 
