@@ -5,8 +5,7 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="miloshadzic"
 
 ### Load path
-#export PATH="/bin:/usr/sbin:/usr/local/bin:/usr/bin:./bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin:${PATH}"
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
+export PATH="$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
 
 export SITES="~/sites"
 
