@@ -5,7 +5,7 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="miloshadzic"
 
 ### Load path
-export PATH="$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/heroku/bin"
+export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims"
 
 export SITES="~/sites"
 
@@ -42,6 +42,7 @@ alias tvh-mid="cd $SITES/tvh/mytvh-mid"
 alias tvh-pay="cd $SITES/tvh/mytvh-pay"
 
 # Git
+alias git=/usr/local/bin/git
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
 alias gcma="git checkout master"
