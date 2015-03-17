@@ -42,7 +42,6 @@ alias tvh-mid="cd $SITES/tvh/mytvh-mid"
 alias tvh-pay="cd $SITES/tvh/mytvh-pay"
 
 # Git
-alias git=/usr/local/bin/git
 alias gcd="git checkout develop"
 alias gcp="git checkout production"
 alias gcma="git checkout master"
