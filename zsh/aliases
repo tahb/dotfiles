@@ -11,15 +11,6 @@ alias ~="cd ~"
 # Projects
 alias sites="cd $SITES"
 
-alias cnp="cd $SITES/dxw/clientsandprojects"
-alias prio="cd $SITES/dxw/priotal"
-alias cardprinter="cd $SITES/dxw/gds_pivotal_card_printer"
-alias honcho="cd $SITES/dxw/honcho"
-alias dxw-staff="cd $SITES/dxw/staff.dxw.net"
-alias tvh-web="cd $SITES/tvh/mytvh-web"
-alias tvh-mid="cd $SITES/tvh/mytvh-mid"
-alias tvh-pay="cd $SITES/tvh/mytvh-pay"
-
 alias gpps="git push cha-stage develop:master; git push tvh-stage develop:master"
 alias gppm="git push cha-prod; git push tvh-prod"
 
