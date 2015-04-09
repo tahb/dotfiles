@@ -50,10 +50,5 @@ alias killruby='killall -9 ruby'
 alias dbreset="rake db:drop db:create db:migrate db:test:prepare"
 alias rake="noglob rake"
 
-# Sidekiq
-alias tvh-mid-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
-alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
-alias tvh-pay-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
-
 # Keys
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
