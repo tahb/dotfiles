@@ -23,7 +23,7 @@ export DOCKER_HOST="tcp://172.17.8.101:2375"
 
 # Sourcing of other files
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/zsh/aliases
+source $HOME/dotfiles/zsh/aliases
 
 # Custom plugins
 plugins=(git textmate brew osx heroku)
