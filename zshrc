@@ -17,11 +17,6 @@ export SITES="~/sites"
 ### Ruby build environment
 eval "$(rbenv init -)"
 
-### Fig build environment
-#type boot2docker >/dev/null 2>&1 && $(boot2docker shellinit 2>/dev/null)
-export DOCKER_HOST="tcp://172.17.8.101:2375"
-
-# Sourcing of other files
 source $ZSH/oh-my-zsh.sh
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
