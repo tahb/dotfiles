@@ -19,6 +19,7 @@ eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/dotfiles/zsh/aliases
+source $HOME/dotfiles/.profile
 
 # Custom plugins
 plugins=(git textmate brew osx heroku)
