@@ -1,0 +1,59 @@
+# ZSH
+unsetopt correct
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias l="ls -lah"
+alias ~="cd ~"
+
+# Projects
+alias sites="cd $SITES"
+
+alias cnp="cd $SITES/dxw/clientsandprojects"
+alias prio="cd $SITES/dxw/priotal"
+alias cardprinter="cd $SITES/dxw/gds_pivotal_card_printer"
+alias honcho="cd $SITES/dxw/honcho"
+alias dxw-staff="cd $SITES/dxw/staff.dxw.net"
+alias tvh-web="cd $SITES/tvh/mytvh-web"
+alias tvh-mid="cd $SITES/tvh/mytvh-mid"
+alias tvh-pay="cd $SITES/tvh/mytvh-pay"
+
+alias gpps="git push cha-stage develop:master; git push tvh-stage develop:master"
+alias gppm="git push cha-prod; git push tvh-prod"
+
+# Git
+alias git=/usr/local/bin/git
+alias gcd="git checkout develop"
+alias gcp="git checkout production"
+alias gcma="git checkout master"
+alias gl="git pull --prune"
+alias gc="git commit"
+alias unstage="git reset --hard"
+alias unstage-commit="git reset --soft HEAD~1"
+alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias startredis='redis-server /usr/local/etc/redis.conf &'
+alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+
+# Bundler
+alias b="bundle"
+alias be="bundle exec"
+alias bu='bundle update'
+alias rt="bundle exec rspec ."
+alias rc='bin/rails console'
+
+# Ruby
+alias killruby='killall -9 ruby'
+
+# Rake
+alias dbreset="rake db:drop db:create db:migrate db:test:prepare"
+alias rake="noglob rake"
+
+# Sidekiq
+alias tvh-mid-sidekiq="tsocks bundle exec sidekiq -C ./config/sidekiq.yml"
+alias tvh-web-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
+alias tvh-pay-sidekiq="bundle exec sidekiq -q high,3 -q medium,2 -q low,1 -c 6"
+
+# Keys
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
