@@ -1,30 +1,26 @@
-# Path to your oh-my-zsh configuration.
-ZSH="$HOME/.oh-my-zsh"
-
-### Theme
-ZSH_THEME="miloshadzic"
-
-# Show contents of directory after cd-ing into it
-chpwd() {
-  ls -lrthG
-}
-
-### Load path
-export PATH="./bin:$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims"
-
-
+# Source of magic
+export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims"
 export SITES="~/sites"
 
-### Ruby build environment
-eval "$(rbenv init -)"
-type boot2docker >/dev/null 2>&1 && $(boot2docker shellinit 2>/dev/null)
+# Source Prezto
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-source $ZSH/oh-my-zsh.sh
+# Overrides
+chpwd() {
+ ls -lrthG
+}
+
+# Load in aliases
+alias aliases="vim ~/dotfiles/zsh/aliases"
+
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
-# Custom plugins
-plugins=(git textmate brew osx heroku)
-
+# Ruby build environment
+eval "$(rbenv init -)"
+#     
+# Edit with these!
 VISUAL="vim"
 EDITOR="vi"
