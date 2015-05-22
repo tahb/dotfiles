@@ -1,18 +1,13 @@
-# ZSH
-unsetopt correct
-
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias l="ls -lah"
 alias ~="cd ~"
+alias lsa="ls -la"
 
 # Projects
 alias sites="cd $SITES"
-
-alias gpps="git push cha-stage develop:master; git push tvh-stage develop:master"
-alias gppm="git push cha-prod; git push tvh-prod"
 
 # Git
 alias git=/usr/local/bin/git
@@ -38,7 +33,7 @@ alias rc='bin/rails console'
 alias killruby='killall -9 ruby'
 
 # Rake
-alias dbreset="rake db:drop db:create db:migrate db:test:prepare"
+alias dbreset="rake db:drop db:create db:migrate db:test:prepare db:seed"
 alias rake="noglob rake"
 
 # Keys
