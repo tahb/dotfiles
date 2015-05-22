@@ -16,6 +16,7 @@ export SITES="~/sites"
 
 ### Ruby build environment
 eval "$(rbenv init -)"
+type boot2docker >/dev/null 2>&1 && $(boot2docker shellinit 2>/dev/null)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/dotfiles/zsh/aliases
