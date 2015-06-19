@@ -15,6 +15,8 @@ chpwd() {
 # Load in aliases
 alias aliases="vim ~/dotfiles/zsh/aliases"
 
+type boot2docker >/dev/null 2>&1 && $(boot2docker shellinit 2>/dev/null)
+
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
