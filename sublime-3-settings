@@ -1,0 +1,25 @@
+{
+  "color_scheme": "Packages/User/SublimeLinter/Galea (SL).tmTheme",
+  "theme": "Centurion.sublime-theme",
+   "centurion_color_red": true,
+  "folder_exclude_pattern":
+  [
+    "log",
+    ".git",
+    "doc",
+    ".yardoc"
+  ],
+  "font_face": "Menlo",
+  "font_size": 14.0,
+  "ignore_inodes": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "scroll_past_end": false,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "word_wrap": false
+}
+

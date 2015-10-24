@@ -12,3 +12,5 @@ cd ~/dotfiles
 chmod +x makesymlinks.sh
 ./makesymlinks.sh
 </pre>
+
+Add machine specific variables into `~/dotfiles/.profile`
