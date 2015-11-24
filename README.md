@@ -18,8 +18,3 @@ chmod +x makesymlinks.sh
 ## Configuration outside Git
 - Add machine specific variables into `~/dotfiles/.profile`
 
-
-Install zprezto without submodule:
-```
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/dotfiles/.zprezto"
-```
