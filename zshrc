@@ -20,7 +20,7 @@ source $HOME/dotfiles/.profile
 ## Create prezto configration files in $HOME
 
 setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/.zprezto/runcoms/*; do
+for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
     # Only symlink if it's not currently in place
@@ -33,8 +33,8 @@ for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/.zprezto/runcoms/*; do
 done
 
 # Prezto zshrc configuration
-if [[ -s "${ZDOTDIR:-$HOME/dotfiles}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME/dotfiles}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh"
 fi
 
 # Ruby build environment
