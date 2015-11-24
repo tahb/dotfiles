@@ -26,14 +26,14 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres
 alias b="bundle"
 alias be="bundle exec"
 alias bu='bundle update'
-alias rt="bundle exec rspec ."
+alias rt="bundle exec rspec spec"
 alias rc='bin/rails console'
 
 # Ruby
 alias killruby='killall -9 ruby'
 
 # Rake
-alias dbreset="rake db:drop db:create db:migrate db:test:prepare db:seed"
+alias dbreset="rake db:drop; rake db:create; rake db:migrate; rake db:test:prepare"
 alias rake="noglob rake"
 
 # Keys
