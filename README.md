@@ -21,15 +21,6 @@ chmod +x makesymlinks.sh
 Symlinks
 ```bash
 
-rm -rf "$HOME/.zlogin"
-rm -rf "$HOME/.zlogout"s
-rm -rf "$HOME/.zpreztor"
-rm -rf "$HOME/.zprofile"
-rm -rf "$HOME/.zshenv"
-rm -rf "$HOME/.zprezto"
-rm -rf "$HOME/.zpreztorc"
-rm -rf "$HOME/.zshrc"
-
 ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 
 ```

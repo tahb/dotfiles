@@ -35,7 +35,17 @@ setopt EXTENDED_GLOB
 
 install_zsh () {
 
+rm -rf "$HOME/.zlogin"
+rm -rf "$HOME/.zlogout"s
+rm -rf "$HOME/.zpreztor"
+rm -rf "$HOME/.zprofile"
+rm -rf "$HOME/.zshenv"
+rm -rf "$HOME/.zprezto"
+rm -rf "$HOME/.zpreztorc"
+rm -rf "$HOME/.zshrc"
+
 # Add in the new zshell symlinks
+ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
