@@ -1,16 +1,20 @@
 dotfiles
 ========
 
+## Install
+
 Clone into home
-  
-<pre>git clone git://github.com/hippers/dotfiles.git</pre>
+```bash
+git clone --recursive git://github.com/hippers/dotfiles.git
+```
 
 Make the script executable and run it:
-
-<pre>
+```bash
 cd ~/dotfiles
 chmod +x makesymlinks.sh
 ./makesymlinks.sh
-</pre>
+```
 
-Add machine specific variables into `~/dotfiles/.profile`
+## Configuration outside Git
+- Add machine specific variables into `~/dotfiles/.profile`
+
