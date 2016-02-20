@@ -26,6 +26,9 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres
 alias b="bundle"
 alias be="bundle exec"
 alias bu='bundle update'
+
+# Rails
+alias dt="dspec"
 alias rt="bundle exec rspec ."
 alias rc='bin/rails console'
 
