@@ -17,18 +17,21 @@ source $HOME/dotfiles/.profile
 
 # Source prezto
 
-## Create prezto configration files in $HOME
-
+## Create prezto configration symlinks in $HOME
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
+
+  rm -rf ~/.zlogin;
+  rm -rf ~/.zlogout;
+  rm -rf ~/.zpreztor;
+  rm -rf ~/.zprofile;
+  rm -rf ~/.zshenv;
+  rm -rf ~/.zprezto;
+  rm -rf ~/.zpreztorc;
+
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
-    # Only symlink if it's not currently in place
-    # Damn you Bash.
-    if [ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]; then
-    else
-      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    fi
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   fi
 done
 

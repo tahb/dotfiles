@@ -1,20 +1,42 @@
 dotfiles
 ========
 
-## Install
+Currently using Zshell with Prezto.
 
-Clone into home
 ```bash
-git clone --recursive git://github.com/hippers/dotfiles.git
+cd ~
+git clone git://github.com/hippers/dotfiles.git
 ```
 
-Make the script executable and run it:
+## Install
+
+Symlinks
+```bash
+
+rm -rf "$HOME/.zlogin"
+rm -rf "$HOME/.zlogout"
+rm -rf "$HOME/.zpreztor"
+rm -rf "$HOME/.zprofile"
+rm -rf "$HOME/.zshenv"
+rm -rf "$HOME/.zprezto"
+rm -rf "$HOME/.zpreztorc"
+ln -s "$$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+
+```
+
+
+Backup and install dependencies:
 ```bash
 cd ~/dotfiles
 chmod +x makesymlinks.sh
 ./makesymlinks.sh
 ```
 
-## Configuration outside Git
-- Add machine specific variables into `~/dotfiles/.profile`
+Setup Zshell
+```bash
+source ~/.zshrc
+```
+
+## Extra: Offline variables
+- Add sensitive or machine specific variables into `~/dotfiles/.profile`
 
