@@ -10,11 +10,19 @@ git clone git://github.com/hippers/dotfiles.git
 
 ## Install
 
+
+Backup and install dependencies:
+```bash
+cd ~/dotfiles
+chmod +x makesymlinks.sh
+./makesymlinks.sh
+```
+
 Symlinks
 ```bash
 
 rm -rf "$HOME/.zlogin"
-rm -rf "$HOME/.zlogout"
+rm -rf "$HOME/.zlogout"s
 rm -rf "$HOME/.zpreztor"
 rm -rf "$HOME/.zprofile"
 rm -rf "$HOME/.zshenv"
@@ -24,14 +32,6 @@ rm -rf "$HOME/.zshrc"
 
 ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 
-```
-
-
-Backup and install dependencies:
-```bash
-cd ~/dotfiles
-chmod +x makesymlinks.sh
-./makesymlinks.sh
 ```
 
 Setup Zshell
