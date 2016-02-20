@@ -20,7 +20,9 @@ rm -rf "$HOME/.zprofile"
 rm -rf "$HOME/.zshenv"
 rm -rf "$HOME/.zprezto"
 rm -rf "$HOME/.zpreztorc"
-ln -s "$$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+rm -rf "$HOME/.zshrc"
+
+ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 
 ```
 
