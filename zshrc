@@ -21,14 +21,6 @@ source $HOME/dotfiles/.profile
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
 
-  rm -rf ~/.zlogin;
-  rm -rf ~/.zlogout;
-  rm -rf ~/.zpreztor;
-  rm -rf ~/.zprofile;
-  rm -rf ~/.zshenv;
-  rm -rf ~/.zprezto;
-  rm -rf ~/.zpreztorc;
-
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
     ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
