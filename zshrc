@@ -15,6 +15,18 @@ alias aliases="vim ~/dotfiles/zsh/aliases"
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
+# Source prezto
+
+## Create prezto configration symlinks in $HOME
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
+
+  # Don't overwrite our zshrc file
+  if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  fi
+done
+
 # Prezto zshrc configuration
 if [[ -s "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh"

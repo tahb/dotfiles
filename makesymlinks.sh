@@ -30,19 +30,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-## Create prezto configration symlinks in $HOME
-setopt EXTENDED_GLOB
-
 install_zsh () {
-
-# Add in the new zshell symlinks
-for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
-  # Don't overwrite our zshrc file
-  if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
-    ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  fi
-done
-
 # Test to see if zshell is installed.  If it is:
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Clone my prezto repository
