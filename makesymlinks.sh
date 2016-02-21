@@ -24,7 +24,6 @@ echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-    rm -rf ~/.$file
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
@@ -36,7 +35,17 @@ setopt EXTENDED_GLOB
 
 install_zsh () {
 
+rm -rf "$HOME/.zlogin"
+rm -rf "$HOME/.zlogout"s
+rm -rf "$HOME/.zpreztor"
+rm -rf "$HOME/.zprofile"
+rm -rf "$HOME/.zshenv"
+rm -rf "$HOME/.zprezto"
+rm -rf "$HOME/.zpreztorc"
+rm -rf "$HOME/.zshrc"
+
 # Add in the new zshell symlinks
+ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
