@@ -23,7 +23,7 @@ for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
 
   # Don't overwrite our zshrc file
   if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   fi
 done
 
