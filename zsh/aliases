@@ -16,11 +16,13 @@ alias gcp="git checkout production"
 alias gcma="git checkout master"
 alias gl="git pull --prune"
 alias gc="git commit"
-alias unstage="git reset --hard"
-alias unstage-commit="git reset --soft HEAD~1"
+alias unstage="git reset --hard" # revert all commits not synced with remote
+alias unstage-commit="git reset --soft HEAD~1" # revert the last commit 
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias startredis='redis-server /usr/local/etc/redis.conf &'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+alias gclean='git clean -f; git clean -d' # remove all new but untracked files and directories
+alias greset='git checkout .' # reset all new changes
 
 # Bundler
 alias b="bundle"
