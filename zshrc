@@ -8,6 +8,9 @@ chpwd() {
  ls -lrthG
 }
 
+# Docker 
+eval `docker-machine env 2>/dev/null`
+
 # Aliases
 alias aliases="vim ~/dotfiles/zsh/aliases"
 
