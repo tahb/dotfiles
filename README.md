@@ -5,7 +5,7 @@ Currently using Zshell with Prezto.
 
 ```bash
 cd ~
-git clone git://github.com/hippers/dotfiles.git
+git clone git@github.com:tahb/dotfiles.git
 ```
 
 ## Install
