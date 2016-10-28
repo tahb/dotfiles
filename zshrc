@@ -1,5 +1,5 @@
 # Source of magic
-export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$GOPATH/bin"
+export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$GOPATH/bin:/tmp/phantomjs"
 export SITES="~/sites"
 
 # Overrides
