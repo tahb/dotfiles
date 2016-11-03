@@ -16,12 +16,14 @@ alias gcp="git checkout production"
 alias gcma="git checkout master"
 alias gl="git pull --prune"
 alias gc="git commit"
+alias gst="git status"
+alias gd="git diff"
 alias unstage="git reset --hard" # revert all commits not synced with remote
 alias unstage-commit="git reset --soft HEAD~1" # revert the last commit 
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias startredis='redis-server /usr/local/etc/redis.conf &'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
-alias gclean='git clean -f; git clean -d' # remove all new but untracked files and directories
+alias gclean='git clean -f -d' # remove all new but untracked files and directories
 alias greset='git checkout .' # reset all new changes
 
 # Bundler
@@ -36,6 +38,7 @@ alias rc='bin/rails console'
 
 # Ruby
 alias killruby='killall -9 ruby'
+alias killpuma='kill -9 $(lsof -i tcp:3000 -t); kill -9 $(lsof -i tcp:8080 -t); kill -9 $(lsof -i tcp:8181 -t)'
 
 # Rake
 alias dbreset="rake db:drop; rake db:create; rake db:migrate; rake db:test:prepare"
@@ -44,4 +47,5 @@ alias rake="noglob rake"
 # Keys
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+# Docker
 alias dockerme='eval "$(docker-machine env default)"'
