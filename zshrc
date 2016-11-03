@@ -1,5 +1,12 @@
-# Source of magic
-export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$GOPATH/bin"
+# Path
+export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$GOPATH/bin"
+
+# Heroku command line tool
+export PATH=$PATH:/usr/local/heroku/bin
+
+# Postgres App
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 export SITES="~/sites"
 
 # Overrides
