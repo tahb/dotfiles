@@ -9,6 +9,9 @@ alias lsa="ls -la"
 # Projects
 alias sites="cd $SITES"
 
+# Network
+alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+
 # Git
 alias git=/usr/local/bin/git
 alias gcd="git checkout develop"
