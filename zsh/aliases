@@ -53,3 +53,4 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # Docker
 alias dockerme='eval "$(docker-machine env default)"'
+alias dcr="docker rm $(docker ps -a | awk '{print $01}')"
