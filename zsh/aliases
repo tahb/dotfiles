@@ -28,6 +28,7 @@ alias startredis='redis-server /usr/local/etc/redis.conf &'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
 alias gclean='git clean -f -d' # remove all new but untracked files and directories
 alias greset='git checkout .' # reset all new changes
+alias glbt="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d" # https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
 
 # Bundler
 alias b="bundle"
