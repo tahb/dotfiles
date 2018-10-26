@@ -8,10 +8,9 @@ cd ~
 git clone git@github.com:tahb/dotfiles.git
 ```
 
-## Install
+## Backup existing
 
 
-Backup and install dependencies:
 ```bash
 cd ~/dotfiles
 chmod +x makesymlinks.sh
@@ -30,15 +29,38 @@ rm -rf "$HOME/.zprezto"
 rm -rf "$HOME/.zpreztorc"
 rm -rf "$HOME/.zshrc"
 
-ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
-
 ```
 
-Setup Zshell
+## Install
+
+
+[Install brew](https://brew.sh/)
+
+```
+brew install git
+```
+
+```
+brew install rbenv
+```
+
+```
+touch ~/dotfiles/.profile
+```
+
+```bash
+ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+```
+
+```bash
+ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
+```
+
+Load ZSH
 ```bash
 source ~/.zshrc
 ```
 
+
 ## Extra: Offline variables
 - Add sensitive or machine specific variables into `~/dotfiles/.profile`
-
