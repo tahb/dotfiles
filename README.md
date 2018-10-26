@@ -45,7 +45,7 @@ brew install rbenv
 ```
 
 ```
-touch ~/dotfiles/.profile
+cp ~/dotfiles/.profile.example ~/dotfiles/.profile
 ```
 
 ```bash
