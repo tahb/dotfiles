@@ -41,3 +41,13 @@ source ~/.zshrc
 
 ## Extra: Offline variables
 - Add sensitive or machine specific variables into `~/dotfiles/.profile`
+
+
+## Atom
+
+[Install Atom](https://atom.io/)
+
+Install Google Drive and sync atom folder
+```
+ln -s ~/Google\ Drive/atom ~/.atom
+```
