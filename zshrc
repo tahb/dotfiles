@@ -19,7 +19,7 @@ chpwd() {
  ls -lrthG
 }
 
-# Docker 
+# Docker
 eval `docker-machine env 2>/dev/null`
 
 # Aliases
@@ -29,21 +29,8 @@ alias aliases="vim ~/dotfiles/zsh/aliases"
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
-# Source prezto
-
-## Create prezto configration symlinks in $HOME
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME/dotfiles}"/prezto/runcoms/*; do
-
-  # Don't overwrite our zshrc file
-  if [ "$rcfile:t" != "README.md" ] && [ "$rcfile:t" != "zshrc" ]; then
-    ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  fi
-done
-
-# Prezto zshrc configuration
-if [[ -s "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME/dotfiles}/prezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Ruby build environment
@@ -52,4 +39,3 @@ eval "$(rbenv init -)"
 # Edit with these!
 VISUAL="vim"
 EDITOR="vi"
-

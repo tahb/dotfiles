@@ -8,31 +8,8 @@ cd ~
 git clone git@github.com:tahb/dotfiles.git
 ```
 
-## Backup existing
-
-
-```bash
-cd ~/dotfiles
-chmod +x makesymlinks.sh
-./makesymlinks.sh
-```
-
-Symlinks
-```bash
-
-rm -rf "$HOME/.zlogin"
-rm -rf "$HOME/.zlogout"s
-rm -rf "$HOME/.zpreztor"
-rm -rf "$HOME/.zprofile"
-rm -rf "$HOME/.zshenv"
-rm -rf "$HOME/.zprezto"
-rm -rf "$HOME/.zpreztorc"
-rm -rf "$HOME/.zshrc"
-
-```
 
 ## Install
-
 
 [Install brew](https://brew.sh/)
 
@@ -44,16 +21,16 @@ brew install git
 brew install rbenv
 ```
 
+[Install Prezto for Zsh](https://github.com/sorin-ionescu/prezto#installation)
+
 ```
 cp ~/dotfiles/.profile.example ~/dotfiles/.profile
 ```
 
+Replace Prezto's configuration files with mine
 ```bash
-ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
-```
-
-```bash
-ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
+rm -f "$HOME/.zshrc" && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc" && \
+rm -f "$HOME/.zpreztorc" && ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
 ```
 
 Load ZSH
