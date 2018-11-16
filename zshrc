@@ -12,6 +12,8 @@ export PATH=$PATH:/tmp/phantomjs
 
 export SITES="~/sites"
 
+# Allow GPG to sign Git commits https://github.com/keybase/keybase-issues/issues/2798
+export GPG_TTY=$(tty)
 
 # Overrides
 ## Changing directory will automatically list contents
