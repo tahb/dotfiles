@@ -38,6 +38,10 @@ Load ZSH
 source ~/.zshrc
 ```
 
+Set up symlinks
+```
+~/dotfiles/makesymlinks.sh
+```
 
 ## Extra: Offline variables
 - Add sensitive or machine specific variables into `~/dotfiles/.profile`
