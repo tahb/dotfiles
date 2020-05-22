@@ -55,8 +55,3 @@ Install Google Drive and sync atom folder
 ```
 ln -s ~/Google\ Drive/dotfiles/atom ~/.atom
 ```
-
-## Git config
-```
-ln -s ~/Google\ Drive/dotfiles/.gitconfig ~/.gitconfig
-```

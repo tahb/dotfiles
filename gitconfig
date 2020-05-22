@@ -1,0 +1,17 @@
+[user]
+	name = Tom Hipkin
+	email = tomhipkin@gmail.com
+	signingkey = 6A6626FEF8D2D091FE00DB15B8EA4E647257CB09
+[push]
+	default = upstream
+[commit]
+	gpgsign = true
+	verbose = true
+[gpg]
+	program = /usr/local/bin/gpg
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[core]
+	excludesfile = ~/.gitignore
