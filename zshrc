@@ -37,6 +37,8 @@ fi
 
 # Ruby build environment
 eval "$(rbenv init -)"
+GEM_PATH=vendor/bundle
+
 
 # Edit with these!
 VISUAL="vim"
