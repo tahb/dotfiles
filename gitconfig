@@ -1,7 +1,7 @@
 [user]
 	name = Tom Hipkin
 	email = tomhipkin@gmail.com
-	signingkey = 6A6626FEF8D2D091FE00DB15B8EA4E647257CB09
+	signingkey = E2095473C7B0F378485355DFF2C7EB44FC8FBDE2
 [push]
 	default = upstream
 [commit]
