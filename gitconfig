@@ -14,7 +14,7 @@
 [fetch]
 	prune = true
 [core]
-	excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
 	editor = vim
 [merge]
 	conflictStyle = diff3
