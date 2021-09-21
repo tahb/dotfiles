@@ -15,5 +15,6 @@
 	prune = true
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim
 [alias]
 	delete-merged = !git branch --merged develop | egrep -v \"(^\\*|^  master$)\" | xargs git branch --delete
