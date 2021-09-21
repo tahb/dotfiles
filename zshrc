@@ -16,6 +16,9 @@ export PATH=$PATH:$HOME/.rbenv/bin
 # Dalmatian
 export PATH=$PATH:$HOME/sites/dxw/dalmatian-tools/bin
 
+# VSCODE
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 export SITES="~/sites"
 
 # Allow GPG to sign Git commits https://github.com/keybase/keybase-issues/issues/2798
