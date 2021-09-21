@@ -39,6 +39,8 @@ fi
 eval "$(rbenv init -)"
 GEM_PATH=vendor/bundle
 
+# Node build environment
+eval "$(nodenv init -)"
 
 # Edit with these!
 VISUAL="vim"
