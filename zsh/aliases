@@ -29,6 +29,7 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres
 alias gclean='git clean -f -d' # remove all new but untracked files and directories
 alias greset='git checkout .' # reset all new changes
 alias gbclean='git delete-merged'
+alias amend-last='git add . && git commit --amend --no-edit'
 
 # Bundler
 alias b="bundle"
