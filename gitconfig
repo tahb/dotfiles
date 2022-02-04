@@ -25,4 +25,5 @@
 [init]
 	defaultBranch = main
 [alias]
-	delete-merged = !git branch --merged develop | egrep -v \"(^\\*|^  master$)\" | xargs git branch --delete
+	default-branch = !git checkout $(git default-origin)
+	delete-merged = !git branch --merged $(git default-origin) | egrep -v \"(^\\*|^ $(git default-origin)$)\" | xargs git branch --delete
