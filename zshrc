@@ -48,6 +48,9 @@ GEM_PATH=vendor/bundle
 # Node build environment
 eval "$(nodenv init -)"
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 # Edit with these!
 VISUAL="vim"
 EDITOR="vi"
