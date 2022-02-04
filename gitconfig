@@ -27,3 +27,7 @@
 [alias]
 	default-branch = !git checkout $(git default-origin)
 	delete-merged = !git branch --merged $(git default-origin) | egrep -v \"(^\\*|^ $(git default-origin)$)\" | xargs git branch --delete
+	cb = checkout -b
+	lg = log --pretty=oneline --topo-order --graph --abbrev-commit --decorate
+	recommit = commit --amend --no-edit
+	save	= !git add . && git commit --no-verify -m \"WIP: auto save at $(date '+%Y%m%d %H:%M:%S')\"
