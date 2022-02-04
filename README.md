@@ -16,6 +16,6 @@ git clone git@github.com:tahb/dotfiles.git
 
 ## Optional
 
-## Offline variables
+### Offline variables
 
 - Add sensitive or machine specific variables into `~/dotfiles/.profile`
