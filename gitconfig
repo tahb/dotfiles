@@ -2,21 +2,27 @@
 	name = Tom Hipkin
 	email = tomhipkin@gmail.com
 	signingkey = E2095473C7B0F378485355DFF2C7EB44FC8FBDE2
-[push]
-	default = upstream
-[commit]
-	gpgsign = true
-	verbose = true
 [gpg]
 	program = /usr/local/bin/gpg
-[pull]
-	rebase = true
-[fetch]
-	prune = true
 [core]
 	excludesFile = ~/.gitignore
 	editor = vim
+[fetch]
+	prune = true
+[push]
+	default = upstream
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+	verbose = true
 [merge]
 	conflictStyle = diff3
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+[init]
+	defaultBranch = main
 [alias]
 	delete-merged = !git branch --merged develop | egrep -v \"(^\\*|^  master$)\" | xargs git branch --delete
