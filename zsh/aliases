@@ -14,19 +14,6 @@ alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 
 
 # Git
 alias git=/usr/local/bin/git
-alias gcd="git checkout develop"
-alias gcp="git checkout production"
-alias gcma="git checkout master"
-alias gl="git pull --prune"
-alias gc="git commit"
-alias gst="git status"
-alias gd="git diff"
-alias unstage="git reset --hard" # revert all commits not synced with remote
-alias unstage-commit="git reset --soft HEAD~1" # revert the last commit
-alias gclean='git clean -f -d' # remove all new but untracked files and directories
-alias greset='git checkout .' # reset all new changes
-alias gbclean='git delete-merged'
-alias amend-last='git add . && git commit --amend --no-edit'
 
 # Bundler
 alias b="bundle"

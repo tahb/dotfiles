@@ -31,3 +31,9 @@
 	lg = log --pretty=oneline --topo-order --graph --abbrev-commit --decorate
 	recommit = commit --amend --no-edit
 	save	= !git add . && git commit --no-verify -m \"WIP: auto save at $(date '+%Y%m%d %H:%M:%S')\"
+	unstage = reset --hard
+	unstage-commit = reset --soft HEAD~1
+	remove-new = clean -f -d
+	reset = checkout .
+	gcd = checkout develop
+	gcm = checkout main
