@@ -58,13 +58,6 @@ Set up symlinks
 
 ## Optional
 
-## Atom
 ## Offline variables
 
-[Install Atom](https://atom.io/)
-
-Install Google Drive and sync atom folder
-```
-ln -s ~/Google\ Drive/dotfiles/atom ~/.atom
-```
 - Add sensitive or machine specific variables into `~/dotfiles/.profile`
