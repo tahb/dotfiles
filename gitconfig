@@ -1,7 +1,7 @@
 [user]
 	name = Tom Hipkin
 	email = tomhipkin@gmail.com
-	signingkey = E2095473C7B0F378485355DFF2C7EB44FC8FBDE2
+	signingkey = 1A65A88C9E5CEF76
 [gpg]
 	program = /usr/local/bin/gpg
 [core]
