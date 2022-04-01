@@ -40,8 +40,12 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # Docker
 alias dcr='docker rm $(docker ps -a | awk "{print $01}")'
-
+alias stop_postgres='docker rm -f postgres'
+alias start_postgres='docker create -v /var/lib/postgresql/data --name postgres13-data busybox && docker run --name postgres --volumes-from postgres13-data -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres:13'
+alias start_redis='docker run --name redis -p 6379:6379 -d redis:6.2.6'
+alias stop_redis='docker rm -f redis'
 # Services
-alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias startredis='redis-server /usr/local/etc/redis.conf &'
-alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+# Use individual Docker containers, or Brew services before going manual
+#alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+#alias startredis='redis-server /usr/local/etc/redis.conf &'
+#alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
