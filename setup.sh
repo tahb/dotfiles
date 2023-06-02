@@ -12,6 +12,10 @@ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
+
+rm -f $HOME/.wezterm.lua
+ln -s $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
+
 chsh -s /bin/zsh
 
 # Replace Prezto's configuration files with mine
