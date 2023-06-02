@@ -40,8 +40,8 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # Docker
 alias dcr='docker rm $(docker ps -a | awk "{print $01}")'
-alias stop_postgres='docker rm -f postgres'
-alias start_postgres='docker create -v /var/lib/postgresql/data --name postgres13-data busybox && docker run --name postgres --volumes-from postgres13-data -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres:13'
+alias stop_postgres='docker volume rm postres13-data && docker rm -f postgres'
+alias start_postgres='docker create -v /var/lib/postgresql/data --name postgres13-data busybox && docker run --name postgres --volumes-from postgres13-data -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres:13'
 alias start_redis='docker run --name redis -p 6379:6379 -d redis:6.2.6'
 alias stop_redis='docker rm -f redis'
 # Services
