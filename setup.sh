@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script for setting up a working environment
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Hom
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 brew tap homebrew/bundle
 brew bundle
