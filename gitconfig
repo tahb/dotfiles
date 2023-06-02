@@ -22,6 +22,10 @@
 	diff = auto
 	branch = auto
 	status = auto
+[rebase]
+  autosquash = true
+  autostash = true
+  updateRefs = true
 [init]
 	defaultBranch = main
 [alias]
