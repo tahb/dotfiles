@@ -12,9 +12,6 @@ alias sites="cd $SITES"
 # Network
 alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
-# Git
-alias git=/usr/local/bin/git
-
 # Bundler
 alias b="bundle"
 alias be="bundle exec"

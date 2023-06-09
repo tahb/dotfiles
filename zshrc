@@ -1,14 +1,17 @@
 # Path
-export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:$GOPATH/bin"
+export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/opt:$PATH
+
+# export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:$GOPATH/bin"
 
 # Heroku command line tool
-export PATH=$PATH:/usr/local/heroku/bin
+# export PATH=$PATH:/usr/local/heroku/bin
 
 # Postgres App
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+# export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # PhantomJS
-export PATH=$PATH:/tmp/phantomjs
+# export PATH=$PATH:/tmp/phantomjs
 
 #CAS3
 export PATH=$PATH:/Users/tomhipkin/sites/ministry_of_justice/hmpps-approved-premises-tools/bin
@@ -17,7 +20,7 @@ export PATH=$PATH:/Users/tomhipkin/sites/ministry_of_justice/hmpps-approved-prem
 export PATH=$PATH:$HOME/.rbenv/bin
 
 # Dalmatian
-export PATH=$PATH:$HOME/sites/dxw/dalmatian-tools/bin
+# export PATH=$PATH:$HOME/sites/dxw/dalmatian-tools/bin
 
 # VSCODE
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -59,11 +62,9 @@ VISUAL="vim"
 EDITOR="vi"
 
 #export PATH="$HOME/.local/bin:$PATH"
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-export PYSPARK_PYTHON=python3
-export PATH=$SPARK_HOME:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+# export PYSPARK_DRIVER_PYTHON=jupyter
+# export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+# export PYSPARK_PYTHON=python3
+# export PATH=$SPARK_HOME:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/opt/homebrew/bin/brew shellenv)"
