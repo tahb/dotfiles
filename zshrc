@@ -1,8 +1,12 @@
 # Path
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/opt:$PATH
-
+export PATH="$PATH:/Users/tomh/sites/ministry_of_justice/hmpps-approved-premises-tools/bin"
+export PATH="$PATH:/Users/tomh/sites/dxw/dalmatian-tools/bin"
 # export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:$GOPATH/bin"
+
+export KOTLIN_HOME=/usr/local/bin/kotlin
+export PATH=$PATH:$KOTLIN_HOME/bin
 
 # Heroku command line tool
 # export PATH=$PATH:/usr/local/heroku/bin
@@ -68,3 +72,4 @@ EDITOR="vi"
 # export PATH=$SPARK_HOME:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
