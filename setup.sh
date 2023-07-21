@@ -25,6 +25,8 @@ done
 rm -f $HOME/.wezterm.lua
 ln -s $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
 
+ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
+
 chsh -s /bin/zsh
 
 # Replace Prezto's configuration files with mine
