@@ -1,47 +1,28 @@
-# Path
-export PATH=/usr/local/bin:$PATH
-export PATH=/opt/homebrew/opt:$PATH
+# Paths
+export PATH="/usr/local/bin:/opt/homebrew/opt:$PATH"
 export PATH="$PATH:/Users/tomh/sites/ministry_of_justice/hmpps-approved-premises-tools/bin"
 export PATH="$PATH:/Users/tomh/sites/dxw/dalmatian-tools/bin"
-# export PATH="$HOME/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:$GOPATH/bin"
-# 
-
-export KOTLIN_HOME=/usr/local/bin/kotlin
-export PATH=$PATH:$KOTLIN_HOME/bin
-
-eval "$(nodenv init -)"
-
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# Heroku command line tool
-# export PATH=$PATH:/usr/local/heroku/bin
-
-# Postgres App
-# export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-
-# PhantomJS
-# export PATH=$PATH:/tmp/phantomjs
-
-#CAS3
-export PATH=$PATH:/Users/tomhipkin/sites/ministry_of_justice/hmpps-approved-premises-tools/bin
-
-# rbenv
-export PATH=$PATH:$HOME/.rbenv/bin
-
-# Dalmatian
-# export PATH=$PATH:$HOME/sites/dxw/dalmatian-tools/bin
-
-# VSCODE
+export PATH="$PATH:$HOME/.jenv/bin"
+export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21/bin"
 
+# Environment variables
+export KOTLIN_HOME="/usr/local/bin/kotlin"
 export SITES="~/sites"
-
-# Allow GPG to sign Git commits https://github.com/keybase/keybase-issues/issues/2798
 export GPG_TTY=$(tty)
+export PATH="$PATH:$KOTLIN_HOME/bin"
+GEM_PATH="vendor/bundle"
 
-# Overrides
-## Changing directory will automatically list contents
+# Initializations
+eval "$(nodenv init -)"
+eval "$(jenv init -)"
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+eval "$(direnv hook zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Function to list contents when changing directory
 chpwd() {
  ls -lrthG
 }
@@ -53,30 +34,11 @@ alias aliases="vim ~/dotfiles/zsh/aliases"
 source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
+# Source ZPrezto init file if it exists
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Ruby build environment
-eval "$(rbenv init -)"
-GEM_PATH=vendor/bundle
-
-# Node build environment
-eval "$(nodenv init -)"
-
-# Direnv
-eval "$(direnv hook zsh)"
-
-# Edit with these!
+# Editors
 VISUAL="vim"
 EDITOR="vi"
-
-#export PATH="$HOME/.local/bin:$PATH"
-# export PYSPARK_DRIVER_PYTHON=jupyter
-# export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-# export PYSPARK_PYTHON=python3
-# export PATH=$SPARK_HOME:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
