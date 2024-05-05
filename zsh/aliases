@@ -45,4 +45,8 @@ alias stop_redis='docker rm -f redis'
 # Use individual Docker containers, or Brew services before going manual
 #alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 #alias startredis='redis-server /usr/local/etc/redis.conf &'
+
+# Git
+alias cleanup="git branch --merged | grep -v '\*\|master\|main\|develop' | xargs -n 1 git branch -d"
+
 #alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
