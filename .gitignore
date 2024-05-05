@@ -3,3 +3,5 @@
 /vim/.netrwhist
 prezto
 .vscode
+.envrc
+bin/
