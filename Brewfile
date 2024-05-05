@@ -45,6 +45,9 @@ brew "git-absorb"
 brew "kotlin"
 brew "openjdk@17"
 
+brew "go"
+brew "goenv"
+
 cask "wezterm"
 cask "tuple"
 # cask "karabiner-elements"
