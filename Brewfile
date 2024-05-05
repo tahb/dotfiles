@@ -39,6 +39,7 @@ brew "wget"
 brew "whois"
 brew "yq"
 brew "zsh"
+brew "stats"
 
 brew "kotlin"
 brew "openjdk@17"
