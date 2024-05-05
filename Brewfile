@@ -40,6 +40,7 @@ brew "whois"
 brew "yq"
 brew "zsh"
 brew "stats"
+brew "git-absorb"
 
 brew "kotlin"
 brew "openjdk@17"
