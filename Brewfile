@@ -44,4 +44,5 @@ brew "kotlin"
 brew "openjdk@17"
 
 cask "wezterm"
+cask "tuple"
 # cask "karabiner-elements"
