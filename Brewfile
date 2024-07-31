@@ -42,8 +42,8 @@ brew "zsh"
 brew "stats"
 brew "git-absorb"
 
-brew "kotlin"
-brew "openjdk@17"
+# brew "kotlin"
+# brew "openjdk@17"
 
 brew "go"
 brew "goenv"
