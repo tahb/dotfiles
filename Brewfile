@@ -48,6 +48,9 @@ brew "openjdk@17"
 brew "go"
 brew "goenv"
 
+# Window manager
+brew "loop"
+
 cask "wezterm"
 cask "tuple"
 # cask "karabiner-elements"
