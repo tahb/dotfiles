@@ -35,3 +35,5 @@ rm -f "$HOME/.zpreztorc" && ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
 
 # Change default shell to ZSH
 chsh -s /bin/zsh
+
+( cd iterm && ./setup.sh )
