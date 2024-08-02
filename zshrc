@@ -22,7 +22,7 @@ eval "$(jenv init -)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Function to list contents when changing directory
 chpwd() {

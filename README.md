@@ -10,6 +10,8 @@ git clone git@github.com:tahb/dotfiles.git
 
 ## Install
 
+Install VSCode, iTerm and Docker Desktop manually first.
+
 ```bash
 ./setup.sh
 ```
