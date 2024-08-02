@@ -18,7 +18,7 @@ GEM_PATH="vendor/bundle"
 
 # Initializations
 eval "$(nodenv init -)"
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
