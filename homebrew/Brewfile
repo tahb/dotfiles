@@ -45,4 +45,5 @@ brew "goenv"
 
 cask "wezterm"
 cask "tuple"
+cask "postman"
 # cask "karabiner-elements"
