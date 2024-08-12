@@ -7,6 +7,9 @@ export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21/bin"
 
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
 export PATH=$PATH:${HOME}/govuk/govuk-docker/exe
 
 # Environment variables
