@@ -24,6 +24,7 @@ ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig
 rm -f "$HOME/.zshrc" && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 rm -f "$HOME/.zpreztorc" && ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
+touch $HOME/dotfiles/.profile
 
 # Change default shell to ZSH
 chsh -s /bin/zsh
