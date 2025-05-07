@@ -2,14 +2,13 @@
 	name = Tom Hipkin
 	email = tomhipkin@gmail.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFFUn79gKf6UfPoapERIj7A82xALcT2CNFrmqZ1opYV
-[gpg]
-	program = /usr/local/bin/gpg
-  format = ssh
 [core]
 	excludesFile = ~/.gitignore
 	editor = vim
 [fetch]
 	prune = true
+[gpg]
+	format = ssh
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [push]
