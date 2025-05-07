@@ -48,3 +48,6 @@ cask "wezterm"
 cask "tuple"
 cask "postman"
 # cask "karabiner-elements"
+
+brew "caarlos0/tap/timer"
+brew "terminal-notifier"

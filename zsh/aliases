@@ -50,3 +50,15 @@ alias stop_redis='docker rm -f redis'
 alias cleanup="git branch --merged | grep -v '\*\|master\|main\|develop' | xargs -n 1 git branch -d"
 
 #alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+
+
+# Mac setup for pomo
+alias timer="timer 60m && terminal-notifier -message 'Pomodoro'\
+        -title 'Work Timer is up! Take a Break 😊'\
+        -appIcon '~/Pictures/pumpkin.png'\
+        -sound Crystal"
+
+alias rest="timer 10m && terminal-notifier -message 'Pomodoro'\
+        -title 'Break is over!'\
+        -appIcon '~/Pictures/pumpkin.png'\
+        -sound Crystal"
