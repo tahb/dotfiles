@@ -1,7 +1,6 @@
 # Paths
-export PATH="/usr/local/bin:/opt/homebrew/opt:$PATH"
-export PATH="$PATH:/Users/tomh/sites/ministry_of_justice/hmpps-approved-premises-tools/bin"
-export PATH="$PATH:/Users/tomh/sites/dxw/dalmatian-tools/bin"
+export PATH="/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt:$PATH"
+
 export PATH="$PATH:$HOME/.jenv/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
