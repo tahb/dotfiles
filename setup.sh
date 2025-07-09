@@ -29,6 +29,7 @@ ln -sfn $HOME/dotfiles/gitconfig $HOME/.gitconfig
 ln -sfn "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ln -sfn "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
 ln -sfn "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
+ln -sfn "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 # Change default shell to ZSH
 chsh -s /bin/zsh
