@@ -9,8 +9,6 @@ export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-export PATH=$PATH:${HOME}/govuk/govuk-docker/exe
-
 # Environment variables
 export KOTLIN_HOME="/usr/local/bin/kotlin"
 export SITES="~/sites"
