@@ -57,12 +57,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
-    outer.left =       5
-    outer.bottom =     5
-    outer.top =        5
-    outer.right =      5
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -143,12 +143,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-r = 'workspace R'
     alt-s = 'workspace S'
     alt-t = 'workspace T' # Terminal
-    alt-u = 'workspace U'
-    alt-v = 'workspace V'
-    alt-w = 'workspace W'
-    alt-x = 'workspace X'
-    alt-y = 'workspace Y'
-    alt-z = 'workspace Z'
+    # alt-u = 'workspace U'
+    # alt-v = 'workspace V'
+    # alt-w = 'workspace W'
+    # alt-x = 'workspace X'
+    # alt-y = 'workspace Y'
+    # alt-z = 'workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -176,12 +176,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-r = 'move-node-to-workspace R'
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-u = 'move-node-to-workspace U'
-    alt-shift-v = 'move-node-to-workspace V'
-    alt-shift-w = 'move-node-to-workspace W'
-    alt-shift-x = 'move-node-to-workspace X'
-    alt-shift-y = 'move-node-to-workspace Y'
-    alt-shift-z = 'move-node-to-workspace Z'
+    # alt-shift-u = 'move-node-to-workspace U'
+    # alt-shift-v = 'move-node-to-workspace V'
+    # alt-shift-w = 'move-node-to-workspace W'
+    # alt-shift-x = 'move-node-to-workspace X'
+    # alt-shift-y = 'move-node-to-workspace Y'
+    # alt-shift-z = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'workspace-back-and-forth'
@@ -239,3 +239,7 @@ run = "layout floating"
 [[on-window-detected]]
 if.app-id = 'com.github.GitHubClient'
 run = "move-node-to-workspace G"
+
+[[on-window-detected]]
+if.app-id = 'slack'
+run = "move-node-to-workspace S"
