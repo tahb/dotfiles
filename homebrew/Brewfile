@@ -48,8 +48,7 @@ brew "goenv"
 
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 
-# cask "wezterm"
-cask "ghostty"
+cask "wezterm"
 
 cask "tuple"
 cask "postman"
@@ -60,3 +59,6 @@ brew "terminal-notifier"
 
 cask "ghostty"
 cask "nikitabobko/tap/aerospace"
+
+tap "FelixKratz/formulae"
+brew "borders"
