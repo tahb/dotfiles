@@ -22,7 +22,7 @@ mkdir -p $HOME/.config/ghostty/
 mkdir -p $HOME/.config/aerospace/
 touch $HOME/dotfiles/.profile
 
-ln -sfn $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
+ln -sfn $HOME/dotfiles/wezterm/.wezterm.lua $HOME/.wezterm.lua
 ln -sfn $HOME/dotfiles/ghostty/config $HOME/.config/ghostty/config
 ln -sfn $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -sfn $HOME/dotfiles/gitconfig $HOME/.gitconfig
