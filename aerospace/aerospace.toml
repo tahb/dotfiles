@@ -239,6 +239,14 @@ if.app-id = 'com.apple.finder'
 run = "layout floating"
 
 [[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Maps'
+run = "layout floating"
+
+[[on-window-detected]]
 if.app-id = 'com.github.GitHubClient'
 run = "move-node-to-workspace G"
 
