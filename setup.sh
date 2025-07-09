@@ -19,6 +19,7 @@ done
 
 # Link personal configuration files
 mkdir -p $HOME/.config/ghostty/
+mkdir -p $HOME/.config/aerospace/
 touch $HOME/dotfiles/.profile
 
 ln -sfn $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
@@ -27,6 +28,7 @@ ln -sfn $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -sfn $HOME/dotfiles/gitconfig $HOME/.gitconfig
 ln -sfn "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ln -sfn "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
+ln -sfn "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
 
 # Change default shell to ZSH
 chsh -s /bin/zsh
