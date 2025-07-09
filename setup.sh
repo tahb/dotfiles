@@ -6,8 +6,8 @@
 sudo xcode-select --install
 
 # Install Prezto for ZSH
-rm -rf ~/.zprezto ~/.zpreztor ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# rm -rf ~/.zprezto ~/.zpreztor ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc
+# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 # Link Prezto configuration files
 shopt -s nullglob
@@ -18,13 +18,15 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/*; do
 done
 
 # Link personal configuration files
-rm -f $HOME/.wezterm.lua
-ln -s $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
-ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig
-rm -f "$HOME/.zshrc" && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
-rm -f "$HOME/.zpreztorc" && ln -s "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
+mkdir -p $HOME/.config/ghostty/
 touch $HOME/dotfiles/.profile
+
+ln -sfn $HOME/dotfiles/.wezterm.lua $HOME/.wezterm.lua
+ln -sfn $HOME/dotfiles/ghostty/config $HOME/.config/ghostty/config
+ln -sfn $HOME/dotfiles/.gitignore $HOME/.gitignore
+ln -sfn $HOME/dotfiles/gitconfig $HOME/.gitconfig
+ln -sfn "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+ln -sfn "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
 
 # Change default shell to ZSH
 chsh -s /bin/zsh

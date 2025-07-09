@@ -48,6 +48,7 @@ brew "go"
 brew "goenv"
 
 cask "wezterm"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 cask "tuple"
 cask "postman"
 # cask "karabiner-elements"

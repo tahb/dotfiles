@@ -22,6 +22,7 @@ eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
+eval "$(oh-my-posh init zsh --config ./oh-my-posh/zen.toml)"
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Function to list contents when changing directory
@@ -37,9 +38,9 @@ source $HOME/dotfiles/zsh/aliases
 source $HOME/dotfiles/.profile
 
 # Source ZPrezto init file if it exists
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
 
 # Editors
 VISUAL="vim"
