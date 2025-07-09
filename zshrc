@@ -22,6 +22,8 @@ eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
+
+rm -rf $HOME/Library/Application Support/com.mitchellh.ghostty/config
 eval "$(oh-my-posh init zsh --config ./oh-my-posh/zen.toml)"
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 
