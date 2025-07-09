@@ -27,6 +27,8 @@ rm -rf $HOME/Library/Application Support/com.mitchellh.ghostty/config
 eval "$(oh-my-posh init zsh --config ./oh-my-posh/zen.toml)"
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 
+setopt auto_cd
+
 # Function to list contents when changing directory
 chpwd() {
  ls -lrthG
