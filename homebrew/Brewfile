@@ -54,3 +54,5 @@ cask "postman"
 
 brew "caarlos0/tap/timer"
 brew "terminal-notifier"
+
+cask "ghostty"
