@@ -247,6 +247,10 @@ if.app-id = 'com.apple.Maps'
 run = "layout floating"
 
 [[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = "layout floating"
+
+[[on-window-detected]]
 if.app-id = 'com.github.GitHubClient'
 run = "move-node-to-workspace G"
 
