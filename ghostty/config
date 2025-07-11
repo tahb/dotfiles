@@ -6,7 +6,7 @@ custom-shader = shaders/bloom025.glsl
 custom-shader = shaders/cursor_blaze_no_trail.glsl
 custom-shader = shaders/cursor_smear.glsl
 font-family = "JetBrainsMono Nerd Font"
-font-size = 19
+font-size = 26
 keybind = cmd+s=toggle_quick_terminal
 keybind = super+i=inspector:toggle
 keybind = super+r=reload_config
