@@ -134,7 +134,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-c = 'workspace C' # Editor
     alt-d = 'workspace D'
     alt-e = 'workspace E' # Editor
-    alt-f = 'workspace F'
+    alt-f = 'fullscreen'
     alt-g = 'workspace G'
     alt-i = 'workspace I'
     alt-m = 'workspace M'
@@ -167,7 +167,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-c = 'move-node-to-workspace C'
     alt-shift-d = 'move-node-to-workspace D'
     alt-shift-e = 'move-node-to-workspace E'
-    alt-shift-f = 'move-node-to-workspace F'
+    # alt-shift-f = 'move-node-to-workspace F'
     alt-shift-g = 'move-node-to-workspace G'
     alt-shift-i = 'move-node-to-workspace I'
     alt-shift-m = 'move-node-to-workspace M'
@@ -186,12 +186,12 @@ automatically-unhide-macos-hidden-apps = false
     # alt-shift-z = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    # alt-tab = 'workspace-back-and-forth'
-    # # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    alt-tab = 'workspace-back-and-forth'
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    # # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    # alt-shift-semicolon = 'mode service'
+    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    alt-shift-semicolon = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -248,6 +248,10 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
 run = "layout floating"
 
 [[on-window-detected]]
