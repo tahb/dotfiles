@@ -219,6 +219,10 @@ if.app-id = 'us.zoom.xos'
 run = "layout floating"
 
 [[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = "layout floating"
+
+[[on-window-detected]]
 if.app-id = 'com.github.GitHubClient'
 run = "move-node-to-workspace G"
 
