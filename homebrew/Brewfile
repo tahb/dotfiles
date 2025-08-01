@@ -45,6 +45,8 @@ brew "zsh"
 
 brew "go"
 brew "goenv"
+# Python
+brew "pyenv"
 
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 

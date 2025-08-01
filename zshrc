@@ -23,6 +23,11 @@ eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
 
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # Remove default config
 rm -rf $HOME/Library/Application Support/com.mitchellh.ghostty/config
 rm -rf $HOME/Library/Applications/AeroSpace.app/Contents/Resources/default-config.toml
