@@ -16,14 +16,10 @@ brew "gnupg"
 brew "jq"
 # brew "imagemagick"
 brew "libpq"
-brew "node"
-brew "nodenv"
 brew "openconnect"
 brew "openssh"
 brew "pinentry-mac"
 # brew "postgresql"
-brew "rbenv"
-brew "ruby-build"
 # brew "redis", restart_service: true
 brew "shellcheck"
 # brew "stats"
@@ -40,13 +36,25 @@ brew "whois"
 brew "yq"
 brew "zsh"
 
+# Kotlin
 # brew "kotlin"
 # brew "openjdk@17"
 
+# Go
 brew "go"
 brew "goenv"
+brew "golangci-lint"
+
 # Python
 brew "pyenv"
+
+# Ruby
+brew "rbenv"
+brew "ruby-build"
+
+# Node
+brew "node"
+brew "nodenv"
 
 brew "jandedobbeleer/oh-my-posh/oh-my-posh"
 
