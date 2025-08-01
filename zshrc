@@ -30,6 +30,27 @@ rm -rf $HOME/Library/Applications/AeroSpace.app/Contents/Resources/default-confi
 eval "$(oh-my-posh init zsh --config $HOME/dotfiles/oh-my-posh/zen.toml)"
 
 
+# Enable completions
+autoload -Uz compinit
+compinit
+
+# Completion options
+setopt auto_menu         # Show completion menu on tab
+setopt always_to_end     # Move cursor to end if word had one match
+setopt complete_in_word  # Complete from both ends of a word
+setopt flow_control      # Enable flow control
+setopt menu_complete     # Select first completion immediately
+
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Disable flow control to enable Ctrl+S for forward search
+stty -ixon
+
+# Enable history search with Ctrl+R (reverse search)
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+
 setopt auto_cd
 
 # Function to list contents when changing directory
