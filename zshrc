@@ -55,6 +55,7 @@ stty -ixon
 # Enable history search with Ctrl+R (reverse search)
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
+bindkey -e
 
 setopt auto_cd
 
