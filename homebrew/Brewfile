@@ -1,3 +1,6 @@
+tap "jandeobbleleer/oh-my-posh"
+tap "FelixKratz/formulae"
+
 brew "ack"
 brew "adr-tools"
 brew "openssl"
@@ -27,7 +30,7 @@ brew "sqlfluff"
 brew "tilt"
 # brew "terraform"
 brew "tfenv"
-# brew "tmux"
+brew "tmux"
 brew "unzip"
 brew "vim"
 brew "watch"
@@ -56,19 +59,18 @@ brew "ruby-build"
 brew "node"
 brew "nodenv"
 
-brew "jandedobbeleer/oh-my-posh/oh-my-posh"
+brew "borders"
 
-cask "wezterm"
-
-cask "tuple"
-cask "postman"
-# cask "karabiner-elements"
-
+# CLI timer
 brew "caarlos0/tap/timer"
 brew "terminal-notifier"
 
+cask "visual-studio-code"
+cask "slack"
+cask "github"
+cask "tuple"
+cask "postman"
 cask "ghostty"
+# cask "wezterm"
 cask "nikitabobko/tap/aerospace"
-
-tap "FelixKratz/formulae"
-brew "borders"
+# cask "karabiner-elements"
