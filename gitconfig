@@ -3,7 +3,7 @@
 	email = tomhipkin@gmail.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFFUn79gKf6UfPoapERIj7A82xALcT2CNFrmqZ1opYV
 [core]
-	excludesFile = ~/.gitignore
+	excludesFile = /Users/thipkin/.gitignore_global
 	editor = vim
 [fetch]
 	prune = true
@@ -46,3 +46,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[includeIf "gitdir:/Users/thipkin/work/"]
+    path = /Users/thipkin/work/.gitconfig
