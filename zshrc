@@ -5,9 +5,17 @@ export PATH="$PATH:$HOME/.jenv/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21/bin"
+export PATH="$PATH/.local/bin:$PATH"
 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+
+# Ensure GOPATH is set correctly
+# export GOPATH="$HOME/go"
+
+# Ensure PATH includes GOPATH/bin
+# export PATH="$PATH:$GOPATH/bin"
 
 # Environment variables
 export KOTLIN_HOME="/usr/local/bin/kotlin"
