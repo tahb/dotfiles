@@ -36,3 +36,7 @@ chsh -s /bin/zsh
 
 ( cd homebrew && ./setup.sh )
 ( cd iterm && ./setup.sh )
+
+echo "Done."
+echo "Remember to create /work/.gitconfig and point to work keys"
+echo "Remember to enable 1Password SSH agent. Settings>Developer>Use the SSH Agent."
