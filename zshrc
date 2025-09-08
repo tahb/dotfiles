@@ -48,12 +48,13 @@ autoload -Uz compinit
 compinit
 
 # Completion options
-setopt auto_menu         # Show completion menu on tab
-setopt always_to_end     # Move cursor to end if word had one match
-setopt complete_in_word  # Complete from both ends of a word
-setopt flow_control      # Enable flow control
-setopt menu_complete     # Select first completion immediately
-
+setopt auto_menu          # Show completion menu on tab
+setopt always_to_end      # Move cursor to end if word had one match
+setopt complete_in_word   # Complete from both ends of a word
+setopt flow_control       # Enable flow control
+setopt menu_complete      # Select first completion immediately
+setopt INC_APPEND_HISTORY # Append to shell history immediately
+setopt SHARE_HISTORY      # Append to shell history immediately
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
