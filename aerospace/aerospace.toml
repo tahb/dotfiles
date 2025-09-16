@@ -145,6 +145,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-q = 'workspace T' # Terminal
     alt-t = 'workspace T' # Terminal
     alt-w = 'workspace G' # GitHub Desktop
+    alt-z = 'workspace Z' # Zoom
 
     alt-ctrl-shift-1 = 'workspace E' # Editor
     alt-ctrl-shift-2 = 'workspace B' # Browser
@@ -178,6 +179,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-t = 'move-node-to-workspace T'
     alt-shift-w = 'move-node-to-workspace W'
+    alt-shift-z = 'move-node-to-workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -249,15 +251,10 @@ run = "layout floating"
 if.app-id = 'com.1password.1password'
 run = "layout floating"
 
-# [[on-window-detected]]
-# if.app-id = 'us.zoom.xos'
-# run = "layout floating"
-
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
-# run = "move-node-to-workspace B"
+# run = "move-node-to-workspace Z"
 run = 'layout floating'
-
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
