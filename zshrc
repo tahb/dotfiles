@@ -10,9 +10,8 @@ export PATH="$PATH/.local/bin:$PATH"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
-
-# Ensure GOPATH is set correctly
-# export GOPATH="$HOME/go"
+export GOPATH="$HOME/go"
+export PATH="$HOME/.goenv/shims:$PATH"
 
 # Ensure PATH includes GOPATH/bin
 # export PATH="$PATH:$GOPATH/bin"
@@ -88,3 +87,7 @@ source $HOME/dotfiles/.profile
 # Editors
 VISUAL="vim"
 EDITOR="vi"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/thipkin/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
