@@ -54,6 +54,11 @@ setopt flow_control       # Enable flow control
 setopt menu_complete      # Select first completion immediately
 setopt INC_APPEND_HISTORY # Append to shell history immediately
 setopt SHARE_HISTORY      # Append to shell history immediately
+
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export SAVEHIST=10000
+
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
