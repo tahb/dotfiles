@@ -126,8 +126,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-ctrl-shift-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace E' # Editor
-    alt-2 = 'workspace B' # Browser
+    alt-1 = 'workspace 1' # Editor
+    alt-2 = 'workspace 2' # Browser
     # alt-3 = 'workspace 3' # Needed for '#'
     alt-4 = 'workspace T' # Terminal
     alt-5 = 'workspace N' # Notes
@@ -135,9 +135,9 @@ automatically-unhide-macos-hidden-apps = false
     alt-7 = 'workspace 7' # Spare
     alt-8 = 'workspace 8' # Spare
     alt-9 = 'workspace 9' # Spare
-    alt-b = 'workspace B' # Browser
-    alt-c = 'workspace E' # Editor
-    alt-e = 'workspace E' # Editor
+    # alt-b = 'workspace B' # Browser
+    alt-c = 'workspace 1' # Editor
+    alt-e = 'workspace 1' # Editor
     alt-g = 'workspace G' # GitHub Desktop
     alt-f = 'fullscreen'
     alt-n = 'workspace N' # Notes
@@ -147,14 +147,14 @@ automatically-unhide-macos-hidden-apps = false
     alt-w = 'workspace G' # GitHub Desktop
     alt-z = 'workspace Z' # Zoom
 
-    alt-ctrl-shift-1 = 'workspace E' # Editor
-    alt-ctrl-shift-2 = 'workspace B' # Browser
+    alt-ctrl-shift-1 = 'workspace 1' # Editor
+    alt-ctrl-shift-2 = 'workspace 2' # Browser
     # alt-ctrl-shift-3 = 'workspace 3' # Needed for '#'
     alt-ctrl-shift-4 = 'workspace T' # Terminal
     alt-ctrl-shift-5 = 'workspace N' # Notes
     alt-ctrl-shift-6 = 'workspace S' # Slack
-    alt-ctrl-shift-b = 'workspace B' # Browser
-    alt-ctrl-shift-e = 'workspace E' # Editor
+    # alt-ctrl-shift-b = 'workspace B' # Browser
+    # alt-ctrl-shift-e = 'workspace E' # Editor
     alt-ctrl-shift-g = 'workspace G' # GitHub Desktop
     alt-ctrl-shift-f = 'fullscreen'
     alt-ctrl-shift-n = 'workspace N' # Notes
@@ -166,9 +166,9 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-4 = 'move-node-to-workspace T'
+    alt-shift-5 = 'move-node-to-workspace N'
+    alt-shift-6 = 'move-node-to-workspace S'
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
@@ -217,19 +217,19 @@ run = ['layout floating']
 # Find with: `aerospace list-apps`
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace T"
+run = "move-node-to-workspace Q"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = "move-node-to-workspace E"
+run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Notes'
