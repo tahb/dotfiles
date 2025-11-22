@@ -59,12 +59,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 8
-    inner.vertical =   8
-    outer.left =       8
-    outer.bottom =     8
-    outer.top =        8
-    outer.right =      8
+    inner.horizontal = 10
+    inner.vertical =   10
+    outer.left =       10
+    outer.bottom =     10
+    outer.top =        10
+    outer.right =      10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -147,21 +147,27 @@ automatically-unhide-macos-hidden-apps = false
     alt-w = 'workspace G' # GitHub Desktop
     alt-z = 'workspace Z' # Zoom
 
-    alt-ctrl-shift-1 = 'workspace 1' # Editor
-    alt-ctrl-shift-2 = 'workspace 2' # Browser
+    # alt-ctrl-shift-1 = 'workspace 1' # Editor
+    # alt-ctrl-shift-2 = 'workspace 2' # Browser
     # alt-ctrl-shift-3 = 'workspace 3' # Needed for '#'
     alt-ctrl-shift-4 = 'workspace T' # Terminal
     alt-ctrl-shift-5 = 'workspace N' # Notes
     alt-ctrl-shift-6 = 'workspace S' # Slack
     # alt-ctrl-shift-b = 'workspace B' # Browser
     # alt-ctrl-shift-e = 'workspace E' # Editor
-    alt-ctrl-shift-g = 'workspace G' # GitHub Desktop
+    # alt-ctrl-shift-g = 'workspace G' # GitHub Desktop
     alt-ctrl-shift-f = 'fullscreen'
     alt-ctrl-shift-n = 'workspace N' # Notes
     alt-ctrl-shift-s = 'workspace S' # Slack
-    alt-ctrl-shift-q = 'workspace T' # Terminal
-    alt-ctrl-shift-t = 'workspace T' # Terminal
-    alt-ctrl-shift-w = 'workspace G' # GitHub Desktop
+    # alt-ctrl-shift-q = 'workspace T' # Terminal
+    # alt-ctrl-shift-t = 'workspace T' # Terminal
+    # alt-ctrl-shift-w = 'workspace G' # GitHub Desktop
+
+    # Voyager trial hyper+QWER for window swapping
+    alt-ctrl-shift-q = 'workspace 2' # Browser
+    alt-ctrl-shift-w = 'workspace 1' # Editor
+    alt-ctrl-shift-e = 'workspace G' # GitHub Desktop
+    alt-ctrl-shift-r = 'workspace T' # Terminal
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -225,7 +231,7 @@ run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace Q"
+run = "move-node-to-workspace T"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
