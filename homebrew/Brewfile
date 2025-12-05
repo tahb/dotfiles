@@ -69,6 +69,9 @@ brew "terminal-notifier"
 cask "jandeobbleleer/oh-my-posh"
 cask "nikitabobko/tap/aerospace"
 
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+
 cask "firefox"
 cask "ghostty"
 cask "github"
