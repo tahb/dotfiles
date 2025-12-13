@@ -39,7 +39,7 @@ eval "$(pyenv init - zsh)"
 rm -rf $HOME/Library/Application Support/com.mitchellh.ghostty/config
 rm -rf $HOME/Library/Applications/AeroSpace.app/Contents/Resources/default-config.toml
 
-eval "$(oh-my-posh init zsh --config $HOME/dotfiles/oh-my-posh/atomic.json)"
+eval "$(oh-my-posh init zsh --config $HOME/dotfiles/oh-my-posh/tokyonight_storm.json)"
 
 
 # Enable completions
