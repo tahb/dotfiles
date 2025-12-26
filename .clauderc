@@ -1,0 +1,182 @@
+# Claude AI Coding Preferences and Guidelines
+# This file contains coding standards and preferences for AI assistance
+
+[general]
+# Preferred programming paradigms
+paradigms = ["functional", "object_oriented", "clean_code", "solid"]
+
+# Code style preferences
+max_line_length = 100
+prefer_explicit_over_implicit = true
+use_meaningful_names = true
+
+# Programming paradigm preferences
+[paradigms]
+object_oriented = true
+functional = true
+procedural = false
+declarative = true
+imperative = false
+reactive = false
+
+# SOLID principles
+[solid_principles]
+single_responsibility = true     # A class should have one reason to change
+open_closed = true              # Open for extension, closed for modification
+liskov_substitution = true      # Objects should be replaceable with their subtypes
+interface_segregation = true    # Many specific interfaces > one general interface
+dependency_inversion = true     # Depend on abstractions, not concretions
+
+# Design patterns and principles
+[design_patterns]
+favor_composition_over_inheritance = true
+prefer_immutability = true
+fail_fast = true
+law_of_demeter = true          # Don't talk to strangers
+hollywood_principle = true     # Don't call us, we'll call you
+
+# Architectural patterns
+[architectural_patterns]
+domain_driven_design = true
+hexagonal_architecture = true
+event_driven_architecture = false
+microservices = false
+monolith_first = true
+
+# Coding principles
+[coding_principles]
+dry = true                     # Don't Repeat Yourself
+kiss = true                    # Keep It Simple, Stupid
+yagni = true                   # You Aren't Gonna Need It
+boy_scout_rule = true          # Leave code better than you found it
+principle_of_least_surprise = true
+
+[references]
+# Influential books to follow principles from
+primary_books = [
+    "Clean Code by Robert C. Martin",
+    "The Pragmatic Programmer by Andy Hunt & Dave Thomas", 
+    "Code Complete by Steve McConnell",
+    "Refactoring by Martin Fowler"
+]
+testing_books = [
+    "Test-Driven Development by Kent Beck",
+    "Working Effectively with Legacy Code by Michael Feathers"
+]
+
+[languages]
+
+[languages.go]
+# Go-specific preferences
+style = "effective-go"
+use_gofmt = true
+prefer_short_var_names_in_small_scope = true
+error_handling = "explicit"
+
+[languages.javascript]
+# JavaScript/TypeScript preferences
+style = "airbnb"
+prefer_const = true
+use_arrow_functions = true
+async_style = "async-await"
+
+[languages.ruby]
+# Ruby preferences
+style = "rubocop"
+prefer_symbols_over_strings = true
+use_blocks_appropriately = true
+prefer_explicit_returns = false
+snake_case_naming = true
+
+[architecture]
+# Architecture preferences (legacy section - see [architectural_patterns] above)
+prefer_composition_over_inheritance = true
+use_dependency_injection = true
+single_responsibility = true
+dry_principle = true
+
+[testing]
+# Testing preferences
+prefer_unit_tests = true
+use_descriptive_test_names = true
+arrange_act_assert_pattern = true
+mock_external_dependencies = true
+
+[documentation]
+# Documentation preferences
+prefer_self_documenting_code = true
+comment_why_not_what = true
+use_examples_in_docs = false
+
+[clean_code_principles]
+# Clean Code principles to emphasize
+functions_do_one_thing = true
+meaningful_names = true
+small_functions = true
+no_side_effects = true
+consistent_abstraction_levels = true
+
+[code_review]
+# What to focus on during code reviews
+readability = "high"
+testability = "high"
+maintainability = "high"
+security = "high"
+performance = "medium"
+
+[ai_instructions]
+# Instructions for AI when working with code
+explain_complex_logic = true
+suggest_refactoring_opportunities = true
+point_out_code_smells = true
+provide_alternative_approaches = true
+include_error_handling = true
+consider_edge_cases = true
+create_visual_plans = true          # Generate Mermaid diagrams when planning
+save_planning_artifacts = true      # Store diagrams and plans in /tmp/
+apply_book_principles = true        # Apply principles from referenced books
+cite_relevant_sources = true        # Include book names for important principles
+
+[planning]
+# Planning and visualization preferences
+use_visual_plans = true               # Create Mermaid diagrams for complex plans
+save_diagrams_to_tmp = true          # Save .mmd files to /tmp/ for reference
+
+# Planning detail levels
+default_plan_level = "medium"         # high, medium, low detail
+high_level_planning = true           # Strategic overview with key components
+medium_level_planning = true         # Balanced detail with implementation steps  
+low_level_planning = false           # Granular step-by-step breakdown
+
+# Diagram preferences
+prefer_flowcharts = true             # Use flowcharts for process flows
+prefer_mindmaps = true               # Use mindmaps for concept breakdowns
+include_decision_trees = true        # Show decision points visually
+create_architecture_diagrams = true  # For system design plans
+use_gantt_charts = false            # For project timeline planning
+diagram_formats = ["mermaid", "ascii"]  # Preferred diagram formats
+
+# Planning context
+include_tradeoffs = true             # Show pros/cons in planning
+show_dependencies = true             # Highlight prerequisites and relationships
+estimate_complexity = true          # Include effort/complexity indicators
+identify_risks = true               # Call out potential issues early
+
+# Custom instructions
+custom_guidelines = [
+    "Always consider the Single Responsibility Principle (Clean Code)",
+    "Prefer readable code over clever code (Clean Code)", 
+    "Functions should do one thing well (Clean Code)",
+    "Use meaningful variable and function names (Clean Code)",
+    "Handle errors explicitly, don't ignore them (Code Complete)",
+    "Write tests that document behavior (TDD)",
+    "Keep functions small and focused (Clean Code)",
+    "Avoid comments unless critical (Clean Code)",
+    "Use visual diagrams for complex planning and architecture",
+    "Apply DRY principle consistently (Pragmatic Programmer)",
+    "Leave code better than you found it (Boy Scout Rule - Clean Code)",
+    "Refactor continuously in small steps (Refactoring)",
+    "Use defensive programming techniques (Code Complete)",
+    "Write tests first when building new features (TDD)",
+    "Apply safe refactoring techniques to legacy code (Legacy Code)"
+]
