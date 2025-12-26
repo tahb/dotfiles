@@ -44,6 +44,8 @@ brew "zsh"
 # brew "kotlin"
 # brew "openjdk@17"
 
+brew "opencode"
+
 # Go
 brew "go"
 brew "goenv"
