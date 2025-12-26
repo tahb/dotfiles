@@ -126,26 +126,26 @@ automatically-unhide-macos-hidden-apps = false
     alt-ctrl-shift-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace 1' # Editor
-    alt-2 = 'workspace 2' # Browser
+    alt-1 = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
+    alt-2 = ['exec-and-forget open -a "Google Chrome"', 'workspace 2'] # Browser
     # alt-3 = 'workspace 3' # Needed for '#'
-    alt-4 = 'workspace T' # Terminal
-    alt-5 = 'workspace N' # Notes
-    alt-6 = 'workspace S' # Slack
+    alt-4 = ['exec-and-forget open -a "Ghostty"', 'workspace T'] # Terminal
+    alt-5 = ['exec-and-forget open -a "Notes"', 'workspace N'] # Notes
+    alt-6 = ['exec-and-forget open -a "Slack"', 'workspace S'] # Slack
     alt-7 = 'workspace 7' # Spare
     alt-8 = 'workspace 8' # Spare
     alt-9 = 'workspace 9' # Spare
     # alt-b = 'workspace B' # Browser
-    alt-c = 'workspace 1' # Editor
-    alt-e = 'workspace 1' # Editor
-    alt-g = 'workspace G' # GitHub Desktop
+    alt-c = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
+    alt-e = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
+    alt-g = ['exec-and-forget open -a "GitHub Desktop"', 'workspace G'] # GitHub Desktop
     alt-f = 'fullscreen'
-    alt-n = 'workspace N' # Notes
-    alt-s = 'workspace S' # Slack
-    alt-q = 'workspace T' # Terminal
-    alt-t = 'workspace T' # Terminal
-    alt-w = 'workspace G' # GitHub Desktop
-    alt-z = 'workspace Z' # Zoom
+    alt-n = ['exec-and-forget open -a "Notes"', 'workspace N'] # Notes
+    alt-s = ['exec-and-forget open -a "Slack"', 'workspace S'] # Slack
+    alt-q = ['exec-and-forget open -a "Ghostty"', 'workspace T'] # Terminal
+    alt-t = ['exec-and-forget open -a "Ghostty"', 'workspace T'] # Terminal
+    alt-w = ['exec-and-forget open -a "GitHub Desktop"', 'workspace G'] # GitHub Desktop
+    alt-z = ['exec-and-forget open -a "zoom.us"', 'workspace Z'] # Zoom
 
     # alt-ctrl-shift-1 = 'workspace 1' # Editor
     # alt-ctrl-shift-2 = 'workspace 2' # Browser
@@ -164,10 +164,10 @@ automatically-unhide-macos-hidden-apps = false
     # alt-ctrl-shift-w = 'workspace G' # GitHub Desktop
 
     # Voyager trial hyper+QWER for window swapping
-    alt-ctrl-shift-q = 'workspace 2' # Browser
-    alt-ctrl-shift-w = 'workspace 1' # Editor
-    alt-ctrl-shift-e = 'workspace G' # GitHub Desktop
-    alt-ctrl-shift-r = 'workspace T' # Terminal
+    alt-ctrl-shift-q = ['exec-and-forget open -a "Google Chrome"', 'workspace 2'] # Browser
+    alt-ctrl-shift-w = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
+    alt-ctrl-shift-e = ['exec-and-forget open -a "GitHub Desktop"', 'workspace G'] # GitHub Desktop
+    alt-ctrl-shift-r = ['exec-and-forget open -a "Ghostty"', 'workspace T'] # Terminal
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
