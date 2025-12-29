@@ -47,7 +47,7 @@ brew "zsh"
 brew "opencode"
 
 # Go
-brew "go"
+# brew "go" Use goenv to manage go
 brew "goenv"
 brew "golangci-lint"
 
