@@ -83,8 +83,8 @@ alt-ctrl-shift-equal = 'resize smart +50'
 
 # --- Workspace Switching (with App Launch) ---
 # Numbers
-alt-1 = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
-alt-2 = ['exec-and-forget open -a "Google Chrome"', 'workspace 2']      # Browser
+alt-1 = ['exec-and-forget open -a "Google Chrome"', 'workspace 1']      # Browser
+alt-2 = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 2'] # Editor
 alt-4 = ['exec-and-forget open -a "Ghostty"', 'workspace T']            # Terminal
 alt-5 = ['exec-and-forget open -a "Notes"', 'workspace N']              # Notes
 alt-6 = ['exec-and-forget open -a "Slack"', 'workspace S']              # Slack
@@ -112,8 +112,8 @@ alt-ctrl-shift-n = ['exec-and-forget open -a "Notes"', 'workspace N']           
 alt-ctrl-shift-s = ['exec-and-forget open -a "Slack"', 'workspace S']              # Slack
 
 # Voyager trial hyper+QWER for window swapping
-alt-ctrl-shift-q = ['exec-and-forget open -a "Google Chrome"', 'workspace 2']      # Browser
-alt-ctrl-shift-w = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 1'] # Editor
+alt-ctrl-shift-q = ['exec-and-forget open -a "Google Chrome"', 'workspace 1']      # Browser
+alt-ctrl-shift-w = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 2'] # Editor
 alt-ctrl-shift-e = ['exec-and-forget open -a "GitHub Desktop"', 'workspace G']     # GitHub Desktop
 alt-ctrl-shift-r = ['exec-and-forget open -a "Ghostty"', 'workspace T']            # Terminal
 
