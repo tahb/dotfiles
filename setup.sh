@@ -31,8 +31,10 @@ ln -sfn "$HOME/dotfiles/zpreztorc" "$HOME/.zpreztorc"
 ln -sfn "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
 ln -sfn "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfn "$HOME/dotfiles/.clauderc" "$HOME/.clauderc"
-mkdir -p "$HOME/.claude"
+mkdir -p "$HOME/.claude/skills"
 ln -sfn "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
+ln -sfn "$HOME/dotfiles/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+ln -sfn "$HOME/dotfiles/claude/skills/code-review" "$HOME/.claude/skills/code-review"
 
 # Change default shell to ZSH
 chsh -s /bin/zsh
