@@ -4,6 +4,10 @@
 
 - I write in British English
 
+## Planning
+
+- Write all plans to ./tmp/
+
 ## Code Style Guidelines
 
 - Prefer simplicity and readability over brevity
@@ -23,6 +27,7 @@
 - Write or extend an automated test and check with me before moving on to implement any type of solution
 - Test edge cases and error paths
 - Mock external dependencies
+- when in the billing-streams directory run all tests with the `gg` alias
 
 ## Code Review Approach
 
