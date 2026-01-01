@@ -83,7 +83,10 @@ alt-ctrl-shift-equal = 'resize smart +50'
 
 # --- Workspace Switching (with App Launch) ---
 # Numbers
-alt-1 = ['exec-and-forget open -a "Google Chrome"', 'workspace 1']      # Browser
+alt-1 = [
+    '''exec-and-forget bash -c "if ! pgrep Firefox > /dev/null; then open -a 'Google Chrome'; fi"''',
+    'workspace 1'
+] # Browser
 alt-2 = ['exec-and-forget open -a "Visual Studio Code"', 'workspace 2'] # Editor
 alt-4 = ['exec-and-forget open -a "Ghostty"', 'workspace T']            # Terminal
 alt-5 = ['exec-and-forget open -a "Notes"', 'workspace N']              # Notes
