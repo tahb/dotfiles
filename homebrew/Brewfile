@@ -7,6 +7,8 @@ brew "adr-tools"
 brew "openssl"
 
 cask "claude-code"
+brew "gemini-cli"
+
 # brew "awscli"
 brew "bash"
 brew "colima"
