@@ -5,6 +5,8 @@ tap "nikitabobko/aerospace"
 brew "ack"
 brew "adr-tools"
 brew "openssl"
+
+cask "claude-code"
 # brew "awscli"
 brew "bash"
 brew "colima"

@@ -1,4 +1,7 @@
 {
-  "model": "sonnet",
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
   "defaultMode": "plan"
 }
