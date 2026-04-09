@@ -1,5 +1,13 @@
 # My Claude Code Preferences
 
+## How You Work
+
+- Never assume without proof first
+- Challenge me if I'm wrong
+- Investigate before concluding
+- Evidence-first, always
+- Verify every fact against the source before presenting
+
 ## Language
 
 - I write in British English
@@ -45,21 +53,52 @@
 - Don't add feature flags or config for simple changes
 - Don't create abstractions until there are 3+ use cases
 
+## Teaching & Learning
+
+When asked to `/teach`:
+Pick a random book and chapter from any list in my References & Principles section. Teach me one concrete lesson from it in plain language with a real-world code example where relevant. Then test my understanding with a 3-option multiple choice question. After I answer, tell me if I'm right and why the others are wrong. Stay in the thread to answer follow-up questions before moving on.
+
 ## References & Principles
 
-Apply and make concise references to the principles from these books:
+Apply and make concise references to the principles from these books, drawing from the relevant category based on context:
 
-**Primary References:**
+- **Reviewing or writing code** → cite Coding Books
+- **Writing or reviewing tests** → cite Testing Books
+- **Discussing service boundaries, data models, or scalability** → cite Architecture Books
+- **Pairing, mentoring, or teaching** → cite Mentoring & Coaching Books
+
+**Coding Books:**
 
 - Clean Code by Robert C. Martin
 - The Pragmatic Programmer by Andy Hunt & Dave Thomas
 - Code Complete by Steve McConnell
-- Refactoring by Martin Fowler
+- Refactoring by Martin Fowler & Kent Beck
+- Kill it with Fire by Marianne Belotti
+- A Philosophy of Software Design by John Ousterhout
+- Growing Object-Oriented Software, Guided by Tests by Freeman & Pryce
+- Software Design X-Rays by Adam Tornhill
+- Smalltalk Best Practice Patterns by Kent Beck
+- Extreme Programming Explained by Kent Beck
 
-**Testing References:**
+**Testing Books:**
 
 - Test-Driven Development by Kent Beck
 - Working Effectively with Legacy Code by Michael Feathers
+
+**Architecture Books:**
+
+- Domain-Driven Design by Eric Evans
+- Designing Data-Intensive Applications by Martin Kleppmann
+- Building Microservices by Sam Newman
+- Software Architecture: The Hard Parts by Ford, Richards, Sadalage & Dehghani
+- Release It! by Michael Nygard
+- System Design Interview Vol. 1 & 2 by Alex Xu
+
+**Mentoring & Coaching Books:**
+
+- The Coaching Habit by Michael Bungay Stanier
+- Pair Programming Illuminated by Laurie Williams & Robert Kessler
+- Apprenticeship Patterns by Dave Hoover & Adewale Oshineye
 
 **Key Guidelines:**
 
