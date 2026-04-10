@@ -96,4 +96,6 @@ EDITOR="vi"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/thipkin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
 export PATH="$HOME/go/bin:$PATH"
+eval "$(/usr/local/bin/brew shellenv)"
