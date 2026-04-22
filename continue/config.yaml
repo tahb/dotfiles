@@ -1,13 +1,28 @@
-name: Local Config
+name: Local Workstation
 version: 1.0.0
 schema: v1
+
 models:
-  - name: Gemma 4
+  - name: gemma4:e4b
     provider: ollama
     model: gemma4:e4b
     apiBase: http://localhost:11434
-    roles:
-      - chat
-      - edit
-      - apply
-      - autocomplete
+    roles: [chat, edit]
+    defaultCompletionOptions:
+      num_ctx: 8192
+      temperature: 0.5
+
+  - name: qwen2.5-coder:14b
+    provider: ollama
+    model: qwen2.5-coder:14b
+    apiBase: http://localhost:11434
+    roles: [chat, apply]
+    defaultCompletionOptions:
+      num_ctx: 8192
+      temperature: 0.1
+
+tabAutocompleteModel:
+  name: starcoder2:3b
+  provider: ollama
+  model: starcoder2:3b
+  apiBase: http://localhost:11434
