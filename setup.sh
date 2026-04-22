@@ -35,6 +35,10 @@ mkdir -p "$HOME/.claude/skills"
 ln -sfn "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
 ln -sfn "$HOME/dotfiles/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 ln -sfn "$HOME/dotfiles/claude/skills/code-review" "$HOME/.claude/skills/code-review"
+ln -sfn "$HOME/dotfiles/claude/skills/pair" "$HOME/.claude/skills/pair"
+ln -sfn "$HOME/dotfiles/claude/skills/review-branch" "$HOME/.claude/skills/review-branch"
+ln -sfn "$HOME/dotfiles/claude/skills/teach" "$HOME/.claude/skills/teach"
+
 # Continue
 mkdir -p "$HOME/.continue/rules"
 ln -sfn "$HOME/dotfiles/continue/config.yaml" "$HOME/.continue/config.yaml"
