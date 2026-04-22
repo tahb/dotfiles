@@ -1,8 +1,18 @@
 name: Local Workstation
 version: 1.0.0
 schema: v1
-
 models:
+  - name: qwen3:14b
+    provider: ollama
+    model: qwen3:14b
+    apiBase: http://localhost:11434
+    roles: [chat, edit, apply, agent]
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      num_ctx: 32768
+      temperature: 0.0
+
   - name: gemma4:e4b
     provider: ollama
     model: gemma4:e4b
@@ -12,17 +22,26 @@ models:
       num_ctx: 8192
       temperature: 0.5
 
-  - name: qwen2.5-coder:14b
+  - name: starcoder2:3b
     provider: ollama
-    model: qwen2.5-coder:14b
+    model: starcoder2:3b
     apiBase: http://localhost:11434
-    roles: [chat, apply]
-    defaultCompletionOptions:
-      num_ctx: 8192
-      temperature: 0.1
+    roles: [autocomplete]
 
-tabAutocompleteModel:
-  name: starcoder2:3b
-  provider: ollama
-  model: starcoder2:3b
-  apiBase: http://localhost:11434
+  - name: nomic-embed-text
+    provider: ollama
+    model: nomic-embed-text
+    apiBase: http://localhost:11434
+    roles: [embed]
+
+context:
+  - provider: code
+  - provider: diff
+  - provider: problems
+  - provider: terminal
+  - provider: folder
+  - provider: codebase
+
+rules:
+  - You are an autonomous coding agent. Always use tools to make changes directly — never instruct the user to run commands manually.
+  - Follow existing code style and conventions in the project.
