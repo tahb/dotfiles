@@ -32,5 +32,6 @@
   },
   "instructions": [
     "~/.config/opencode/AGENTS.md"
-  ]
+  ],
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"]
 }
