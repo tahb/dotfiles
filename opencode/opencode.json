@@ -1,0 +1,36 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "ollama/qwen-9b-32k",
+  "agent": {
+    "build": {
+      "model": "ollama/qwen-9b-32k",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    },
+    "plan": {
+      "model": "ollama/qwen-9b-32k",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny"
+      }
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen-9b-32k": {
+          "tools": true
+        }
+      }
+    }
+  },
+  "instructions": [
+    "~/.config/opencode/AGENTS.md"
+  ]
+}

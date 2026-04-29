@@ -39,6 +39,10 @@ ln -sfn "$HOME/dotfiles/claude/skills/pair" "$HOME/.claude/skills/pair"
 ln -sfn "$HOME/dotfiles/claude/skills/review-branch" "$HOME/.claude/skills/review-branch"
 ln -sfn "$HOME/dotfiles/claude/skills/teach" "$HOME/.claude/skills/teach"
 
+# Opencode
+mkdir -p "$HOME/.config/opencode"
+ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
+
 # Continue
 mkdir -p "$HOME/.continue/rules"
 ln -sfn "$HOME/dotfiles/continue/config.yaml" "$HOME/.continue/config.yaml"
