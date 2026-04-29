@@ -43,14 +43,6 @@ ln -sfn "$HOME/dotfiles/claude/skills/teach" "$HOME/.claude/skills/teach"
 mkdir -p "$HOME/.config/opencode"
 ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
 
-# Continue
-mkdir -p "$HOME/.continue/rules"
-ln -sfn "$HOME/dotfiles/continue/config.yaml" "$HOME/.continue/config.yaml"
-ln -sfn "$HOME/dotfiles/continue/rules/preferences.md" "$HOME/.continue/rules/preferences.md"
-ln -sfn "$HOME/dotfiles/continue/rules/principles.md" "$HOME/.continue/rules/principles.md"
-ln -sfn "$HOME/dotfiles/continue/rules/expertise.md" "$HOME/.continue/rules/expertise.md"
-ln -sfn "$HOME/dotfiles/continue/rules/communication.md" "$HOME/.continue/rules/communication.md"
-
 # Change default shell to ZSH
 chsh -s /bin/zsh
 
