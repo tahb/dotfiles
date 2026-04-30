@@ -6,7 +6,7 @@
       "model": "ollama/qwen-9b-32k",
       "permission": {
         "edit": "allow",
-        "bash": "allow"
+        "bash": "ask"
       }
     },
     "plan": {
