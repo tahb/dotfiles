@@ -1,40 +1,37 @@
-# Paths
-export PATH="$HOME/dotfiles/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt:$PATH"
-
-export PATH="$PATH:$HOME/.jenv/bin"
+# Paths — high priority first, append low priority at end
+export PATH="$HOME/dotfiles/bin:$PATH"
+export PATH="/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21/bin"
-export PATH="$PATH/.local/bin:$PATH"
-
-export GOENV_ROOT="$HOME/.goenv"
-export GOENV_PATH_ORDER=front
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export GOPATH="$HOME/go"
-export PATH="$HOME/.goenv/shims:$PATH"
-
-# Ensure PATH includes GOPATH/bin
-# export PATH="$PATH:$GOPATH/bin"
-
 # Environment variables
 export KOTLIN_HOME="/usr/local/bin/kotlin"
 export SITES="~/sites"
 export GPG_TTY=$(tty)
-export PATH="$PATH:$KOTLIN_HOME/bin"
 GEM_PATH="vendor/bundle"
+export PATH="$PATH:$KOTLIN_HOME/bin"
 
-# Initializations
-eval "$(nodenv init -)"
-# eval "$(jenv init -)"
+# Go (goenv)
+export GOENV_ROOT="$HOME/.goenv"
+export GOENV_PATH_ORDER=front
+export GOPATH="$HOME/go"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+
+# Ruby (rbenv)
 eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-eval "$(direnv hook zsh)"
 
-# Python
+# Node (nodenv)
+eval "$(nodenv init -)"
+
+# Python (pyenv)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+# Direnv
+eval "$(direnv hook zsh)"
 
 # Remove default config
 rm -rf $HOME/Library/Application Support/com.mitchellh.ghostty/config
@@ -98,5 +95,5 @@ EDITOR="vi"
 export PATH="/Users/thipkin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export PATH="$HOME/go/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export NODE_EXTRA_CA_CERTS='/Users/thipkin/.config/nscacert_system.pem'
