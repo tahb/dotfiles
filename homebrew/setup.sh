@@ -18,6 +18,16 @@ echo "Upgrading existing formulae..."
 brew upgrade
 
 # Install everything from Brewfile
+# Cache password once for all cask installs
+read -rsp "Enter your password (used for cask installs): " BREW_SUDO_PASS
+echo
+ASKPASS_HELPER="$(mktemp)"
+chmod 700 "$ASKPASS_HELPER"
+printf '#!/bin/bash\necho "%s"\n' "$BREW_SUDO_PASS" > "$ASKPASS_HELPER"
+export SUDO_ASKPASS="$ASKPASS_HELPER"
+export HOMEBREW_SUDO_THROUGH_SUDO_ASKPASS=1
+trap 'rm -f "$ASKPASS_HELPER"' EXIT
+unset BREW_SUDO_PASS
 echo "Installing from Brewfile..."
 brew bundle --file=./Brewfile
 
