@@ -97,3 +97,6 @@ export PATH="/Users/thipkin/.rd/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export NODE_EXTRA_CA_CERTS='/Users/thipkin/.config/nscacert_system.pem'
+
+# RTK — ensure Claude and OpenCode integrations stay configured
+command -v rtk >/dev/null && rtk init -g --opencode --auto-patch 2>/dev/null
