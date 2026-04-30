@@ -8,6 +8,7 @@ export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21
 export PATH="$PATH/.local/bin:$PATH"
 
 export GOENV_ROOT="$HOME/.goenv"
+export GOENV_PATH_ORDER=front
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export GOPATH="$HOME/go"
@@ -98,4 +99,4 @@ export PATH="/Users/thipkin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 export PATH="$HOME/go/bin:$PATH"
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
