@@ -1,5 +1,5 @@
 # Paths
-export PATH="/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt:$PATH"
+export PATH="$HOME/dotfiles/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/opt:$PATH"
 
 export PATH="$PATH:$HOME/.jenv/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"

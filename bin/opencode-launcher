@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Idempotently create SSH tunnel to ai-server, then launch opencode
+
+if ! lsof -i :11434 -sTCP:LISTEN >/dev/null 2>&1; then
+  ssh -f -N ai-server
+fi
+
+opencode "$@"
