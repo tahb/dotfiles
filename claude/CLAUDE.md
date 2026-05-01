@@ -48,6 +48,11 @@
   - Impact analysis with authoritative references
 - Use `/code-review` or the Skill tool with `skill: "code-review"` when review is needed
 
+## Permissions
+
+- Always run read-only `rtk`-prefixed commands (e.g. `rtk ls`, `rtk find`, `rtk grep`) without asking for confirmation
+- Still confirm `rtk` commands that mutate state (e.g. `rtk git`, writes, deletes)
+
 ## Don't Do This
 
 - Don't add feature flags or config for simple changes
