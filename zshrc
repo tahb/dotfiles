@@ -68,6 +68,7 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey -e
 
+# SHARE_HISTORY="1"  # Remove duplicate keystrokes from history
 setopt auto_cd
 
 # Function to list contents when changing directory
