@@ -6,3 +6,7 @@ prezto
 .envrc
 .byebug_history
 .mermaid.md
+.*
+node_modules
+**/.cache
+**/.cache

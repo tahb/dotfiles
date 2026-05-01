@@ -32,36 +32,32 @@ ln -sfn "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.config/aerospace/aeros
 ln -sfn "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfn "$HOME/dotfiles/.clauderc" "$HOME/.clauderc"
 
-# Symlink all skills from dotfiles/skills to all locations
-# Canonical source: dotfiles/skills/*
-# All other locations are symlinks pointing to canonical source
-# dotfiles/claude/skills/* -> for local Claude usage
-# .claude/skills/* -> hidden location for Claude tools
-# .opencode/skills/* -> opencode skills location
-
-mkdir -p "$HOME/dotfiles/claude/skills"
+# Skills: single canonical source, symlinks to all agents
 mkdir -p "$HOME/.claude/skills"
-# Opencode
+mkdir -p "$HOME/.opencode/skills"
+
+# Create symlinks from canonical source to all agents
+ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.claude/skills/review-branch/SKILL.md"
+ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.opencode/skills/review-branch/SKILL.md"
+
 mkdir -p "$HOME/.config/opencode"
 ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
-mkdir -p "$HOME/.opencode/skills"
 
 # Review-branch (key skill)
 ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/dotfiles/claude/skills/review-branch/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.claude/skills/review-branch/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.opencode/skills/review-branch/SKILL.md"
 
-# Change default shell to ZSH
 chsh -s /bin/zsh
-# Pair (key skill)
-ln -sfn "$HOME/dotfiles/skills/pair/SKILL.md" "$HOME/dotfiles/claude/skills/pair/SKILL.md"
+
+# Create symlinks for remaining skills
 ln -sfn "$HOME/dotfiles/skills/pair/SKILL.md" "$HOME/.claude/skills/pair/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/pair/SKILL.md" "$HOME/.opencode/skills/pair/SKILL.md"
 
 ( cd homebrew && ./setup.sh )
 ( cd iterm && ./setup.sh )
+
 # Testing
-ln -sfn "$HOME/dotfiles/skills/testing/SKILL.md" "$HOME/dotfiles/claude/skills/testing/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/testing/SKILL.md" "$HOME/.claude/skills/testing/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/testing/SKILL.md" "$HOME/.opencode/skills/testing/SKILL.md"
 
@@ -69,7 +65,6 @@ echo "Done."
 echo "Remember to create /work/.gitconfig and point to work keys"
 echo "Remember to enable 1Password SSH agent. Settings>Developer>Use the SSH Agent."
 # Code-review
-ln -sfn "$HOME/dotfiles/skills/code-review/SKILL.md" "$HOME/dotfiles/claude/skills/code-review/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/code-review/SKILL.md" "$HOME/.claude/skills/code-review/SKILL.md"
 ln -sfn "$HOME/dotfiles/skills/code-review/SKILL.md" "$HOME/.opencode/skills/code-review/SKILL.md"
 
