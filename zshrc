@@ -90,7 +90,7 @@ source $HOME/dotfiles/.profile
 
 # Editors
 VISUAL="vim"
-EDITOR="vi"
+EDITOR="vim"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/thipkin/.rd/bin:$PATH"
