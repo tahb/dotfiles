@@ -1,5 +1,4 @@
 {
-  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -8,6 +7,30 @@
           {
             "type": "command",
             "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/thipkin/.claude/hooks/caveman-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading caveman mode..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/thipkin/.claude/hooks/caveman-mode-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "Tracking caveman mode..."
           }
         ]
       }
@@ -26,5 +49,9 @@
       }
     }
   },
-  "defaultMode": "plan"
+  "defaultMode": "plan",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/Users/thipkin/.claude/hooks/caveman-statusline.sh\""
+  }
 }
