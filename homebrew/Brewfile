@@ -1,4 +1,4 @@
-tap "jandeobbleleer/oh-my-posh"
+# tap "jandeobbleleer/oh-my-posh"
 tap "FelixKratz/formulae"
 tap "nikitabobko/aerospace"
 
@@ -74,7 +74,7 @@ brew "caarlos0/tap/timer"
 brew "terminal-notifier"
 
 brew "oh-my-posh"
-cask "jandeobbleleer/oh-my-posh/oh-my-posh"
+# cask "jandeobbleleer/oh-my-posh/oh-my-posh"
 cask "nikitabobko/tap/aerospace"
 
 # Fonts
