@@ -96,8 +96,13 @@ EDITOR="vim"
 export PATH="/Users/thipkin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export NODE_EXTRA_CA_CERTS='/Users/thipkin/.config/nscacert_system.pem'
+# Support both Intel (/usr/local) and Apple Silicon (/opt/homebrew) Homebrew
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "($(/opt/homebrew/bin/brew shellenv))"
+elif [ -x /usr/local/bin/brew ]; then
+    eval "($(/usr/local/bin/brew shellenv))"
+fi
+# export NODE_EXTRA_CA_CERTS='/Users/thipkin/.config/nscacert_system.pem'
 
 # RTK — ensure Claude and OpenCode integrations stay configured
 command -v rtk >/dev/null && rtk init -g --opencode --auto-patch >/dev/null 2>&1
