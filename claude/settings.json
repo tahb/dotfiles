@@ -36,10 +36,16 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/Users/thipkin/.claude/hooks/caveman-statusline.sh\""
+  },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "claude-mem@thedotmack": true,
+    "memsearch@memsearch-plugins": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -47,11 +53,15 @@
         "source": "github",
         "repo": "JuliusBrussee/caveman"
       }
+    },
+    "memsearch-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "zilliztech/memsearch"
+      }
     }
   },
+  "effortLevel": "high",
   "defaultMode": "plan",
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"/Users/thipkin/.claude/hooks/caveman-statusline.sh\""
-  }
+  "model": "sonnet[1m]"
 }

@@ -1,1 +1,0 @@
-/Users/thipkin/dotfiles/skills/code-review/SKILL.md
