@@ -32,9 +32,20 @@ ln -sfn "$HOME/dotfiles/aerospace/aerospace.toml" "$HOME/.config/aerospace/aeros
 ln -sfn "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfn "$HOME/dotfiles/.clauderc" "$HOME/.clauderc"
 
+chsh -s /bin/zsh
+
+( cd homebrew && ./setup.sh )
+( cd iterm && ./setup.sh )
+
+# Opencode specific settings
+rm-rf  ~/.opencode/
+rm-rf  ~/.claude/
+mkdir -p "$HOME/.config/opencode"
+ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
+
 # Agent memory, Opencode first.
 ln -sfn "$HOME/dotfiles/opencode/AGENTS.md" "$HOME/.claude/CLAUDE.md"
-ln -sfn "$HOME/dotfiles/opencode/AGENTS.md" "$HOME/.opencode/AGENTS.md"
+ln -sfn "$HOME/dotfiles/opencode/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
 
 # Skills: single canonical source, symlinks to all agents
 mkdir -p "$HOME/.claude/skills"
@@ -42,17 +53,8 @@ mkdir -p "$HOME/.opencode/skills"
 
 # Create symlinks from canonical source to all agents
 ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.claude/skills/review-branch/SKILL.md"
-ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.opencode/skills/review-branch/SKILL.md"
+ln -sfn "$HOME/dotfiles/skills/review-branch/SKILL.md" "$HOME/.config/opencode/skills/review-branch/SKILL.md"
 
-mkdir -p "$HOME/.config/opencode"
-ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
-
-chsh -s /bin/zsh
-
-( cd homebrew && ./setup.sh )
-( cd iterm && ./setup.sh )
-
-# Opencode specific settings
 ln -sfn "$HOME/dotfiles/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
 
 # Initialize RTK with opencode
