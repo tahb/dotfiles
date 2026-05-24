@@ -7,7 +7,6 @@ brew "adr-tools"
 brew "openssl"
 
 cask "claude-code"
-brew "gemini-cli"
 brew "rtk" # CLI proxy to minimize LLM token consumption
 
 # brew "awscli"
