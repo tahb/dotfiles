@@ -1,0 +1,184 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which *)",
+      "Bash(tail *)",
+      "Bash(go version)",
+      "Bash(git worktree add *)",
+      "Bash(rtk find *)",
+      "Bash(rtk read *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk curl *)",
+      "Bash(rtk git diff *)",
+      "Bash(rtk git log *)",
+      "Bash(rtk git status *)",
+      "Bash(rtk git show *)",
+      "Bash(rtk git branch *)",
+      "Bash(rtk go test *)",
+      "Bash(rtk ls *)",
+      "Bash(rtk gh pr view *)",
+      "Bash(rtk gh pr checks *)",
+      "Bash(rtk gh run list *)",
+      "Bash(rtk gh issue list *)",
+      "Bash(rtk go build *)",
+      "Bash(rtk go test *)",
+      "Bash(sed *)",
+      "Bash(grep)",
+      "Bash(timeout *)",
+      "Bash(go vet)",
+      "Bash(go test *)",
+      "Bash(rtk vitest *)",
+      "Bash(rtk go *)",
+      "Bash(rtk npx *)",
+      "Bash(rtk playwright *)",
+      "Bash(npx playwright *)",
+      "Bash(rtk wc *)",
+      "Bash(rtk tsc *)",
+      "Bash(rtk make *)",
+      "Bash(docker-compose build *)",
+      "Bash(rtk docker *)",
+      "Bash(docker compose *)",
+      "Bash(rtk git *)",
+      "Bash(npm test *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(tee /tmp/db_test_out.txt)",
+      "Bash(unset DATABASE_URL)",
+      "Bash(/usr/local/go/bin/go test *)",
+      "Bash(rtk proxy *)",
+      "Bash(rtk npm *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(/usr/bin/find . *)",
+      "Bash(xargs -I{} basename {})",
+      "Bash(git mv *)",
+      "Bash(rtk psql *)",
+      "Bash(docker volume *)",
+      "Bash(rtk jest *)",
+      "Bash(chmod +x *)",
+      "Bash(xargs ls -la)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(node_modules/.bin/vitest run *)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(sqlfluff --version)",
+      "Bash(sqlfluff fix *)",
+      "Bash(sqlfluff lint *)",
+      "Bash(go list *)",
+      "Bash(awk '{print $1, $2, $3}')",
+      "Bash(/usr/local/bin/go build *)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(go get *)",
+      "Bash(grep -v \"^$\")",
+      "Bash(ln *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(grep *)",
+      "Bash(cat *)",
+      "Bash(make *)",
+      "Bash(mkdir *)",
+      "Bash(touch *)",
+      "Bash(wc *)",
+      "Bash(which *)",
+      "Bash(echo *)",
+      "Bash(export *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(**/.env)",
+      "Bash(git push *)",
+      "Bash(git push)",
+      "Bash(git reset --hard *)",
+      "Bash(git reset --hard)",
+      "Bash(git clean -f*)",
+      "Bash(git clean -f)",
+      "Bash(git branch -D *)",
+      "Bash(git branch -D)",
+      "Bash(git checkout . *)",
+      "Bash(git checkout .)",
+      "Bash(git checkout -- *)",
+      "Bash(git checkout --)",
+      "Bash(git restore . *)",
+      "Bash(git restore .)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git commit)",
+      "Bash(rtk git commit *)"
+    ],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/block-dangerous-git.sh\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\"}}'",
+            "statusMessage": "Activating caveman mode..."
+          }
+        ]
+      },
+      {
+        "hooks": []
+      }
+    ],
+    "UserPromptSubmit": []
+  },
+  "disableAgentView": true,
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name // empty'); ctx=$(echo \" $input \" | jq -r '.context_window.used_percentage // empty'); tokens=$(echo \" $input \" | jq -r '.context_window.total_input_tokens // empty'); pr=$(echo \" $input \" | jq -r '.pr.review_state // empty'); effort=$(echo \" $input \" | jq -r '.effort.level // empty'); parts=(); [ -n \"$model\" ] && parts+=(\"$model\"); [ -n \"$effort\" ] && parts+=(\"effort:$effort\"); [ -n \"$ctx\" ] && parts+=(\"ctx:$(printf '%.0f' \"$ctx\")%\"); [ -n \"$tokens\" ] && parts+=(\"${tokens}tk\"); [ -n \"$pr\" ] && parts+=(\"pr:$pr\"); IFS='|'; echo \"${parts[*]}\""
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "caveman@caveman": false,
+    "memsearch@memsearch-plugins": false,
+    "context-mode@context-mode": false
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "memsearch-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "zilliztech/memsearch"
+      }
+    },
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "theme": "light-daltonized",
+  "remoteControlAtStartup": false,
+  "inputNeededNotifEnabled": true,
+  "maxTurns": 25,
+  "defaultMode": "auto",
+  "model": "opus"
+}

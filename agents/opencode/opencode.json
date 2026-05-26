@@ -1,0 +1,231 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "default",
+  "permission": {
+    "read": {
+      ".env": "deny",
+      "**/.env": "deny",
+      "*": "allow"
+    },
+    "bash": {
+      "git commit*": "ask",
+      "git push*": "deny",
+      "git reset --hard*": "deny",
+      "git clean -f*": "deny",
+      "git branch -D*": "deny",
+      "git branch*": "ask",
+      "git checkout .*": "deny",
+      "git checkout --*": "deny",
+      "git checkout*": "ask",
+      "git restore .*": "deny",
+      "*": "allow"
+    }
+  },
+  "shell": "~/.config/opencode/hooks/block-dangerous-git.sh",
+  "agent": {
+    "plan": {
+      "disable": true
+    },
+    "build": {
+      "disable": true
+    },
+    "default": {
+      "mode": "primary",
+      "model": "opencode-go/minimax-m2.5",
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "read": "allow",
+          "write": "ask"
+        }
+      }
+    },
+    "dev": {
+      "mode": "primary",
+      "color": "#D4396B",
+      "model": "opencode-go/glm-5.1",
+      "description": "Dev agent. Full pipeline: scout, plan, worktree, test, implement, pre-review, review, document, propose, cherry-pick.",
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "read": "allow",
+          "write": "ask"
+        }
+      },
+      "prompt": "{file:./prompts/dev.md}"
+    },
+    "local": {
+      "mode": "primary",
+      "color": "#3B6D11",
+      "model": "ollama/qwen-9b-32k",
+      "permission": {
+        "edit": "ask",
+        "bash": "ask"
+      },
+      "parameters": {
+        "num_ctx": 32768
+      }
+    },
+    "oracle": {
+      "mode": "primary",
+      "color": "#534AB7",
+      "model": "opencode-go/kimi-k2.5",
+      // "model": "opencode/big-pickle",
+      "description": "oracle agent that decides how to delegate software engineering tasks between subagents",
+      "prompt": "{file:./skills/oracle.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      }
+    },
+    // "planner": {
+    //   "mode": "all",
+    //   "color": "#0F6E56",
+    //   "model": "opencode-go/kimi-k2.5",
+    //   // "model": "opencode/big-pickle",
+    //   "description": "Planning agent that breaks software engineering goals into ordered task lists.",
+    //   "prompt": "{file:./prompts/planner.md}",
+    //   "permission": {
+    //     "edit": "deny",
+    //     "bash": {
+    //       "read": "allow",
+    //       "write": "deny"
+    //     }
+    //   }
+    // },
+    // "builder": {
+    //   "mode": "all",
+    //   "color": "#BA7517",
+    //   "model": "opencode-go/kimi-k2.5",
+    //   // "model": "opencode/big-pickle",
+    //   "description": "Experienced software engineer primary agent for building features.",
+    //   "prompt": "{file:./prompts/builder.md}",
+    //   "permission": {
+    //     "edit": "ask",
+    //     "bash": {
+    //       "read": "allow",
+    //       "write": "ask"
+    //     }
+    //   }
+    // },
+    "reviewer": {
+      "mode": "subagent",
+      "color": "#993556",
+      "model": "opencode-go/glm-5.1",
+      "description": "Specialized agent for code quality and logic verification.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      },
+      "prompt": "{file:./prompts/reviewer.md}"
+    },
+    "local-reviewer": {
+      "mode": "all",
+      "color": "#6B9D6B",
+      "model": "ollama/gemma4-agent",
+      "description": "Fast local pre-reviewer. Catches obvious issues before expensive review. Free to run.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      },
+      "prompt": "{file:./prompts/local-reviewer.md}"
+    },
+    "scribe": {
+      "mode": "subagent",
+      "color": "#5BA3A0",
+      "model": "opencode-go/deepseek-v4-flash",
+      "description": "Specialist for technical documentation sync.",
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "read": "allow",
+          "write": "ask"
+        }
+      },
+      "prompt": "{file:./prompts/scribe.md}"
+    },
+    "scout": {
+      "mode": "subagent",
+      "color": "#4A90D9",
+      "model": "opencode/deepseek-v4-flash-free",
+      "description": "Read-only codebase exploration agent. Finds relevant files, patterns, dependencies, and risks before planning.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      },
+      "prompt": "{file:./prompts/scout.md}"
+    }
+  },
+  "skills": {
+    "task": {
+      "path": "~/.config/opencode/skills/task.md"
+    },
+    "plan": {
+      "path": "~/.config/opencode/skills/plan.md"
+    },
+    "build": {
+      "path": "~/.config/opencode/skills/build.md"
+    },
+    "review": {
+      "path": "~/.config/opencode/skills/review.md"
+    },
+    "scribe": {
+      "path": "~/.config/opencode/skills/scribe.md"
+    },
+    "scout": {
+      "path": "~/.config/opencode/skills/scout.md"
+    },
+    "review-branch": {
+      "path": "~/.config/opencode/skills/review-branch.md"
+    },
+    "documentor": {
+      "path": "~/.config/opencode/skills/documentor.md"
+    },
+    "test-driven-development": {
+      "path": "~/.config/opencode/skills/test-driven-development.md"
+    },
+    "interview-me": {
+      "path": "~/.config/opencode/skills/interview-me.md"
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen-9b-32k": {
+          "tools": true
+        },
+        "gemma4-agent": {
+          "tools": true
+        }
+      }
+    },
+    "google": {
+      "options": {
+        "authType": "oauth-personal"
+      }
+    }
+  },
+  "instructions": [
+    "~/.config/opencode/AGENTS.md"
+  ],
+  "plugin": [
+    "@zilliz/memsearch-opencode",
+    "context-mode"
+  ]
+}

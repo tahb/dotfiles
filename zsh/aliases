@@ -51,3 +51,9 @@ alias cleanup="git branch --merged | grep -v '\*\|master\|main\|develop' | xargs
 
 alias oc="opencode-launcher"
 
+# Claude Code — restore dotfiles settings before launching
+function claude() {
+  cp ~/dotfiles/agents/claude/settings.json ~/.claude/settings.json
+  command claude "$@"
+}
+

@@ -1,58 +1,67 @@
-#!/bin/bash
-############################
-# .make.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
+#!/usr/bin/env bash
+set -euo pipefail
+# Create all dotfile symlinks. Safe to re-run.
 
-########## Variables
+DOTFILES="$HOME/dotfiles"
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zlogin zlogout zpreztor zprofile zshenv zprezto zpreztorc gitconfig" # list of files/folders to symlink in homedir
+# Standard dotfiles
+mkdir -p "$HOME/.config/ghostty"
+mkdir -p "$HOME/.config/aerospace"
+touch "$DOTFILES/.profile"
 
-##########
+for src in "$DOTFILES/ghostty/config" \
+           "$DOTFILES/.gitignore" \
+           "$DOTFILES/gitconfig" \
+           "$DOTFILES/zshrc" \
+           "$DOTFILES/zpreztorc" \
+           "$DOTFILES/aerospace/aerospace.toml" \
+           "$DOTFILES/tmux/.tmux.conf" \
+           "$DOTFILES/.clauderc"; do
+  dest="$HOME/$(basename "$src")"
+  [[ -e "$dest" ]] || ln -sfn "$src" "$dest"
+done
+[[ -e "$HOME/.wezterm.lua" ]] || ln -sfn "$DOTFILES/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
-# create dotfiles_old in homedir
-echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
-mkdir -p $olddir
-echo "done"
+# RTK — global project CLAUDE.md, picked up by all projects via directory traversal
+ln -sfn "$DOTFILES/agents/RTK.md" "$HOME/CLAUDE.md"
 
-# change to the dotfiles directory
-echo -n "Changing to the $dir directory ..."
-cd $dir
-echo "done"
+# Claude
+mkdir -p "$HOME/.claude/agents"
+ln -sfn "$DOTFILES/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+ln -sfn "$DOTFILES/agents/claude/agents" "$HOME/.claude/agents"
+ln -sfn "$DOTFILES/agents/claude/settings.json" "$HOME/.claude/settings.json"
+mkdir -p "$HOME/.claude/hooks"
+ln -sfn "$DOTFILES/agents/claude/hooks" "$HOME/.claude/hooks"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+# Claude skills
+mkdir -p "$HOME/.claude/skills"
+for f in "$DOTFILES"/agents/skills/*.md; do
+  name=$(basename "$f" .md)
+  mkdir -p "$HOME/.claude/skills/$name"
+  cp "$f" "$HOME/.claude/skills/$name/SKILL.md"
+done
+# Remove stale skills no longer in dotfiles
+for d in "$HOME"/.claude/skills/*/; do
+  name=$(basename "$d")
+  if [[ ! -f "$DOTFILES/agents/skills/$name.md" ]]; then
+    echo "  removing stale skill: $name"
+    rm -rf "$d"
+  fi
 done
 
-install_zsh () {
-# Test to see if zshell is installed.  If it is:
-if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    # Clone my prezto repository
-    git clone --recursive https://github.com/tomhipkin/prezto.git "${ZDOTDIR:-$HOME/dotfiles}/prezto"
+# Opencode
+mkdir -p "$HOME/.config/opencode"
+ln -sfn "$DOTFILES/agents/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
+ln -sfn "$DOTFILES/agents/opencode/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
+mkdir -p "$HOME/.config/opencode/skills"
+ln -sfn "$DOTFILES/agents/skills" "$HOME/.config/opencode/skills"
+mkdir -p "$HOME/.config/opencode/prompts"
+ln -sfn "$DOTFILES/agents/prompts" "$HOME/.config/opencode/prompts"
+mkdir -p "$HOME/.config/opencode/hooks"
+ln -sfn "$DOTFILES/agents/opencode/hooks" "$HOME/.config/opencode/hooks"
 
-    # Set the default shell to zsh if it isn't currently set to zsh
-    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-        chsh -s /bin/zsh
-    fi
-else
-    # If zsh isn't installed, get the platform of the current machine
-    platform=$(uname);
-    # If the platform is Linux, try an apt-get to install zsh and then recurse
-    if [[ $platform == 'Linux' ]]; then
-        sudo apt-get install zsh
-        install_zsh
-    # If the platform is OS X, tell the user to install zsh :)
-    elif [[ $platform == 'Darwin' ]]; then
-        echo "Please install zsh, then re-run this script!"
-        exit
-    fi
-fi
-}
-
-install_zsh
+# Pi coding agent
+mkdir -p "$HOME/.pi/agent"
+ln -sfn "$DOTFILES/agents/pi/settings.json" "$HOME/.pi/agent/settings.json"
+ln -sfn "$DOTFILES/agents/skills" "$HOME/.pi/agent/skills"
+ln -sfn "$DOTFILES/agents/opencode/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"

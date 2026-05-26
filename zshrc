@@ -5,6 +5,9 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/opt/homebrew/opt/openjdk@17/bin:/opt/homebrew/opt/openjdk@21/bin"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"
+export PATH="$PATH:/usr/local/bin/sqlfluff"
+
 # Environment variables
 export KOTLIN_HOME="/usr/local/bin/kotlin"
 export SITES="~/sites"
@@ -26,9 +29,9 @@ eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
 # Python (pyenv)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
 
 # Direnv
 eval "$(direnv hook zsh)"
@@ -56,6 +59,7 @@ setopt SHARE_HISTORY      # Append to shell history immediately
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export SAVEHIST=10000
+export CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=70
 
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
