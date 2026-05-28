@@ -8,10 +8,10 @@ task
  │◀────────────────────────────────┘
  │
  ▼
-1. plan skill  (.agents/plans/)
+1. plan skill  (.agents/plans/{slug}-plan.md + {slug}-todos.md)
  │
  ▼
-[YOU] approve plan? ──reject──▶ back to 1
+[YOU] approve plan + todos? ──reject──▶ back to 1
  │
  ▼
 3. git worktree  (.agents/worktrees/slug)
@@ -20,7 +20,7 @@ task
 4. write failing e2e test
  │
  ▼
-5. TDD implement  (red → green → refactor) ◀─────────────┐
+5. builder (haiku) · todos one-at-a-time · TDD per item ◀────┐
  │                                                        │
  ▼                                                        │
 6. local-reviewer (haiku · fast scan)                     │
@@ -49,6 +49,7 @@ cherry-pick to main · prune worktree
 |-------|-------|------|
 | `dev` | sonnet · high | orchestrator |
 | `scout` | haiku · low | read-only exploration |
+| `builder` | haiku · medium | implementation (todos + TDD) |
 | `local-reviewer` | haiku · medium | fast pre-review |
 | `reviewer` | opus · high | deep review |
 | `scribe` | haiku · low | doc sync |
