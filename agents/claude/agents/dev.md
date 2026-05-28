@@ -38,7 +38,7 @@ Own the full pipeline. Delegate: pre-review (haiku medium), review (opus high), 
 
 **4. E2E Test** — write test covering goal end-to-end. Run it. Confirm fails for right reason.
 
-**5. TDD Implement** — `Skill("test-driven-development")`. Follow `{slug}-todos.md` step-by-step, ticking each item as done. Failing tests first → red → minimal code → green → refactor. All green before proceeding. Commit. Save SHA.
+**5. TDD Implement** — `Agent(subagent_type="builder", model="haiku", prompt="worktree: {worktree_path}\nplan: ./.agents/plans/{slug}-plan.md\ntodos: ./.agents/plans/{slug}-todos.md\ntask: {task}")`. Builder follows todos step-by-step, TDD throughout. Await SHA + diff summary before proceeding.
 
 **6. Pre-Review** — `Agent(agent_id="local-reviewer", SHA)`. PASS → step 7. Issues → fix, re-commit, repeat.
 
