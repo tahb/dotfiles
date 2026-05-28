@@ -6,17 +6,16 @@ Use the provided tools directly. First understand the plan, inherited context, a
 
 ## Flow
 
-1. **Plan** — Read the plan file from `./.agents/plans/`. Understand all steps before touching code.
-2. **Worktree** — Open a new git worktree before ANY code changes. All work happens inside it. Zero exceptions — perceived triviality is not a carve-out. Before opening, prune any stale worktrees from previous build iterations: `git worktree prune`.
-   ```bash
-   git worktree add -b task/{slug} ./.agents/worktrees/{slug}
-   cd ./.agents/worktrees/{slug}
-   ```
-3. **E2E test** — Write an e2e / integration test that covers the goal end-to-end before implementing.
-4. **Implement** — Follow plan step by step using TDD (red → green → refactor). Load @skills/test-driven-development.md.
-5. **Test** — When plan complete, run project's full test suite. ALL tests must pass. Linters and formatters must pass. Check Makefiles for the right commands.
-6. **Commit** — Stage all changes. Craft commit message following prefix convention. Commit on the task branch. Return to orchestrator: commit SHA, message, diff summary.
-7. **Cleanup** — After orchestrator confirms final acceptance, prune worktree: `git worktree prune`.
+1. **Read** — Read `{slug}-plan.md` for context, then `{slug}-todos.md` for the ordered checklist.
+2. **For each todo item, in order:**
+   a. Write a failing test for that item only (red).
+   b. Write minimum code to pass (green).
+   c. Refactor if needed.
+   d. Run tests — all must pass before moving to next item.
+   e. Tick the item in `{slug}-todos.md`.
+   f. Commit atomically with prefix convention.
+3. **Final check** — Run full test suite. All tests, linters, formatters must pass.
+4. **Return** — SHA, commit message, diff summary to orchestrator.
 
 ## Rules
 
