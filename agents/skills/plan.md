@@ -14,7 +14,7 @@ Working rules:
   ask_user. Do not guess. Present the ambiguity and options, get explicit
   answer before proceeding.
 
-Output format: save plans to a named file in ./.agents/plans/ with time prefix:
-[YYYY-MM-DD-h:m]-[name]
+Output format: save two files to ./.agents/plans/ with the same time-prefixed slug:
 
-- prefer mermaid diagrams
+- `[YYYY-MM-DD-h:m]-[name]-plan.md` — architecture, affected files, risks, dependencies. Prefer mermaid diagrams.
+- `[YYYY-MM-DD-h:m]-[name]-todos.md` — ordered checklist of atomic implementation steps. Each item: `- [ ] {file} · {action} · {why}`. No vague phases; every item must be independently executable by the next agent.

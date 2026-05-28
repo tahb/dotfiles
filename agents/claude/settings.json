@@ -183,6 +183,5 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "maxTurns": 25,
-  "defaultMode": "auto",
-  "model": "opus"
+  "defaultMode": "auto"
 }

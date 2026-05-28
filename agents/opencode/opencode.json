@@ -65,22 +65,6 @@
       "parameters": {
         "num_ctx": 32768
       }
-    },
-    "oracle": {
-      "mode": "primary",
-      "color": "#534AB7",
-      "model": "opencode-go/kimi-k2.5",
-      // "model": "opencode/big-pickle",
-      "description": "oracle agent that decides how to delegate software engineering tasks between subagents",
-      "prompt": "{file:./skills/oracle.md}",
-      "permission": {
-        "edit": "deny",
-        "bash": {
-          "read": "allow",
-          "write": "deny"
-        }
-      }
-    },
     // "planner": {
     //   "mode": "all",
     //   "color": "#0F6E56",
@@ -126,7 +110,7 @@
       "prompt": "{file:./prompts/reviewer.md}"
     },
     "local-reviewer": {
-      "mode": "all",
+      "mode": "subagent",
       "color": "#6B9D6B",
       "model": "ollama/gemma4-agent",
       "description": "Fast local pre-reviewer. Catches obvious issues before expensive review. Free to run.",
@@ -142,8 +126,7 @@
     "scribe": {
       "mode": "subagent",
       "color": "#5BA3A0",
-      "model": "opencode-go/deepseek-v4-flash",
-      "description": "Specialist for technical documentation sync.",
+      "model": "ollama/qwen-9b-32k",      "description": "Specialist for technical documentation sync.",
       "permission": {
         "edit": "ask",
         "bash": {
@@ -156,7 +139,7 @@
     "scout": {
       "mode": "subagent",
       "color": "#4A90D9",
-      "model": "opencode/deepseek-v4-flash-free",
+      "model": "ollama/qwen-9b-32k",
       "description": "Read-only codebase exploration agent. Finds relevant files, patterns, dependencies, and risks before planning.",
       "permission": {
         "edit": "deny",

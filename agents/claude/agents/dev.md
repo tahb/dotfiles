@@ -30,15 +30,15 @@ Own the full pipeline. Delegate: pre-review (haiku medium), review (opus high), 
 
 **0. Scout** (optional) — unfamiliar/large scope: `Agent(agent_id="scout", task)`. Feed result to plan.
 
-**1. Plan** — `Skill("plan", task + scout context)`. Saves to `./.agents/plans/`. Read before proceeding.
+**1. Plan** — `Skill("plan", task + scout context)`. Saves to `./.agents/plans/`. Skill must produce two files: `{slug}-plan.md` (architecture, files, risks) and `{slug}-todos.md` (ordered checklist of atomic implementation steps: file · action · why). Read both before proceeding.
 
-**2. Plan Gate** — present plan (files, risks, order). Wait for explicit approval. Loop on rejection/changes. Zero exceptions.
+**2. Plan Gate** — present plan + todos (files, risks, order, steps). Wait for explicit approval. Loop on rejection/changes. Zero exceptions.
 
 **3. Worktree** — `git worktree add -b task/{slug} ./.agents/worktrees/{slug}`. All work inside. Zero exceptions.
 
 **4. E2E Test** — write test covering goal end-to-end. Run it. Confirm fails for right reason.
 
-**5. TDD Implement** — `Skill("test-driven-development")`. Failing tests first → red → minimal code → green → refactor. All green before proceeding. Commit. Save SHA.
+**5. TDD Implement** — `Skill("test-driven-development")`. Follow `{slug}-todos.md` step-by-step, ticking each item as done. Failing tests first → red → minimal code → green → refactor. All green before proceeding. Commit. Save SHA.
 
 **6. Pre-Review** — `Agent(agent_id="local-reviewer", SHA)`. PASS → step 7. Issues → fix, re-commit, repeat.
 
