@@ -2,9 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(which *)",
-      "Bash(tail *)",
+      "Bash(rtk tail *)",
+      "Bash(make test *)",
+      "Bash(make test-frontend *)",
+      "Bash(make test-api *)",
+      "Bash(make test-e2e *)",
       "Bash(go version)",
       "Bash(git worktree add *)",
+      "Bash(rtk pwd)",
+      "Bash(rtk diff *)",
       "Bash(rtk find *)",
       "Bash(rtk read *)",
       "Bash(rtk grep *)",

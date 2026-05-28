@@ -2,7 +2,7 @@
 
 All steps are mandatory. Cannot skip a step  under any scenario.
 
-Scout > Plan > Plan gate >  Worktree  > Make E2E test > Implement (TDD) > Local code review  > Full code review > Check E2E pass >  Document > Propose > Cleanup
+Scout > Plan > Plan gate >  Worktree  > Write E2E test > Build (TDD) > Local code review  > Full code review > Check E2E pass > Document > Propose > Cleanup
 
 ### 0. Scout
 
@@ -42,7 +42,7 @@ All work happens inside it. Zero exceptions.
 
 Write an e2e / integration test that covers the goal end-to-end before implementing.
 
-### 5. Implement
+### 5. Build
 
 Load @skills/test-driven-development.md. Load @skills/build.md coding rules. Implement per plan using TDD (red → green → refactor). Run tests after every logical change. ALL tests must pass.
 
