@@ -53,8 +53,6 @@ cherry-pick to main · prune worktree
 | `reviewer` | opus · high | deep review |
 | `scribe` | haiku · low | doc sync |
 
-`claude/agents/` — benched: `builder`, `oracle`, `planner`
-
 ## Skills
 
 | Skill | Purpose |
