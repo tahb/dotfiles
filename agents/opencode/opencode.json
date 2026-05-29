@@ -166,6 +166,20 @@
         }
       },
       "prompt": "{file:./prompts/scout.md}"
+    },
+    "security-review": {
+      "mode": "subagent",
+      "color": "#B8421F",
+      "model": "opencode-go/glm-5.1",
+      "description": "Security-focused review. Dispatch when changes touch auth, crypto, IO, secrets, deps, network, or user input.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      },
+      "prompt": "{file:./prompts/security-review.md}"
     }
   },
   "skills": {
