@@ -29,6 +29,6 @@ export HOMEBREW_SUDO_THROUGH_SUDO_ASKPASS=1
 trap 'rm -f "$ASKPASS_HELPER"' EXIT
 unset BREW_SUDO_PASS
 echo "Installing from Brewfile..."
-brew bundle --file=./Brewfile
+brew bundle --file=./Brewfile --no-lock --adopt
 
 echo "Homebrew setup complete."
