@@ -1,95 +1,74 @@
 ## Pipeline
 
-All steps are mandatory. Cannot skip a step  under any scenario.
+All steps mandatory. Cannot skip.
 
-Scout > Plan > Plan gate >  Worktree  > Write E2E test > Build (TDD) > Local code review  > Full code review > Check E2E pass > Document > Propose > Cleanup
+Scout → Plan → Plan gate → Worktree → E2E test → Build (TDD) → Local review → Full review → E2E pass check → Document → Propose → Cleanup
 
 ### 0. Scout
 
-If task involves unfamiliar code, large scope, or needs codebase exploration, delegate to scout first.
-
-Use task tool with subagent_type="scout". Pass: task description.
-
-Scout returns structured research context. Feed it to Plan step.
+Unfamiliar code / large scope / needs exploration → delegate. `subagent_type="scout"`, pass task. Feed result into Plan.
 
 ### 1. Plan
 
-Load @skills/plan.md. Use scout context if available. Execute plan step. Ask clarifying questions if underspecified. Save ordered task list to `./.agents/plans/`.
+Load @skills/plan.md. Use scout context if present. Ask clarifying questions if underspecified. Save ordered task list to `./.agents/plans/`.
 
 ### 2. Plan Gate
 
-Present the plan to the user. Summarise: what will be done, which files touched, risks, order.
-Wait for explicit approval before continuing.
+Present plan: what, files, risks, order. Wait for explicit approval.
 
-- User approves → proceed to Worktree (step 3)
-- User rejects → stop
-- User wants changes → loop back to step 1, incorporate feedback, re-present
+- Approve → step 3
+- Reject → stop
+- Changes → loop step 1
 
-Do NOT skip this step. Zero exceptions.
+Zero exceptions.
 
 ### 3. Worktree
 
-Open a new git worktree before ANY code changes:
-
 ```bash
+git worktree prune
 git worktree add -b task/{slug} ./.agents/worktrees/{slug}
 cd ./.agents/worktrees/{slug}
 ```
 
-All work happens inside it. Zero exceptions.
+All work inside. Zero exceptions.
 
 ### 4. E2E Test
 
-Write an e2e / integration test that covers the goal end-to-end before implementing.
+Failing e2e/integration test covering the goal before implementing.
 
 ### 5. Build
 
-Load @skills/test-driven-development.md. Load @skills/build.md coding rules. Implement per plan using TDD (red → green → refactor). Run tests after every logical change. ALL tests must pass.
+Load @skills/test-driven-development.md and @skills/build.md. Implement per plan, TDD (red → green → refactor). Tests after every logical change. All pass → commit on task branch. Save SHA.
 
-After all tests pass, commit on task branch. Save the commit SHA for the reviewer.
+### 6. Local Pre-Review
 
-### 6. Local Pre-Review (fast, free)
+`subagent_type="local-reviewer"`, pass SHA + plan path.
 
-Run a fast local pre-review before spending tokens on the expensive reviewer.
-Use task tool with subagent_type="local-reviewer". Pass: commit SHA.
-
-Local reviewer returns PASS or specific critical issues.
-
-- PASS → proceed to Review (step 7)
-- Issues → loop back to Implement (step 5), fix, re-commit, re-run pre-review
+- PASS → step 7
+- Issues → loop step 5
 
 ### 7. Review
 
-Delegate full review to the reviewer subagent. Use task tool with subagent_type="reviewer".
-Pass: commit SHA, plan path.
+`subagent_type="reviewer"`, pass SHA + plan path. Present report to user.
 
-Reviewer returns structured report. Present to user. Ask: approve or rework?
+- Approve → step 8
+- Rework → loop step 5
 
-- User approves → proceed to Document (step 8)
-- User wants rework → loop back to Implement (step 5), fix, re-commit, re-run pre-review (step 6)
+### 8. E2E pass check
 
-### 8. Check e2e tests pass
-
-You should have already added a failing spec before starting. Does this pass?
-
-Does all other e2e tests pass? Prevent regressions.
+The failing e2e from step 4 now passes? All other e2e tests still pass (no regressions)?
 
 ### 9. Document
 
-Delegate documentation to the scribe subagent. Use task tool with subagent_type="scribe".
-Pass: commit SHA.
-
-Scribe returns doc update summary.
+`subagent_type="scribe"`, pass SHA.
 
 ### 10. Propose
 
-Present commit proposal to user. Show: commit message, diff summary, review findings, test results.
+Show commit message, diff summary, review findings, test results. Wait for approval.
 
-Wait for explicit approval before cherry-picking to main.
-
-- User approves → cherry-pick commit from task branch to main
-- User rejects → loop back to Implement (step 5) with feedback
+- Approve → cherry-pick to main
+- Reject → loop step 5
 
 ### 11. Cleanup
 
-After cherry-pick to main, delete task branch, prune worktree: `git worktree prune`.
+After cherry-pick: delete task branch, `git worktree prune`.
