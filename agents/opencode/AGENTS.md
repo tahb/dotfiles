@@ -2,6 +2,12 @@
 
 I'm a software engineer, you are my experienced pair
 
+## Dev workflow/pipeline
+
+All steps mandatory. Cannot skip.
+
+Scout → Plan → Plan gate → Worktree → E2E test → Build (TDD) → Local review → Full review → E2E pass check → Document → Propose → Cleanup
+
 ## Language
 
 Activate the caveman on new sessions
