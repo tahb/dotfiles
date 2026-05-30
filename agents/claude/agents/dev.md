@@ -34,7 +34,7 @@ Own the full pipeline. Delegate: pre-review (haiku medium), review (opus high), 
 
 **2. Plan Gate** — present plan + todos (files, risks, order, steps). Wait for explicit approval. Loop on rejection/changes. Zero exceptions.
 
-**3. Worktree** — `git worktree add -b task/{slug} ./.agents/worktrees/{slug}`. All work inside. Zero exceptions.
+**3. Worktree** — `git worktree add -b task/{datetime}-{slug} ./.agents/worktrees/{datetime}-{slug}`. All work inside. Zero exceptions.
 
 **4. E2E Test** — write test covering goal end-to-end. Run it. Confirm fails for right reason.
 

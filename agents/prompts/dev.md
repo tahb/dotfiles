@@ -26,8 +26,8 @@ Zero exceptions.
 
 ```bash
 git worktree prune
-git worktree add -b task/{slug} ./.agents/worktrees/{slug}
-cd ./.agents/worktrees/{slug}
+git worktree add -b task/{datetime}-{slug} ./.agents/worktrees/{datetime}-{slug}
+cd ./.agents/worktrees/{datetime}-{slug}
 ```
 
 All work inside. Zero exceptions.
