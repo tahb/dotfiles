@@ -69,6 +69,7 @@
       "Bash(rtk go *)",
       "Bash(rtk go build *)",
       "Bash(rtk go test *)",
+      "Bash(git stash *)",
       "Bash(rtk grep *)",
       "Bash(rtk jest *)",
       "Bash(rtk ls *)",
