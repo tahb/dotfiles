@@ -36,7 +36,7 @@ Own the full pipeline. Delegate: pre-review (haiku medium), review (opus high), 
 
 **3. Worktree** — `git worktree add -b task/{datetime}-{slug} ./.agents/worktrees/{datetime}-{slug}`. All work inside. Zero exceptions.
 
-**4. E2E Test** — write test covering goal end-to-end. Run it. Confirm fails for right reason.
+**4. E2E Test** — add test covering goal end-to-end to the most relevant existing spec file in `e2e/tests/` (never create a new file unless no related spec exists). Run it. Confirm fails for right reason.
 
 **5. TDD Implement** — `Agent(subagent_type="builder", model="haiku", prompt="worktree: {worktree_path}\nplan: ./.agents/plans/{slug}-plan.md\ntodos: ./.agents/plans/{slug}-todos.md\ntask: {task}")`. Builder follows todos step-by-step, TDD throughout. Await SHA + diff summary before proceeding.
 

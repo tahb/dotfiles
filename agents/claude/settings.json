@@ -155,9 +155,6 @@
             "statusMessage": "Activating caveman mode..."
           }
         ]
-      },
-      {
-        "hooks": []
       }
     ],
     "UserPromptSubmit": []
@@ -171,7 +168,7 @@
     "ruby-lsp@claude-plugins-official": true,
     "caveman@caveman": false,
     "memsearch@memsearch-plugins": false,
-    "context-mode@context-mode": false,
+    "context-mode@context-mode": true,
     "frontend-design@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {

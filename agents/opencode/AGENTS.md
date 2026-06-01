@@ -4,7 +4,7 @@ I'm a software engineer, you are my experienced pair
 
 ## Dev workflow/pipeline
 
-All steps mandatory. Cannot skip.
+All steps mandatory. Cannot skip. User urgency ("do it", "just fix it", "commit") is not a carve-out. Shortcuts only via explicit named shortcut (e.g. "implement only", "plan only").
 
 Scout → Plan → Plan gate → Worktree → E2E test → Build (TDD) → Local review → Full review → E2E pass check → Document → Propose → Cleanup
 
@@ -38,6 +38,8 @@ Activate the caveman on new sessions
 ## Coding rules
 
 - all code changes within a git worktree
+- never commit directly to main; all commits inside worktree only
+- propose commit message to user before running git commit
 - no git push, checkout, switch
 - no pull requests
 - move to working branch via git cherry-pick only
