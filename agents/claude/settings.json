@@ -1,4 +1,8 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash(/usr/bin/find . *)",
@@ -100,9 +104,73 @@
       "Bash(xargs -I{} basename {})",
       "Bash(xargs ls -la)",
       "Bash(rtk date)",
-      "Bash(date)"
+      "Bash(date)",
+      "Bash(sort)",
+      "Bash(awk)",
+      "Read",
+      "Glob",
+      "Grep",
+      "Task",
+      "Bash(basename *)",
+      "Bash(diff *)",
+      "Bash(dirname *)",
+      "Bash(file *)",
+      "Bash(md5 *)",
+      "Bash(readlink *)",
+      "Bash(realpath *)",
+      "Bash(shasum *)",
+      "Bash(stat *)",
+      "Bash(tree *)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(docker *)",
+      "Bash(date *)",
+      "Bash(df *)",
+      "Bash(du *)",
+      "Bash(hostname *)",
+      "Bash(id *)",
+      "Bash(ps *)",
+      "Bash(pwd *)",
+      "Bash(uname *)",
+      "Bash(whoami *)",
+      "Bash(cut *)",
+      "Bash(jq *)",
+      "Bash(sort *)",
+      "Bash(tr *)",
+      "Bash(uniq *)",
+      "Bash(yq *)",
+      "Bash(brew info *)",
+      "Bash(brew list *)",
+      "Bash(npm *)",
+      "Bash(pip list *)",
+      "Bash(pip show *)",
+      "Bash(node *)",
+      "Bash(python --version *)",
+      "Bash(ruby --version *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "ExitPlanMode(*)",
+      "WebFetch(domain:*)",
+      "WebSearch",
+      "mcp__plugin_*"
     ],
     "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./config/credentials.json)",
+      "Read(./build/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "Bash(dd *)",
+      "Bash(diskutil *)",
+      "Bash(mkfs *)",
+      "Bash(rm -rf / *)",
+      "Bash(rm -rf /* *)",
+      "Bash(rm -rf ~ *)",
+      "Bash(rm -rf $HOME *)",
+      "Bash(sudo rm -rf / *)",
+      "Bash(sudo rm -rf /* *)",
       "Bash(git branch -D *)",
       "Bash(git branch -D)",
       "Bash(git checkout -- *)",
@@ -155,6 +223,14 @@
             "statusMessage": "Activating caveman mode..."
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/tomhipkin/.claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
       }
     ],
     "UserPromptSubmit": []
@@ -169,7 +245,8 @@
     "caveman@caveman": false,
     "memsearch@memsearch-plugins": false,
     "context-mode@context-mode": true,
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {

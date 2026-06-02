@@ -1,8 +1,10 @@
 ## Pipeline
 
-All steps mandatory. Cannot skip.
+Scout → Plan → Plan gate → Build(create worktree) → Build(add E2E cov) → Build
+(red,green,refactor/TDD) → (Reviewer) Quick → (Reviewer) Deep → Build(prove E2E
+pass) → Scribe(Document) → Commit gate → Cleanup
 
-Scout → Plan → Plan gate → Worktree → E2E test → Build (TDD) → Local review → Full review → E2E pass check → Document → Propose → Cleanup
+All steps mandatory. Cannot skip. No exception.
 
 ### 0. Scout
 
