@@ -6,7 +6,7 @@ Use the provided tools directly. First understand the plan, inherited context, a
 
 ## Flow
 
-1. **Read** — Read `{slug}-plan.md` for context, then `{slug}-todos.md` for the ordered checklist.
+1. **Read** — Read `{slug}-plan.md`
 2. **For each todo item, in order:**
    a. Write a failing test for that item only (red).
    b. Write minimum code to pass (green).
@@ -35,7 +35,6 @@ Use the provided tools directly. First understand the plan, inherited context, a
 - minimise comments
 - avoid over-engineering
 - suggest refactoring first when it could make the change easier
-- // TODO: for todos
 
 ### Git
 

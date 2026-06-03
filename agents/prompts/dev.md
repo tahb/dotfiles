@@ -1,10 +1,21 @@
 ## Pipeline
 
-Scout → Plan → Plan gate → Build(create worktree) → Build(add E2E cov) → Build
-(red,green,refactor/TDD) → (Reviewer) Quick → (Reviewer) Deep → Build(prove E2E
-pass) → Scribe(Document) → Commit gate → Cleanup
+1. Scout
+2. Plan
+3. Plan gate
+4. Builder (create worktree)
+5. Builder (add E2E cov)
+6. Builder (red, green, refactor/TDD)
+7. Reviewer (Quick)
+8. Reviewer (Deep)
+9. Builder (prove E2E pass with results)
+10. Scribe (Document)
+11. Propose commit
+12. Clean up
 
-All steps mandatory. Cannot skip. No exception.
+All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not
+a carve-out — always complete pre-review → review → propose commit even for
+small changes.
 
 ### 0. Scout
 
