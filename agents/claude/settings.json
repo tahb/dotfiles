@@ -148,11 +148,7 @@
       "Bash(python --version *)",
       "Bash(ruby --version *)",
       "Bash(curl *)",
-      "Bash(wget *)",
-      "ExitPlanMode(*)",
-      "WebFetch(domain:*)",
-      "WebSearch",
-      "mcp__plugin_*"
+      "Bash(wget *)"
     ],
     "deny": [
       "Read(./.env)",
@@ -171,8 +167,6 @@
       "Bash(rm -rf $HOME *)",
       "Bash(sudo rm -rf / *)",
       "Bash(sudo rm -rf /* *)",
-      "Bash(git branch -D *)",
-      "Bash(git branch -D)",
       "Bash(git checkout -- *)",
       "Bash(git checkout --)",
       "Bash(git checkout . *)",

@@ -1,5 +1,6 @@
 ## Pipeline
 
+0. Triage question gate. If super-simple you may ask me to skip pipeline.
 1. Scout
 2. Plan
 3. Plan gate
@@ -14,8 +15,11 @@
 12. Clean up
 
 All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not
-a carve-out — always complete pre-review → review → propose commit even for
-small changes.
+a carve-out.
+
+### 0. Triage question gate
+
+Without scanning code, consider how simple the question is. If coding related it likely needs the dev pipeline. If just config or documentation or a question, not  needed so prompt to skip.
 
 ### 0. Scout
 

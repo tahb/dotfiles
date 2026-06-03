@@ -9,6 +9,7 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## Dev workflow/pipeline
 
+0. Triage problem. If super-simple you may ask me to skip pipeline.
 1. Scout
 2. Plan
 3. Plan gate
@@ -22,7 +23,7 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 11. Propose commit
 12. Clean up
 
-All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out — always complete pre-review → review → propose commit even for small changes.
+All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
 ## Rules
 
