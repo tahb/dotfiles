@@ -46,10 +46,10 @@
       "model": "openai/gpt-5.4-mini",
       "description": "Findings docs and code",
       "permission": {
-        "edit": "ask",
+        "edit": "deny",
         "bash": {
           "read": "allow",
-          "write": "ask"
+          "write": "deny"
         }
       },
       "prompt": "{file:./prompts/scout.md}"
@@ -61,12 +61,13 @@
       "model": "openai/gpt-5.5",
       "description": "Dev agent. Full pipeline: scout, plan, worktree, test, implement, pre-review, review, document, propose, cherry-pick.",
       "permission": {
-        "edit": "ask",
+        "edit": "deny",
         "bash": {
           "read": "allow",
-          "write": "ask"
+          "write": "deny"
         }
       },
+      "prompt": "{file:./prompts/dev.md}"
     },
     // "local": {
     //   "mode": "primary",
@@ -81,7 +82,7 @@
     //   }
     // },
     "planner": {
-      "mode": "all",
+      "mode": "subagent",
       "color": "#0F6E56",
       "model": "openai/gpt-5.5",
       // "model": "opencode/big-pickle",
@@ -96,7 +97,7 @@
       }
     },
     "builder": {
-      "mode": "all",
+      "mode": "subagent",
       "color": "#BA7517",
       "model": "openai/gpt-5.4-mini",
       // "model": "opencode/big-pickle",

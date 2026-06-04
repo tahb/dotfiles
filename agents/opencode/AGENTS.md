@@ -16,12 +16,12 @@ All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not 
 3. Plan gate
 4. Builder (create worktree)
 5. Builder (add E2E cov)
-6. Builder (red, green, refactor/TDD)
+6. Builder (red, green, refactor/TDD → propose commit message → await approval → commit)
 7. Reviewer (Quick)
 8. Reviewer (Deep)
 9. Builder (prove E2E pass with results)
 10. Scribe (Document)
-11. Propose commit
+11. Propose cherry-pick to main
 12. Clean up
 
 ## Rules

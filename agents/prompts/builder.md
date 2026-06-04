@@ -1,12 +1,17 @@
 # Builder pipeline
 
-Orchestrator passes `$PLAN` (plan file path).
+Orchestrator passes `$PLAN` (plan file path) AFTER plan gate. Do not start §1 without explicit "plan approved" signal.
+
+## 0. Gate check
+
+- `$PLAN` present + readable.
+- Orchestrator confirms user approval.
+- Missing → abort, ask orchestrator.
 
 ## 1. Worktree
 
 ```bash
-# SLUG = short kebab task name
-SLUG="..."
+SLUG="..."  # short kebab task name
 CALLER=$(git rev-parse --abbrev-ref HEAD)
 TS=$(date +%Y%m%d-%H%M%S)
 WT="$(pwd)/.agents/worktrees/${TS}-${SLUG}"
@@ -14,64 +19,70 @@ git worktree prune
 git worktree add -b "task/${TS}-${SLUG}" "$WT"
 ```
 
-Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Use absolute paths or `git -C "$WT"`. No `cd`.
+Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Absolute paths or `git -C "$WT"`. No `cd`.
 
 ## 2. E2E test (red)
 
-Add failing e2e/integration test in `$WT` for new/fixed behaviour. Confirm fails. Stays red until §6.
+Add failing e2e/integration test in `$WT` for new/fixed behaviour. Confirm fails. Stays red until §7.
 
 ## 3. Build (TDD units)
 
-- Invoke Skill `test-driven-development` for unit-level red → green → refactor.
+- Invoke Skill `test-driven-development` for unit red → green → refactor.
 - Implement per `$PLAN`.
 - Report fast test results.
-- Do NOT commit. Reviews run on uncommitted diff in `$WT`.
 
-## 4. Fast code review
-
-`subagent_type="local-reviewer"`, pass `$WT` + `$PLAN`. Reviewer reads `git -C "$WT" diff HEAD`.
-
-- PASS → §5
-- Issues → loop §3 (then re-run §4)
-
-## 5. Review
-
-`subagent_type="reviewer"`, pass `$WT` + `$PLAN`. Reviewer reads `git -C "$WT" diff HEAD`. Present report.
-
-- Approve → §6
-- Rework → loop §3 (then re-run §4, §5)
-
-## 6. E2E pass check
-
-Run project E2E suite in `$WT`. Show result.
-
-- Pass → §7
-- Fail → loop §3
-
-## 7. Document
-
-`subagent_type="scribe"`, pass `$WT`. No-ops if no doc changes.
-
-## 8. Propose
+## 4. Commit (task branch)
 
 Show proposed commit message + diff summary. Wait for approval.
 
-- Reject → loop §3
-- Approve → run:
+- Reject → loop §3.
+- Approve →
 
 ```bash
 git -C "$WT" add -A
 git -C "$WT" commit -m "<plan title>"
 SHA=$(git -C "$WT" rev-parse HEAD)
-git checkout "$CALLER"
-git cherry-pick "$SHA"
 ```
 
-On conflict: `git cherry-pick --abort`, report to user, stop. Do not auto-resolve. Do not force.
+Commit lands on `task/${TS}-${SLUG}`, not `$CALLER`.
 
-## 9. Cleanup
+## 5. Fast code review
 
-Only after §8 cherry-pick clean.
+`subagent_type="local-reviewer"`, pass `$WT`, `$PLAN`, `$SHA`. Reviewer reads `git -C "$WT" show $SHA`.
+
+- PASS → §6.
+- Issues → loop §3 (atomic fix commit, new `$SHA`, re-run §5).
+
+## 6. Deep review
+
+`subagent_type="reviewer"`, pass `$WT`, `$PLAN`, latest `$SHA`. Present report.
+
+- Approve → §7.
+- Rework → loop §3 (atomic fix commit, re-run §5, §6).
+
+## 7. E2E pass check
+
+Run project E2E suite in `$WT`. Show result.
+
+- Pass → §8.
+- Fail → loop §3.
+
+## 8. Document
+
+`subagent_type="scribe"`, pass `$WT`. Scribe runs `git -C "$WT" diff $CALLER..HEAD`. No-op if no doc changes. New commit on task branch if updates.
+
+## 9. Cherry-pick to caller
+
+```bash
+git checkout "$CALLER"
+git -C "$(git rev-parse --show-toplevel)" cherry-pick "task/${TS}-${SLUG}"
+```
+
+Conflict → `git cherry-pick --abort`, report, stop. No auto-resolve. No force.
+
+## 10. Cleanup
+
+Only after §9 clean.
 
 ```bash
 git worktree remove "$WT"

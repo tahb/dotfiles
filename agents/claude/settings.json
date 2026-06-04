@@ -186,6 +186,7 @@
     "ask": [
       "Bash(rk git cherry-pick *)",
       "Bash(git cherry-pick *)",
+      "Bash(git -C * cherry-pick *)",
       "Bash(git commit *)",
       "Bash(git commit)",
       "Bash(rtk git commit *)"
@@ -206,6 +207,42 @@
             "command": "bash \"$HOME/.claude/hooks/block-dangerous-git.sh\""
           }
         ]
+      },
+      {
+        "matcher": "Bash(git cherry-pick *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"PIPELINE GATE: Before cherry-picking, you must have shown the user the commit message, diff summary, and test results, and received explicit approval. If you have not done this, abort and present the proposal now.\"}}'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git -C * cherry-pick *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"PIPELINE GATE: Before cherry-picking, you must have shown the user the commit message, diff summary, and test results, and received explicit approval. If you have not done this, abort and present the proposal now.\"}}'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git commit *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"PIPELINE GATE: Before committing, you must have shown the user the proposed commit message + diff summary and received explicit approval. If you have not done this, abort and present the proposal now.\"}}'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git -C * commit *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"PIPELINE GATE: Before committing, you must have shown the user the proposed commit message + diff summary and received explicit approval. If you have not done this, abort and present the proposal now.\"}}'"
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -217,7 +254,7 @@
             "statusMessage": "Activating caveman mode..."
           }
         ]
-      },
+      }
     ],
     "UserPromptSubmit": []
   },
@@ -246,12 +283,12 @@
         "source": "github",
         "repo": "zilliztech/memsearch"
       }
-    },
+    }
   },
   "effortLevel": "medium",
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "maxTurns": 25,
+  "maxTurns": 50,
   "defaultMode": "auto"
 }
