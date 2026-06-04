@@ -43,7 +43,7 @@
     "scout": {
       "mode": "subagent",
       "color": "#5BA3A0",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "description": "Findings docs and code",
       "permission": {
         "edit": "ask",
@@ -58,7 +58,7 @@
       "mode": "primary",
       "color": "#D4396B",
       // "model": "opencode-go/glm-5.1",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "description": "Dev agent. Full pipeline: scout, plan, worktree, test, implement, pre-review, review, document, propose, cherry-pick.",
       "permission": {
         "edit": "ask",
@@ -67,7 +67,6 @@
           "write": "ask"
         }
       },
-      "prompt": "{file:./prompts/dev.md}"
     },
     // "local": {
     //   "mode": "primary",
@@ -84,7 +83,7 @@
     "planner": {
       "mode": "all",
       "color": "#0F6E56",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       // "model": "opencode/big-pickle",
       "description": "Planning agent that breaks software engineering goals into ordered task lists.",
       "prompt": "{file:./prompts/planner.md}",
@@ -99,7 +98,7 @@
     "builder": {
       "mode": "all",
       "color": "#BA7517",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       // "model": "opencode/big-pickle",
       "description": "Experienced software engineer primary agent for building features.",
       "prompt": "{file:./prompts/builder.md}",

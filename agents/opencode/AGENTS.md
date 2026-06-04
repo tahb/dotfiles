@@ -9,10 +9,12 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## Dev workflow/pipeline
 
+All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
+
 1. Scout
 2. Plan
 3. Plan gate
-4. Builder (create worktree to .agents/worktrees/)
+4. Builder (create worktree)
 5. Builder (add E2E cov)
 6. Builder (red, green, refactor/TDD)
 7. Reviewer (Quick)
@@ -21,8 +23,6 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 10. Scribe (Document)
 11. Propose commit
 12. Clean up
-
-All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
 ## Rules
 
