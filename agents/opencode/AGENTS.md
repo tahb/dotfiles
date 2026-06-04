@@ -9,11 +9,10 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## Dev workflow/pipeline
 
-0. Triage problem. If super-simple you may ask me to skip pipeline.
 1. Scout
 2. Plan
 3. Plan gate
-4. Builder (create worktree)
+4. Builder (create worktree to .agents/worktrees/)
 5. Builder (add E2E cov)
 6. Builder (red, green, refactor/TDD)
 7. Reviewer (Quick)
