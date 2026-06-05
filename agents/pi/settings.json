@@ -1,16 +1,16 @@
 {
-  "lastChangelogVersion": "0.75.5",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-pro",
+  "lastChangelogVersion": "0.78.1",
+  "defaultProvider": "ollama",
+  "defaultModel": "gemma4-12b-32k",
+  "extensions": [
+    "~/dotfiles/agents/pi/ollama.js"
+  ],
   "defaultThinkingLevel": "high",
   "compaction": {
     "enabled": true
   },
   "packages": [
-    "npm:pi-subagents",
     "npm:pi-web-access",
-    "npm:pi-ask-user",
-    "npm:pi-btw",
-    "npm:context-mode"
+    "npm:pi-ask-user"
   ]
 }
