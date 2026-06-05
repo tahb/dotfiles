@@ -24,7 +24,7 @@ No §4 without yes.
 
 ### 4. Builder (worktree)
 
-`agent: builder`. Pass `$PLAN` + "plan approved". Builder runs its prompt §1 (worktree).
+`agent: builder`. Pass `$PLAN` + "plan approved". Builder §1 worktree.
 
 ### 5. Builder (E2E red)
 

@@ -69,7 +69,7 @@ Run project E2E suite in `$WT`. Show result.
 
 ## 8. Document
 
-`subagent_type="scribe"`, pass `$WT`. Scribe runs `git -C "$WT" diff $CALLER..HEAD`. No-op if no doc changes. New commit on task branch if updates.
+`subagent_type="scribe"`, pass `$WT` + `$CALLER`. Scribe runs `git -C "$WT" diff $CALLER..HEAD`. No-op if no doc changes. New commit on task branch if updates.
 
 ## 9. Cherry-pick to caller
 

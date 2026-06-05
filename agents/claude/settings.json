@@ -19,10 +19,6 @@
       "Bash(docker compose *)",
       "Bash(docker volume *)",
       "Bash(docker-compose build *)",
-      "Bash(echo \"EXIT: $?\")",
-      "Bash(echo \"EXIT:$?\")",
-      "Bash(echo \"exit: $?\")",
-      "Bash(echo \"exit:$?\")",
       "Bash(echo *)",
       "Bash(export *)",
       "Bash(find *)",
@@ -36,12 +32,9 @@
       "Bash(go version)",
       "Bash(go vet)",
       "Bash(grep *)",
-      "Bash(grep -v \"^$\")",
-      "Bash(grep)",
       "Bash(head *)",
       "Bash(ln *)",
       "Bash(ls *)",
-      "Bash(ls)",
       "Bash(make *)",
       "Bash(make test *)",
       "Bash(make test-api *)",
@@ -105,8 +98,6 @@
       "Bash(xargs ls -la)",
       "Bash(rtk date)",
       "Bash(date)",
-      "Bash(sort)",
-      "Bash(awk)",
       "Read",
       "Glob",
       "Grep",
@@ -148,7 +139,75 @@
       "Bash(python --version *)",
       "Bash(ruby --version *)",
       "Bash(curl *)",
-      "Bash(wget *)"
+      "Bash(wget *)",
+      "Bash(bat *)",
+      "Bash(less *)",
+      "Bash(more *)",
+      "Bash(nl *)",
+      "Bash(tac *)",
+      "Bash(column *)",
+      "Bash(comm *)",
+      "Bash(paste *)",
+      "Bash(fold *)",
+      "Bash(fmt *)",
+      "Bash(expand *)",
+      "Bash(unexpand *)",
+      "Bash(xxd *)",
+      "Bash(hexdump *)",
+      "Bash(rg *)",
+      "Bash(fd *)",
+      "Bash(ag *)",
+      "Bash(man *)",
+      "Bash(tldr *)",
+      "Bash(info *)",
+      "Bash(dig *)",
+      "Bash(host *)",
+      "Bash(nslookup *)",
+      "Bash(nc -z *)",
+      "Bash(ss *)",
+      "Bash(netstat *)",
+      "Bash(lsof -i *)",
+      "Bash(lsof -p *)",
+      "Bash(tsc --noEmit *)",
+      "Bash(tsc --version)",
+      "Bash(eslint --version)",
+      "Bash(prettier --check *)",
+      "Bash(prettier --version)",
+      "Bash(ruff check *)",
+      "Bash(ruff format --check *)",
+      "Bash(mypy *)",
+      "Bash(pyright *)",
+      "Bash(pylint *)",
+      "Bash(pytest --collect-only *)",
+      "Bash(pytest --version)",
+      "Bash(gofmt -l *)",
+      "Bash(golangci-lint run *)",
+      "Bash(shellcheck *)",
+      "Bash(hadolint *)",
+      "Bash(actionlint *)",
+      "Bash(yamllint *)",
+      "Bash(xmllint *)",
+      "Bash(kubectl get *)",
+      "Bash(kubectl describe *)",
+      "Bash(kubectl logs *)",
+      "Bash(kubectl explain *)",
+      "Bash(kubectl version *)",
+      "Bash(kubectl config view *)",
+      "Bash(helm list *)",
+      "Bash(helm status *)",
+      "Bash(helm show *)",
+      "Bash(helm version)",
+      "Bash(pgrep *)",
+      "Bash(pidof *)",
+      "Bash(sw_vers *)",
+      "Bash(arch)",
+      "Bash(getconf *)",
+      "Bash(sysctl -n *)",
+      "Bash(printenv *)",
+      "Bash(env)",
+      "Bash(locale *)",
+      "Bash(command -v *)",
+      "Bash(type *)"
     ],
     "deny": [
       "Read(./.env)",
@@ -250,13 +309,22 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\"}}'",
-            "statusMessage": "Activating caveman mode..."
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 12-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → quick review → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\"}}'",
+            "statusMessage": "Activating caveman + pipeline mode..."
           }
         ]
       }
     ],
-    "UserPromptSubmit": []
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"PIPELINE REMINDER: For any code change, start with scout subagent. Pipeline mandatory: scout → plan → gate → builder → reviews → e2e → scribe → cherry-pick → cleanup. No trivial carve-out.\"}}'"
+          }
+        ]
+      }
+    ]
   },
   "disableAgentView": true,
   "statusLine": {
@@ -285,10 +353,9 @@
       }
     }
   },
-  "effortLevel": "medium",
+  "effortLevel": "xhigh",
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "maxTurns": 50,
-  "defaultMode": "auto"
+  "maxTurns": 50
 }
