@@ -17,6 +17,9 @@ TS=$(date +%Y%m%d-%H%M%S)
 WT="$(pwd)/.agents/worktrees/${TS}-${SLUG}"
 git worktree prune
 git worktree add -b "task/${TS}-${SLUG}" "$WT"
+echo "***************"
+echo "worktree: $WT"
+echo "***************"
 ```
 
 Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Absolute paths or `git -C "$WT"`. No `cd`.
