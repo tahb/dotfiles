@@ -50,7 +50,7 @@ Commit format: `<type>: <description>` — no scope. Pick type:
 - Approve →
 
 ```bash
-git -C "$WT" add -A
+git -C "$WT" add <only files you changed>
 git -C "$WT" commit -m "<type>: <description>"
 SHA=$(git -C "$WT" rev-parse HEAD)
 ```
