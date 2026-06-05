@@ -55,10 +55,29 @@ Commit lands on `task/${TS}-${SLUG}`, not `$CALLER`.
 
 ## 6. Deep review
 
-`subagent_type="reviewer"`, pass `$WT`, `$PLAN`, latest `$SHA`. Present report.
+`subagent_type="reviewer"`, pass `$WT`, `$PLAN`, latest `$SHA`. Present full report to user.
 
-- Approve → §7.
-- Rework → loop §3 (atomic fix commit, re-run §5, §6).
+### 6a. Critical — auto-fix
+
+If Critical issues present: loop §3 fixing Critical only. Atomic fix commit, new `$SHA`. Re-run §5, §6. Repeat until no Critical.
+
+### 6b. Important — STOP, ask user
+
+After no Critical, if Important issues remain:
+
+- Ask: "Important issues:\n[list]\nFix? (all / selected <nums> / skip / abort)".
+- **all** → loop §3 fixing all Important. Re-run §5, §6.
+- **selected N,M** → loop §3 fixing only listed. Append unfixed to `./.agents/followups/${TS}-${SLUG}.md`. Re-run §5, §6.
+- **skip** → append all Important to followups file. Proceed §7.
+- **abort** → stop pipeline. Leave worktree.
+
+### 6c. Minor — always defer
+
+Append all Minor issues to `./.agents/followups/${TS}-${SLUG}.md`. Never auto-fix. Never ask.
+
+### 6d. Clean exit
+
+No Critical + no Important (or all resolved) → §7.
 
 ## 7. E2E pass check
 
