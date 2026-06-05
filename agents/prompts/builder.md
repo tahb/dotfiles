@@ -38,12 +38,20 @@ Add failing e2e/integration test in `$WT` for new/fixed behaviour. Confirm fails
 
 Show proposed commit message + diff summary. Wait for approval.
 
+Commit format: `<type>: <description>` — no scope. Pick type:
+- `feat:` — new user-visible feature
+- `fix:` — bug fix
+- `refactor:` — no behaviour change
+- `test:` — test-only change
+- `chore:` — build, deps, config
+- `docs:` — documentation only
+
 - Reject → loop §3.
 - Approve →
 
 ```bash
 git -C "$WT" add -A
-git -C "$WT" commit -m "<plan title>"
+git -C "$WT" commit -m "<type>: <description>"
 SHA=$(git -C "$WT" rev-parse HEAD)
 ```
 
