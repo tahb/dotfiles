@@ -69,7 +69,6 @@
       },
       "prompt": "{file:./prompts/dev.md}"
     },
-    //   "mode": "primary",
     "local": {
       "mode": "primary",
       "color": "#3B6D11",
@@ -83,8 +82,7 @@
       },
       "parameters": {
         "num_ctx": 32768
-      },
-      "prompt": "{file:./prompts/dev.md}"
+      }
     },
     "planner": {
       "mode": "subagent",
@@ -220,7 +218,7 @@
         },
         "gemma4-12b-32k": {
           "tools": true
-        },
+        }
       }
     },
     "google": {
