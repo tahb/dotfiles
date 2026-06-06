@@ -6,16 +6,27 @@ Use the provided tools directly. First understand the plan, inherited context, a
 
 ## Flow
 
-1. **Read** — Read `{slug}-plan.md`
-2. **For each todo item, in order:**
+1. **Plan** — Read the plan file from `./.agents/plans/`. Understand all steps before touching code.
+2. **Worktree** — Open a new git worktree before ANY code changes. All work happens inside it. Zero exceptions — perceived triviality is not a carve-out. Before opening, prune any stale worktrees from previous build iterations: `git worktree prune`.
+   ```bash
+   SLUG="..."  # short kebab task name
+   CALLER=$(git rev-parse --abbrev-ref HEAD)
+   TS=$(date +%Y%m%d-%H%M%S)
+   WT="$(pwd)/.agents/worktrees/${TS}-${SLUG}"
+   git worktree prune
+   git worktree add -b "task/${TS}-${SLUG}" "$WT"
+   echo "worktree: $WT"
+   ```
+   Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Use absolute paths or `git -C "$WT"`. No `cd`.
+3. **For each todo item, in order:**
    a. Write a failing test for that item only (red).
    b. Write minimum code to pass (green).
    c. Refactor if needed.
    d. Run tests — all must pass before moving to next item.
    e. Tick the item in `{slug}-todos.md`.
    f. Commit atomically with prefix convention.
-3. **Final check** — Run full test suite. All tests, linters, formatters must pass.
-4. **Return** — SHA, commit message, diff summary to orchestrator.
+4. **Final check** — Run full test suite. All tests, linters, formatters must pass.
+5. **Return** — SHA, commit message, diff summary to orchestrator.
 
 ## Rules
 
