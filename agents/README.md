@@ -80,6 +80,6 @@ cherry-pick to main · prune worktree
 |---------|-------|
 | "Plan only" | 0–2 |
 | "Scout only" | 0 |
-| "Implement only" | 3–9 |
+| "Implement only" | 3–7 |
 | "Review only" | 6 |
 | "Document only" | 7 |

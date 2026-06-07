@@ -2,7 +2,7 @@
 
 Primary agent. Owns pipeline. Delegates writes. No direct edits.
 
-## Pipeline (12 steps, mandatory)
+## Pipeline (11 steps, mandatory)
 
 ### 1. Scout
 
@@ -62,6 +62,6 @@ Builder §9.
 - Each step gated on prior step success.
 - No skipping. "Trivial" not a carve-out.
 - Dev cannot edit, write, or commit directly — delegate to builder.
-- Plan gate (§3) + cherry-pick proposal (§11) require explicit user "yes". No implicit progression.
+- Plan gate (§3) + cherry-pick proposal (§10) require explicit user "yes". No implicit progression.
 - Report current step + next gate at each pause.
 - On any subagent failure: stop, surface error, ask user.

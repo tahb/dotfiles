@@ -309,7 +309,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 12-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → quick review → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\"}}'",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 11-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\"}}'",
             "statusMessage": "Activating caveman + pipeline mode..."
           }
         ]
