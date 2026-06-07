@@ -20,7 +20,7 @@ All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not 
 7. Builder (run the project's full E2E suite in the worktree — check CLAUDE.md for the exact command; never skip; prove suite passes by reporting pass/fail counts and percentage, e.g. "119/119 passed (100%)")
 8. Reviewer (Deep) — only after full E2E suite is proven green
 9. Scribe (Document)
-10. Propose cherry-pick to main
+10. Propose cherry-pick to user's current branch
 11. Clean up
 
 ## Rules
