@@ -36,7 +36,7 @@ task
   ▼
 9. scribe (haiku · update docs)
   │
-[YOU] approve commit? ──reject──────────────────────▶┘
+[YOU] approve cherry-pick? ──reject──────────────────▶┘
   │
   ▼
 10. cherry-pick proposal to main
