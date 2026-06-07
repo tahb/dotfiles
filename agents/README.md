@@ -9,14 +9,14 @@ task
  │
  ▼
 1. plan skill  (.agents/plans/{slug}-plan.md + {slug}-todos.md)
- │
- ▼
-[YOU] approve plan + todos? ──reject──▶ back to 1
- │
- ▼
+  │
+  ▼
+2. plan gate   [YOU] approve plan + todos? ──reject──▶ back to 1
+  │
+  ▼
 3. git worktree  (.agents/worktrees/slug)
- │
- ▼
+  │
+  ▼
 4. write failing e2e test
  │
  ▼

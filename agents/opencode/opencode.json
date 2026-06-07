@@ -59,7 +59,7 @@
       "color": "#D4396B",
       // "model": "opencode-go/glm-5.1",
       "model": "openai/gpt-5.5",
-      "description": "Dev agent. Full pipeline: scout, plan, worktree, test, implement, pre-review, review, document, propose, cherry-pick.",
+      "description": "Dev agent. Full pipeline: scout, plan, gate, worktree, test, implement, review, document, propose, cherry-pick, cleanup.",
       "permission": {
         "edit": "deny",
         "bash": {
