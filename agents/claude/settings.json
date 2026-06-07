@@ -353,7 +353,7 @@
       }
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
