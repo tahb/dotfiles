@@ -14,13 +14,13 @@ All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not 
 1. Scout
 2. Plan
 3. Plan gate
-4. Builder (create worktree)
+4. Builder (create worktree inside `.agents/worktrees/`)
 5. Builder (add E2E cov)
 6. Builder (red, green, refactor/TDD → propose commit message → await approval → commit)
-7. Reviewer (Deep)
-8. Builder (prove E2E pass with results)
+7. Builder (run the project's full E2E suite in the worktree — check CLAUDE.md for the exact command; never skip; prove suite passes by reporting pass/fail counts and percentage, e.g. "119/119 passed (100%)")
+8. Reviewer (Deep) — only after full E2E suite is proven green
 9. Scribe (Document)
-10. Propose cherry-pick to main
+10. Propose cherry-pick to main → after approval, cherry-pick then `git push` so pre-push hook gates the result
 11. Clean up
 
 ## Rules
