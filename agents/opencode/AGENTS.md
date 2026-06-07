@@ -34,4 +34,11 @@ All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not 
 - verify tests pass by giving me the result
 - touch only what you must; don't improve adjacent code
 
+## E2E rules
+
+- assert user-visible behaviour only: navigation, form submission, data rendered, error states
+- no CSS tests: no class-name checks, no style/token/palette assertions, no "class X absent" guards
+- no phase-named files — use canonical per-feature spec files
+- no screenshot/recording utilities in the suite
+
 @RTK.md
