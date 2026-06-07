@@ -8,32 +8,41 @@ task
  │◀────────────────────────────────┘
  │
  ▼
-1. plan skill  (.agents/plans/{slug}-plan.md + {slug}-todos.md)
+1. scout (haiku · read-only)
   │
   ▼
-2. plan gate   [YOU] approve plan + todos? ──reject──▶ back to 1
+2. plan skill  (.agents/plans/{slug}-plan.md + {slug}-todos.md)
   │
   ▼
-3. git worktree  (.agents/worktrees/slug)
+3. plan gate  [YOU] approve plan + todos? ──reject──▶ back to 2
   │
   ▼
-4. write failing e2e test
- │
- ▼
-5. builder (haiku) · todos one-at-a-time · TDD per item
+4. builder (haiku) · git worktree  (.agents/worktrees/slug)
   │
   ▼
-6. reviewer (opus · deep review)
+5. builder · write failing e2e test
+  │
+  ▼
+6. builder · todos one-at-a-time · TDD per item · commit
+  │
+  ▼
+7. reviewer (opus · deep review)
   │
 [YOU] verdict? ──rework──────────────────────────────▶┘
   │
   ▼
-7. scribe (haiku · update docs)
+8. builder · e2e pass proof
+  │
+  ▼
+9. scribe (haiku · update docs)
   │
 [YOU] approve commit? ──reject──────────────────────▶┘
   │
   ▼
-cherry-pick to main · prune worktree
+10. cherry-pick proposal to main
+  │
+  ▼
+11. cleanup · prune worktree
 ```
 
 `[YOU]` = manual gate
@@ -80,6 +89,6 @@ cherry-pick to main · prune worktree
 |---------|-------|
 | "Plan only" | 0–2 |
 | "Scout only" | 0 |
-| "Implement only" | 3–7 |
-| "Review only" | 6 |
-| "Document only" | 7 |
+| "Implement only" | 4–9 |
+| "Review only" | 7 |
+| "Document only" | 9 |
