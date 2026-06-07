@@ -128,20 +128,6 @@
       },
       "prompt": "{file:./prompts/reviewer.md}"
     },
-    // "local-reviewer": {
-    //   "mode": "subagent",
-    //   "color": "#6B9D6B",
-    //   "model": "openai/gpt-4.1-mini",
-    //   "description": "Fast local pre-reviewer. Catches obvious issues before expensive review. Free to run.",
-    //   "permission": {
-    //     "edit": "deny",
-    //     "bash": {
-    //       "read": "allow",
-    //       "write": "deny"
-    //     }
-    //   },
-    //   "prompt": "{file:./prompts/local-reviewer.md}"
-    // },
     "scribe": {
       "mode": "subagent",
       "color": "#5BA3A0",

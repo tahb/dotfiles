@@ -20,24 +20,19 @@ task
 4. write failing e2e test
  │
  ▼
-5. builder (haiku) · todos one-at-a-time · TDD per item ◀────┐
- │                                                        │
- ▼                                                        │
-6. local-reviewer (haiku · fast scan)                     │
- │         │                                              │
-PASS     issues ──────────────────────────────────────────┘
- │
- ▼
-7. reviewer (opus · deep review)
- │
-[YOU] verdict? ──rework──────────────────────────────────▶┘
- │
- ▼
-8. scribe (haiku · update docs)
- │
-[YOU] approve commit? ──reject──────────────────────────▶┘
- │
- ▼
+5. builder (haiku) · todos one-at-a-time · TDD per item
+  │
+  ▼
+6. reviewer (opus · deep review)
+  │
+[YOU] verdict? ──rework──────────────────────────────▶┘
+  │
+  ▼
+7. scribe (haiku · update docs)
+  │
+[YOU] approve commit? ──reject──────────────────────▶┘
+  │
+  ▼
 cherry-pick to main · prune worktree
 ```
 
@@ -50,7 +45,6 @@ cherry-pick to main · prune worktree
 | `dev` | sonnet · high | orchestrator |
 | `scout` | haiku · low | read-only exploration |
 | `builder` | haiku · medium | implementation (todos + TDD) |
-| `local-reviewer` | haiku · medium | fast pre-review |
 | `reviewer` | opus · high | deep review |
 | `scribe` | haiku · low | doc sync |
 
@@ -87,6 +81,5 @@ cherry-pick to main · prune worktree
 | "Plan only" | 0–2 |
 | "Scout only" | 0 |
 | "Implement only" | 3–9 |
-| "Pre-review only" | 6 |
-| "Review only" | 7 |
-| "Document only" | 8 |
+| "Review only" | 6 |
+| "Document only" | 7 |

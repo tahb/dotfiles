@@ -34,32 +34,28 @@ Builder §2.
 
 Builder §3 + §4. Builder proposes commit msg, awaits user approval, commits on task branch. `$SHA` returned.
 
-### 7. Reviewer (Quick)
+### 7. Reviewer (Deep)
 
-Builder §5 invokes `local-reviewer`. Issues → loop §6.
+Builder §5 invokes `reviewer`. Rework → loop §6.
 
-### 8. Reviewer (Deep)
+### 8. Builder (E2E pass proof)
 
-Builder §6 invokes `reviewer`. Rework → loop §6.
+Builder §6. Show results.
 
-### 9. Builder (E2E pass proof)
+### 9. Scribe
 
-Builder §7. Show results.
+Builder §7.
 
-### 10. Scribe
-
-Builder §8.
-
-### 11. Cherry-pick proposal — STOP
+### 10. Cherry-pick proposal — STOP
 
 - Show `$SHA` log + diff summary + e2e result + review verdicts.
 - Ask: "cherry-pick to `$CALLER`? (yes / no)".
-- Yes → builder §9.
+- Yes → builder §8.
 - No → stop, leave worktree.
 
-### 12. Cleanup
+### 11. Cleanup
 
-Builder §10.
+Builder §9.
 
 ## Rules
 
