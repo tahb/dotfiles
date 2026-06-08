@@ -90,7 +90,7 @@
       "model": "openai/gpt-5.5",
       // "model": "opencode/big-pickle",
       "description": "Planning agent that breaks software engineering goals into ordered task lists.",
-      "prompt": "{file:./prompts/planner.md}",
+      "prompt": "{file:./prompts/plan.md}",
       "permission": {
         "edit": "deny",
         "bash": {
@@ -105,7 +105,7 @@
       "model": "openai/gpt-5.4-mini",
       // "model": "opencode/big-pickle",
       "description": "Experienced software engineer primary agent for building features.",
-      "prompt": "{file:./prompts/builder.md}",
+      "prompt": "{file:./prompts/build.md}",
       "permission": {
         "edit": "ask",
         "bash": {
@@ -126,7 +126,21 @@
           "write": "deny"
         }
       },
-      "prompt": "{file:./prompts/reviewer.md}"
+      "prompt": "{file:./prompts/review.md}"
+    },
+    "e2e-tester": {
+      "mode": "subagent",
+      "color": "#2E7D32",
+      "model": "openai/gpt-5.4-mini",
+      "description": "E2E test subagent. Runs full suite in worktree, reports pass/fail counts and percentage.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "read": "allow",
+          "write": "deny"
+        }
+      },
+      "prompt": "{file:./prompts/e2e-tester.md}"
     },
     "scribe": {
       "mode": "subagent",

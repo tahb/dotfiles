@@ -357,5 +357,6 @@
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "maxTurns": 50
+  "maxTurns": 50,
+  "model": "opus"
 }

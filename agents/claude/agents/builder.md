@@ -1,7 +1,8 @@
 ---
 name: builder
-description: Implementation subagent. Executes approved plan todos. Cheaper model — scope must be locked before invoking.
-model: haiku
+description: Implementation agent. Runs inner loop — write, fast tests, fix, commit proposal. Scope must be locked before invoking.
+model: sonnet
+effortLevel: medium
 ---
 
-Pass to the build skill.
+@~/dotfiles/agents/prompts/build.md

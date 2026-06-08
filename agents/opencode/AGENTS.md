@@ -11,17 +11,17 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
-1. Scout
-2. Plan
-3. Plan gate
-4. Builder (create worktree inside `.agents/worktrees/`)
-5. Builder (add E2E cov)
-6. Builder (red, green, refactor/TDD → propose commit message → await approval → commit)
-7. Builder (run the project's full E2E suite in the worktree — check CLAUDE.md for the exact command; never skip; prove suite passes by reporting pass/fail counts and percentage, e.g. "119/119 passed (100%)")
-8. Reviewer (Deep) — only after full E2E suite is proven green
-9. Scribe (Document)
-10. Propose cherry-pick to user's current branch
-11. Clean up
+1. Scout (subagent — read-only, codebase findings)
+2. Plan (orchestrator-inline — no delegation)
+3. Plan gate — await explicit user approval before proceeding
+4. Build (orchestrator-inline — invoke build skill, no delegation; inner loop: write → fast tests → fix)
+   - Create worktree inside `.agents/worktrees/` before any code changes
+   - Propose commit message + diff summary, await user approval, then commit
+5. Review (orchestrator-inline — no delegation) — after build reports done
+6. E2E Test (subagent) — only after review passes; never skip; report pass/fail counts and percentage, e.g. "119/119 passed (100%)"
+7. Route: ship → §8 / implementation bug → §4 / design flaw → §2 / flaky test → rerun §6
+8. Cherry-pick proposal — show SHA log + diff summary + E2E result; await user approval
+9. Cleanup
 
 ## Rules
 
