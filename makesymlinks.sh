@@ -4,6 +4,8 @@ set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
 
+echo "Setting up symlinks..."
+echo "  dotfiles"
 # Standard dotfiles
 mkdir -p "$HOME/.config/ghostty"
 mkdir -p "$HOME/.config/aerospace"
@@ -22,9 +24,11 @@ for src in "$DOTFILES/ghostty/config" \
 done
 [[ -e "$HOME/.wezterm.lua" ]] || ln -sfn "$DOTFILES/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
+echo "  RTK"
 # RTK — global project CLAUDE.md, picked up by all projects via directory traversal
 ln -sfn "$DOTFILES/agents/RTK.md" "$HOME/CLAUDE.md"
 
+echo "  claude"
 # Claude
 mkdir -p "$HOME/.claude/agents"
 ln -sfn "$DOTFILES/agents/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
@@ -33,6 +37,7 @@ ln -sfn "$DOTFILES/agents/claude/settings.json" "$HOME/.claude/settings.json"
 mkdir -p "$HOME/.claude/hooks"
 ln -sfn "$DOTFILES/agents/claude/hooks" "$HOME/.claude/hooks"
 
+echo "  claude skills"
 # Claude skills
 mkdir -p "$HOME/.claude/skills"
 for f in "$DOTFILES"/agents/skills/*.md; do
@@ -49,6 +54,7 @@ for d in "$HOME"/.claude/skills/*/; do
   fi
 done
 
+echo "  opencode"
 # Opencode
 mkdir -p "$HOME/.config/opencode"
 ln -sfn "$DOTFILES/agents/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
@@ -60,8 +66,10 @@ ln -sfn "$DOTFILES/agents/prompts" "$HOME/.config/opencode/prompts"
 mkdir -p "$HOME/.config/opencode/hooks"
 ln -sfn "$DOTFILES/agents/opencode/hooks" "$HOME/.config/opencode/hooks"
 
+echo "  pi"
 # Pi coding agent
 mkdir -p "$HOME/.pi/agent"
 ln -sfn "$DOTFILES/agents/pi/settings.json" "$HOME/.pi/agent/settings.json"
 ln -sfn "$DOTFILES/agents/skills" "$HOME/.pi/agent/skills"
 ln -sfn "$DOTFILES/agents/opencode/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
+echo "Symlinks done."
