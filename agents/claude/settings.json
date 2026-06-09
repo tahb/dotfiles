@@ -3,6 +3,10 @@
     "commit": "",
     "pr": ""
   },
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60"
+  },
   "permissions": {
     "allow": [
       "Bash(/usr/bin/find . *)",
@@ -252,6 +256,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
