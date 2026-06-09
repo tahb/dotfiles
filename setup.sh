@@ -8,6 +8,14 @@ if ! command -v xcodebuild &>/dev/null; then
   sudo xcode-select --install
 fi
 
+# Homebrew
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  brew update
+fi
+
 # Prezto
 if [[ -d "${ZDOTDIR:-$HOME}/.zprezto" ]]; then
   echo "Prezto already installed, skipping"
