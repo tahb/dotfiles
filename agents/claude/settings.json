@@ -353,10 +353,10 @@
       }
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "maxTurns": 50,
+  "maxTurns": 30,
   "model": "opus"
 }

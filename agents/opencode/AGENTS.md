@@ -12,7 +12,7 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
 1. Scout (subagent — read-only, codebase findings)
-2. Plan (orchestrator-inline — no delegation)
+2. Plan (orchestrator-inline — no delegation. Use Plan skill)
 3. Plan gate — await explicit user approval before proceeding
 4. Build (subagent — inner loop: write → fast tests → fix)
    - Create worktree inside `.agents/worktrees/` before any code changes
