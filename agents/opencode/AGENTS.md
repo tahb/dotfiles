@@ -14,7 +14,7 @@ All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not 
 1. Scout (subagent — read-only, codebase findings)
 2. Plan (orchestrator-inline — no delegation)
 3. Plan gate — await explicit user approval before proceeding
-4. Build (orchestrator-inline — invoke build skill, no delegation; inner loop: write → fast tests → fix)
+4. Build (subagent — inner loop: write → fast tests → fix)
    - Create worktree inside `.agents/worktrees/` before any code changes
    - Propose commit message + diff summary, await user approval, then commit
 5. Review (orchestrator-inline — no delegation) — after build reports done

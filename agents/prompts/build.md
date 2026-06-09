@@ -26,7 +26,7 @@ Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Absolute paths or `git -C "$WT"`.
 
 Add failing unit/integration test in `$WT` for new/fixed behaviour. Confirm fails. Stays red until §3.
 
-## 3. Build (TDD units)
+## 3. Build (TDD)
 
 - Invoke Skill `test-driven-development` for unit red → green → refactor.
 - Implement per `$PLAN`.
