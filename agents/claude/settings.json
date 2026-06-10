@@ -29,7 +29,6 @@
       "Bash(git mv *)",
       "Bash(git worktree prune)",
       "Bash(rtk git worktree prune)",
-      "Bash(git worktree add *)",
       "Bash(go get *)",
       "Bash(go list *)",
       "Bash(go test *)",
@@ -247,6 +246,8 @@
       "Read(.env)"
     ],
     "ask": [
+      "Bash(git worktree add *)",
+      "Bash(rtk git worktree add *)",
       "Bash(rk git cherry-pick *)",
       "Bash(git cherry-pick *)",
       "Bash(git -C * cherry-pick *)",
@@ -332,7 +333,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 11-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\\n\\nWORKTREE RULE: Worktrees MUST live at .agents/worktrees/<TS>-<slug>. NEVER pass isolation:worktree to the Agent tool — it creates .claude/worktrees/ and is forbidden. Create the worktree manually with git worktree add BEFORE dispatching builder. Hook will hard-reject other paths.\\n\\nCOMMIT FORMAT: Strict <type>: <description>. Lower-case. NO SCOPE. Allowed types: feat fix refactor test chore docs. Reject fix(scope): msg, Feat: msg, no-type msg.\\n\\nPLAN STEP: Orchestrator drafts plan inline, dispatches scribe subagent (haiku) to write the markdown to .agents/plans/. Cheap.\"}}'",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 11-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. Before E2E step, ask \\\"Shall I run the full E2E suite, or only tests relevant to this change?\\\". See ~/.config/opencode/AGENTS.md for full spec.\\n\\nWORKTREE RULE: Before creating a worktree, ask the user \\\"Shall I work in a git worktree?\\\" and await yes/no. Worktrees MUST live at .agents/worktrees/<TS>-<slug>. NEVER pass isolation:worktree to the Agent tool — it creates .claude/worktrees/ and is forbidden. Create the worktree manually with git worktree add BEFORE dispatching builder. Hook will hard-reject other paths.\\n\\nCOMMIT FORMAT: Strict <type>: <description>. Lower-case. NO SCOPE. Allowed types: feat fix refactor test chore docs. Reject fix(scope): msg, Feat: msg, no-type msg.\\n\\nPLAN STEP: Orchestrator drafts plan inline, dispatches scribe subagent (haiku) to write the markdown to .agents/plans/. Cheap.\"}}'",
             "statusMessage": "Activating caveman + pipeline mode..."
           }
         ]
@@ -343,7 +344,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"PIPELINE REMINDER: For any code change, start with scout subagent. Pipeline mandatory: scout → plan → gate → builder → reviews → e2e → scribe → cherry-pick → cleanup. No trivial carve-out.\"}}'"
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Follow the dev pipeline defined in AGENTS.md.\"}}'"
           }
         ]
       }

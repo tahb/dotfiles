@@ -12,15 +12,16 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
 1. Scout (subagent — read-only, codebase findings)
-2. Plan: orchestrator drafts plan, dispatches scribe subagent (haiku) to write markdown to `./.agents/plans/[YYYY-MM-DD-HHmm]-[name]-plan.md`. Keeps planning cheap.
+2. Plan: orchestrator drafts plan, dispatches scribe subagent (haiku) to write markdown to `<project-root>/.agents/plans/YYYY-MM-DD-HH:MM-<slug>.md` (colon between hour and minute; no `-plan` suffix). Orchestrator MUST pass the absolute project-root path to scribe — relative paths resolve to scribe's CWD and land elsewhere. Keeps planning cheap.
 3. Plan gate — await explicit user approval before proceeding
 4. Build (subagent — inner loop: write → fast tests → fix)
+   - Worktree gate: ask "Shall I work in a git worktree?" — await yes/no before creating one
    - Orchestrator creates worktree FIRST: `git worktree add .agents/worktrees/<TS>-<slug> -b task/<TS>-<slug>` — THEN dispatches builder
    - NEVER pass `isolation: "worktree"` to Agent tool. Harness flag creates worktree under `.claude/worktrees/` — forbidden path.
    - Builder commits on its task branch
    - Propose commit message + diff summary, await user approval, then commit
 5. Review (orchestrator-inline — no delegation) — after build reports done
-6. E2E Test (subagent) — only after review passes; never skip; report pass/fail counts and percentage, e.g. "119/119 passed (100%)"
+6. E2E Test (subagent) — only after review passes; ask "Shall I run the full E2E suite, or only tests relevant to this change?" before running; report pass/fail counts and percentage, e.g. "119/119 passed (100%)"
 7. Route: ship → §8 / implementation bug → §4 / design flaw → §2 / flaky test → rerun §6
 8. Cherry-pick proposal — show SHA log + diff summary + E2E result; await user approval
 9. Cleanup — `git worktree remove .agents/worktrees/<slug>`
