@@ -168,6 +168,8 @@ shift-down = ['volume set 0', 'mode main']
 # WINDOW RULES
 # ================================================================================
 
+# Find app-id via: lsappinfo info -only bundleid "<name>"
+
 # Default: Float all applications
 [[on-window-detected]]
 if.app-id = '*'
@@ -229,4 +231,8 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
 run = "layout floating"
