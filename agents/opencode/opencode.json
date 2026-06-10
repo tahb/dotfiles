@@ -58,8 +58,8 @@
       "mode": "primary",
       "color": "#D4396B",
       // "model": "opencode-go/glm-5.1",
-      "model": "openai/gpt-5.5",
-      "description": "Dev agent. Full pipeline: scout, plan, gate, worktree, test, implement, review, document, propose, cherry-pick, cleanup.",
+      "model": "openai/gpt-5.4",
+      "description": "Main orchestrator agent. ",
       "permission": {
         "edit": "deny",
         "bash": {
@@ -102,7 +102,7 @@
     "builder": {
       "mode": "subagent",
       "color": "#BA7517",
-      "model": "openai/gpt-5.4-mini",
+      "model": "openai/gpt-5.4",
       // "model": "opencode/big-pickle",
       "description": "Experienced software engineer primary agent for building features.",
       "prompt": "{file:./prompts/build.md}",
@@ -117,7 +117,7 @@
     "reviewer": {
       "mode": "subagent",
       "color": "#993556",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.5",
       "description": "Specialized agent for code quality and logic verification.",
       "permission": {
         "edit": "deny",
@@ -145,7 +145,7 @@
     "scribe": {
       "mode": "subagent",
       "color": "#5BA3A0",
-      "model": "openai/gpt-4.1-mini",
+      "model": "openai/gpt-5.4-mini",
       "description": "Specialist for technical documentation sync.",
       "permission": {
         "edit": "ask",
