@@ -382,5 +382,5 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "maxTurns": 30,
-  "model": "opus"
+  "model": "sonnet"
 }

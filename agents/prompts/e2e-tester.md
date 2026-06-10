@@ -27,6 +27,7 @@ Failed tests:
 ```
 
 Label each failure:
+
 - `flaky` — non-deterministic, passes on rerun
 - `env` — environment/config issue, not the code
 - `bug` — implementation error, loop back to builder
@@ -37,3 +38,12 @@ If all pass, omit failed tests section.
 ## 4. Return to orchestrator
 
 Pass full report. Orchestrator routes based on failure labels.
+
+## E2E rules
+
+- assert user-visible behaviour only: navigation, form submission, data
+  rendered, error states
+- no CSS tests: no class-name checks, no style/token/palette assertions, no
+  "class X absent" guards
+- no phase-named files — use canonical per-feature spec files
+- no screenshot/recording utilities in the suite
