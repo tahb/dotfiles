@@ -12,16 +12,35 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 All steps mandatory. Cannot skip. No exception. "Trivial" or "one-liner" is not a carve-out.
 
 1. Scout (subagent — read-only, codebase findings)
-2. Plan (orchestrator-inline — no delegation. Use Plan skill)
+2. Plan: orchestrator drafts plan, dispatches scribe subagent (haiku) to write markdown to `./.agents/plans/[YYYY-MM-DD-HHmm]-[name]-plan.md`. Keeps planning cheap.
 3. Plan gate — await explicit user approval before proceeding
 4. Build (subagent — inner loop: write → fast tests → fix)
-   - Create worktree inside `.agents/worktrees/` before any code changes
+   - Orchestrator creates worktree FIRST: `git worktree add .agents/worktrees/<TS>-<slug> -b task/<TS>-<slug>` — THEN dispatches builder
+   - NEVER pass `isolation: "worktree"` to Agent tool. Harness flag creates worktree under `.claude/worktrees/` — forbidden path.
+   - Builder commits on its task branch
    - Propose commit message + diff summary, await user approval, then commit
 5. Review (orchestrator-inline — no delegation) — after build reports done
 6. E2E Test (subagent) — only after review passes; never skip; report pass/fail counts and percentage, e.g. "119/119 passed (100%)"
 7. Route: ship → §8 / implementation bug → §4 / design flaw → §2 / flaky test → rerun §6
 8. Cherry-pick proposal — show SHA log + diff summary + E2E result; await user approval
-9. Cleanup
+9. Cleanup — `git worktree remove .agents/worktrees/<slug>`
+
+## Commit format
+
+Strict: `<type>: <description>`. No scope. Lower-case description.
+
+Allowed types: `feat`, `fix`, `refactor`, `test`, `chore`, `docs`.
+
+Accept:
+- `fix: wrap booking empty state in app shell`
+- `feat: add invite-code expiry`
+- `chore: bump go to 1.27`
+
+Reject:
+- `fix(404): wrap empty state` (scope forbidden)
+- `feat:(scope) hello bar` (colon before scope)
+- `Fix: wrap empty state` (title case)
+- `wrap empty state` (no type)
 
 ## Rules
 

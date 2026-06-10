@@ -286,6 +286,24 @@
         ]
       },
       {
+        "matcher": "Bash(git worktree add *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/enforce-worktree-path.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(rtk git worktree add *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/enforce-worktree-path.sh\""
+          }
+        ]
+      },
+      {
         "matcher": "Bash(git commit *)",
         "hooks": [
           {
@@ -309,7 +327,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 11-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\"}}'",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE from session start. Apply all caveman rules immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Pattern: [thing] [action] [reason]. Never revert unless user says stop caveman or normal mode. No jokes, no humour, no wit.\\n\\nPIPELINE MANDATE: Code-change requests follow 11-step pipeline (scout → plan → plan-gate → builder/worktree → e2e red → TDD + commit → deep review → e2e pass → scribe → cherry-pick → cleanup). First action on any code change: invoke scout subagent. No carve-out for trivial. See ~/.config/opencode/AGENTS.md for full spec.\\n\\nWORKTREE RULE: Worktrees MUST live at .agents/worktrees/<TS>-<slug>. NEVER pass isolation:worktree to the Agent tool — it creates .claude/worktrees/ and is forbidden. Create the worktree manually with git worktree add BEFORE dispatching builder. Hook will hard-reject other paths.\\n\\nCOMMIT FORMAT: Strict <type>: <description>. Lower-case. NO SCOPE. Allowed types: feat fix refactor test chore docs. Reject fix(scope): msg, Feat: msg, no-type msg.\\n\\nPLAN STEP: Orchestrator drafts plan inline, dispatches scribe subagent (haiku) to write the markdown to .agents/plans/. Cheap.\"}}'",
             "statusMessage": "Activating caveman + pipeline mode..."
           }
         ]

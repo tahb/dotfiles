@@ -37,9 +37,9 @@ Add failing unit/integration test in `$WT` for new/fixed behaviour. Confirm fail
 
 Show proposed commit message + diff summary. Wait for approval.
 
-Commit format: `<type>: <description>`
+Commit format STRICT: `<type>: <description>`. No scope. Lower-case description. Hook may reject otherwise.
 
-Pick type:
+Allowed types:
 
 - `feat:` — new user-visible feature
 - `fix:` — bug fix
@@ -48,7 +48,15 @@ Pick type:
 - `chore:` — build, deps, config
 - `docs:` — documentation only
 
-Not: `feat:(foo) hello bar`
+Accept:
+- `fix: wrap booking empty state in app shell`
+- `feat: add invite-code expiry`
+
+Reject:
+- `fix(404): wrap empty state` — scope forbidden
+- `feat:(scope) hello bar` — colon before scope
+- `Fix: wrap empty state` — title case
+- `wrap empty state` — no type
 
 - Reject → loop §3
 - Approve →

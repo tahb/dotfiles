@@ -1,6 +1,6 @@
 ---
 name: scribe
-description: Specialist for technical documentation sync. Updates docs from git diff.
+description: Documentation specialist. Two modes — (1) sync docs from git diff, (2) write plan markdown to .agents/plans/. Caller picks mode via prompt.
 model: haiku
 effortLevel: low
 mode: subagent
