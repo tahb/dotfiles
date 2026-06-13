@@ -14,17 +14,14 @@ touch "$DOTFILES/.profile"
 ln -sfn "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 ln -sfn "$DOTFILES/ghostty/themes" "$HOME/.config/ghostty/themes"
 
-for src in "$DOTFILES/.gitignore" \
-           "$DOTFILES/gitconfig" \
-           "$DOTFILES/zshrc" \
-           "$DOTFILES/zpreztorc" \
-           "$DOTFILES/aerospace/aerospace.toml" \
-           "$DOTFILES/tmux/.tmux.conf" \
-           "$DOTFILES/.clauderc"; do
-  dest="$HOME/$(basename "$src")"
-  [[ -e "$dest" ]] || ln -sfn "$src" "$dest"
-done
-[[ -e "$HOME/.wezterm.lua" ]] || ln -sfn "$DOTFILES/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
+ln -sfn "$DOTFILES/.gitignore" "$HOME/.gitignore"
+ln -sfn "$DOTFILES/gitconfig" "$HOME/gitconfig"
+ln -sfn "$DOTFILES/zshrc" "$HOME/zshrc"
+ln -sfn "$DOTFILES/zpreztorc" "$HOME/zpreztorc"
+ln -sfn "$DOTFILES/aerospace/aerospace.toml" "$HOME/aerospace.toml"
+ln -sfn "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -sfn "$DOTFILES/.clauderc" "$HOME/.clauderc"
+ln -sfn "$DOTFILES/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
 echo "  RTK"
 # RTK — global project CLAUDE.md, picked up by all projects via directory traversal
