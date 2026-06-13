@@ -1,11 +1,12 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60",
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "200000"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
-  },
-  "env": {
-    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60"
   },
   "permissions": {
     "allow": [
@@ -257,7 +258,6 @@
     ],
     "defaultMode": "default"
   },
-  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -378,9 +378,14 @@
     }
   },
   "effortLevel": "medium",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
+  "voiceEnabled": true,
   "maxTurns": 30,
-  "model": "sonnet"
+  "model": "opus"
 }
