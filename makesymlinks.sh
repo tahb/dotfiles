@@ -11,8 +11,10 @@ mkdir -p "$HOME/.config/ghostty"
 mkdir -p "$HOME/.config/aerospace"
 touch "$DOTFILES/.profile"
 
-for src in "$DOTFILES/ghostty/config" \
-           "$DOTFILES/.gitignore" \
+ln -sfn "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
+ln -sfn "$DOTFILES/ghostty/themes" "$HOME/.config/ghostty/themes"
+
+for src in "$DOTFILES/.gitignore" \
            "$DOTFILES/gitconfig" \
            "$DOTFILES/zshrc" \
            "$DOTFILES/zpreztorc" \
