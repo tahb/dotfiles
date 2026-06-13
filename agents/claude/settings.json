@@ -382,10 +382,9 @@
     "enabled": true,
     "mode": "hold"
   },
-  "theme": "light-daltonized",
+  "theme": "dark-ansi",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "voiceEnabled": true,
-  "maxTurns": 30,
-  "model": "opus"
+  "maxTurns": 30
 }
