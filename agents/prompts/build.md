@@ -1,6 +1,8 @@
 # Builder pipeline
 
-Orchestrator passes `$PLAN` (plan file path) AFTER plan gate. Do not start §1 without explicit "plan approved" signal.
+**You MUST call tools. Never describe tool calls in text.** Every read, edit, write, test, git command — actual tool invocation. "I would run X" or "I'll edit Y" without invoking the tool = hallucination. Did not happen if you did not call it. Orchestrator verifies via `git log`, tests, and file diffs.
+
+Orchestrator passes `$PLAN` after plan gate. Do not start §1 without explicit `plan approved`.
 
 ## 0. Gate check
 
@@ -10,8 +12,10 @@ Orchestrator passes `$PLAN` (plan file path) AFTER plan gate. Do not start §1 w
 
 ## 1. Worktree
 
+If worktrees enabled, create one before any code changes.
+
 ```bash
-SLUG="…"  # short kebab task name
+SLUG="…"
 CALLER=$(git rev-parse --abbrev-ref HEAD)
 TS=$(date +%Y%m%d-%H%M%S)
 WT="$(pwd)/.agents/worktrees/${TS}-${SLUG}"
@@ -20,46 +24,39 @@ git worktree add -b "task/${TS}-${SLUG}" "$WT"
 echo "worktree: $WT"
 ```
 
-Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Absolute paths or `git -C "$WT"`.
+Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Use absolute paths or `git -C "$WT"`.
 
 ## 2. Add failing fast test (red)
 
-Add failing unit/integration test in `$WT` for new/fixed behaviour. Confirm fails. Stays red until §3.
+Add failing unit/integration test for each planned behavior change. Confirm it fails.
 
 ## 3. Build (TDD)
 
-- Invoke Skill `test-driven-development` for unit red → green → refactor.
+- Invoke skill `test-driven-development`.
 - Implement per `$PLAN`.
-- Run fast tests (unit + integration). Report results.
-- Loop until all fast tests green. If stuck: surface to orchestrator with blocker.
+- Run fast tests.
+- Loop until all fast tests green or blocked.
 
-## 4. Commit (task branch)
+## 4. Commit proposal
 
-Show proposed commit message + diff summary. Wait for approval.
+Show orchestrator:
+- proposed commit message
+- diff summary
+- fast test results
 
-Commit format STRICT: `<type>: <description>`. No scope. Lower-case description. Hook may reject otherwise.
+Stop there until orchestrator returns explicit approval.
+
+Commit format strict: `<type>: <description>`. No scope. Lower-case description.
 
 Allowed types:
+- `feat:`
+- `fix:`
+- `refactor:`
+- `test:`
+- `chore:`
+- `docs:`
 
-- `feat:` — new user-visible feature
-- `fix:` — bug fix
-- `refactor:` — no behaviour change
-- `test:` — test-only change
-- `chore:` — build, deps, config
-- `docs:` — documentation only
-
-Accept:
-- `fix: wrap booking empty state in app shell`
-- `feat: add invite-code expiry`
-
-Reject:
-- `fix(404): wrap empty state` — scope forbidden
-- `feat:(scope) hello bar` — colon before scope
-- `Fix: wrap empty state` — title case
-- `wrap empty state` — no type
-
-- Reject → loop §3
-- Approve →
+After approval:
 
 ```bash
 git -C "$WT" add <only files you changed>
@@ -67,4 +64,6 @@ git -C "$WT" commit -m "<type>: <description>"
 SHA=$(git -C "$WT" rev-parse HEAD)
 ```
 
-Commit lands on `task/${TS}-${SLUG}`, not `$CALLER`.
+## 5. Surface
+
+When all fast tests green and commit exists: return `$SHA`, commit message, diff summary, fast test results, `$WT`, `$CALLER`. If stuck: report blocker.

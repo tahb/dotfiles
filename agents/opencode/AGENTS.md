@@ -11,18 +11,17 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 All default steps mandatory. Cannot skip unless user opts out. No exception.
 
-0. (main agent) Use `AskUserQuestion` tool to ask: (1) Follow dev-pipeline? (2) Use git worktree? (3) Run E2E? — if pipeline N, skip entirely; otherwise run opted-in steps
+0. (main agent) Ask user: (1) Follow dev-pipeline? (2) Use git worktree? (3) Run E2E? — if pipeline N, skip entirely; otherwise run opted-in steps
 1. (subagent) Scout
 2. (subagent) Planner
 3. (main agent) Plan gate — await explicit user approval before proceeding y/n
-4. (main agent) If worktree not opted out: git worktree add ./.agents/worktrees/<TS>-<slug>
-5. (subagent) Builder
-6. (subagent) Reviewer
-7. (subagent) E2E Tester
-8. Route: ship → §9 / implementation bug → §5 / design flaw → §2
-9. (main agent) Cherry-pick proposal to  working branch — show SHA log + diff summary + E2E result; await user approval via y/n
-10. (subagent) Scribe - if docs need updating, commit and cherry-pick to working branch
-11. (main agent) Clean up — don't ask, clean up worktree if used
+4. (subagent) Builder — creates worktree if worktree mode enabled
+5. (subagent) Reviewer
+6. (subagent) E2E Tester
+7. Route: ship → §8 / implementation bug → §4 / design flaw → §2
+8. (main agent) Cherry-pick proposal to working branch — show SHA log + diff summary + E2E result; await user approval via y/n
+9. (subagent) Scribe — if docs need updating, commit on task branch before cherry-pick
+10. (main agent) Clean up — don't ask, clean up worktree if used
 
 ## Rules
 

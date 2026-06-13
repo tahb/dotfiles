@@ -24,32 +24,85 @@
   "shell": "~/.config/opencode/hooks/block-dangerous-git.sh",
   "agent": {
     "plan": {
-      "disable": true
+      "mode": "subagent",
+      "color": "#0F6E56",
+      "model": "openai/gpt-5.5",
+      "description": "Planning agent that breaks software engineering goals into ordered task lists.",
+      "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
+        "edit": "deny",
+        "bash": {
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
+        }
+      },
+      "prompt": "{file:./prompts/plan.md}"
     },
     "build": {
-      "disable": true
+      "mode": "subagent",
+      "color": "#BA7517",
+      "model": "openai/gpt-5.4",
+      "description": "Implementation agent for code and tests.",
+      "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
+        "edit": "ask",
+        "bash": {
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
+        }
+      },
+      "prompt": "{file:./prompts/build.md}"
     },
-    // "default": {
-    //   "mode": "primary",
-    //   "model": "opencode-go/minimax-m2.5",
-    //   "permission": {
-    //     "edit": "ask",
-    //     "bash": {
-    //       "read": "allow",
-    //       "write": "ask"
-    //     }
-    //   }
-    // },
     "scout": {
       "mode": "subagent",
       "color": "#5BA3A0",
       "model": "openai/gpt-5.4-mini",
-      "description": "Findings docs and code",
+      "description": "Read-only codebase research agent.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "deny",
         "bash": {
-          "read": "allow",
-          "write": "deny"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
       "prompt": "{file:./prompts/scout.md}"
@@ -57,14 +110,27 @@
     "dev": {
       "mode": "primary",
       "color": "#D4396B",
-      // "model": "opencode-go/glm-5.1",
       "model": "openai/gpt-5.4",
-      "description": "Main orchestrator agent. ",
+      "description": "Main orchestrator agent.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "deny",
         "bash": {
-          "read": "allow",
-          "write": "deny"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
       "prompt": "{file:./prompts/dev.md}"
@@ -74,13 +140,27 @@
       "color": "#3B6D11",
       "model": "ollama/gemma4-12b-32k",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "ask",
         "bash": {
-          "read": "allow",
-          "write": "ask"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
-      "parameters": {
+      "options": {
         "num_ctx": 32768
       }
     },
@@ -88,31 +168,57 @@
       "mode": "subagent",
       "color": "#0F6E56",
       "model": "openai/gpt-5.5",
-      // "model": "opencode/big-pickle",
       "description": "Planning agent that breaks software engineering goals into ordered task lists.",
-      "prompt": "{file:./prompts/plan.md}",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "deny",
         "bash": {
-          "read": "allow",
-          "write": "deny"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
-      }
+      },
+      "prompt": "{file:./prompts/plan.md}"
     },
     "builder": {
       "mode": "subagent",
       "color": "#BA7517",
       "model": "openai/gpt-5.4",
-      // "model": "opencode/big-pickle",
-      "description": "Experienced software engineer primary agent for building features.",
-      "prompt": "{file:./prompts/build.md}",
+      "description": "Implementation agent for code and tests.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "ask",
         "bash": {
-          "read": "allow",
-          "write": "ask"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
-      }
+      },
+      "prompt": "{file:./prompts/build.md}"
     },
     "reviewer": {
       "mode": "subagent",
@@ -120,10 +226,24 @@
       "model": "openai/gpt-5.5",
       "description": "Specialized agent for code quality and logic verification.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "deny",
         "bash": {
-          "read": "allow",
-          "write": "deny"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
       "prompt": "{file:./prompts/review.md}"
@@ -134,10 +254,24 @@
       "model": "openai/gpt-5.4-mini",
       "description": "E2E test subagent. Runs full suite in worktree, reports pass/fail counts and percentage.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "deny",
         "bash": {
-          "read": "allow",
-          "write": "deny"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
       "prompt": "{file:./prompts/e2e-tester.md}"
@@ -148,60 +282,33 @@
       "model": "openai/gpt-5.4-mini",
       "description": "Specialist for technical documentation sync.",
       "permission": {
+        "read": {
+          ".env": "deny",
+          "**/.env": "deny",
+          "*": "allow"
+        },
         "edit": "ask",
         "bash": {
-          "read": "allow",
-          "write": "ask"
+          "git commit*": "ask",
+          "git push*": "deny",
+          "git reset --hard*": "deny",
+          "git clean -f*": "deny",
+          "git branch -D*": "deny",
+          "git branch*": "ask",
+          "git checkout .*": "deny",
+          "git checkout --*": "deny",
+          "git checkout*": "ask",
+          "git restore .*": "deny",
+          "*": "allow"
         }
       },
       "prompt": "{file:./prompts/scribe.md}"
-    },
-    // "security-review": {
-    //   "mode": "subagent",
-    //   "color": "#B8421F",
-    //   // "model": "opencode-go/glm-5.1",
-    //   "description": "Security-focused review. Dispatch when changes touch auth, crypto, IO, secrets, deps, network, or user input.",
-    //   "permission": {
-    //     "edit": "deny",
-    //     "bash": {
-    //       "read": "allow",
-    //       "write": "deny"
-    //     }
-    //   },
-    //   "prompt": "{file:./prompts/security-review.md}"
-    // }
+    }
   },
   "skills": {
-    "task": {
-      "path": "~/.config/opencode/skills/task.md"
-    },
-    "plan": {
-      "path": "~/.config/opencode/skills/plan.md"
-    },
-    "build": {
-      "path": "~/.config/opencode/skills/build.md"
-    },
-    "review": {
-      "path": "~/.config/opencode/skills/review.md"
-    },
-    "scribe": {
-      "path": "~/.config/opencode/skills/scribe.md"
-    },
-    "scout": {
-      "path": "~/.config/opencode/skills/scout.md"
-    },
-    "review-branch": {
-      "path": "~/.config/opencode/skills/review-branch.md"
-    },
-    "documentor": {
-      "path": "~/.config/opencode/skills/documentor.md"
-    },
-    "test-driven-development": {
-      "path": "~/.config/opencode/skills/test-driven-development.md"
-    },
-    "interview-me": {
-      "path": "~/.config/opencode/skills/interview-me.md"
-    }
+    "paths": [
+      "~/.config/opencode/skills"
+    ]
   },
   "provider": {
     "ollama": {

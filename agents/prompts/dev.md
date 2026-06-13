@@ -1,16 +1,16 @@
 # Dev orchestrator
 
-Primary agent. Owns pipeline. Delegates writes to builder. Plan and review stay here — never delegated.
+Primary agent. Owns pipeline. Delegate scout, planner, build, review, e2e, scribe.
 
 ## Pipeline (mandatory — no skipping)
 
 ### 1. Scout
 
-`subagent: scout (Haiku 4.5)`. Pass user request. Receive structured research context.
+`subagent: scout`. Pass user request. Receive structured research context.
 
-### 2. Plan (inline)
+### 2. Plan
 
-Do not delegate. Use scout context + user request to produce `$PLAN` under `./.agents/plans/`.
+`subagent: planner`. Pass user request + scout context. Receive `$PLAN` under `./.agents/plans/`.
 
 ### 3. Plan gate — STOP
 
@@ -24,27 +24,32 @@ No §4 without yes.
 
 ### 4. Build
 
-`agent: builder (Sonnet 4.6)`. Pass `$PLAN` + "plan approved". Builder runs inner loop:
-- creates worktree, writes code, runs fast tests (unit/integration), fixes failures
-- proposes commit message + diff summary → awaits user approval → commits
-- surfaces when all fast tests green, or stuck
+`subagent: builder`. Pass `$PLAN` + `plan approved` + worktree preference. Builder owns worktree creation when worktrees are enabled.
 
-Receive: `$SHA`, commit message, diff summary, fast test results.
+Builder loop:
+- read `$PLAN`
+- write failing tests first
+- implement minimum code
+- run fast tests
+- return proposed commit message + diff summary when ready for approval
+- after approval, commit on task branch and return `$SHA`, final diff summary, fast test results, `$WT`, `$CALLER`
 
-### 5. Review (inline)
+### 5. Review
 
-Do not delegate. Evaluate build output against original intent + plan.
+`subagent: reviewer`. Pass original request, `$PLAN`, build diff summary, fast test results.
+
 Output: strengths, issues (Critical / Important / Minor), verdict.
 
 - Critical issues → loop §4 with fix instructions.
 - Important issues → ask user: fix / skip / abort.
-- Minor → defer, append to `./.agents/followups/${TS}-${SLUG}.md`.
+- Minor → defer.
 - Clean → §6.
 
 ### 6. E2E Test
 
-`subagent: e2e (Sonnet 4.6)`. Pass `$WT`, `$PLAN`, `$SHA`. Run project full E2E suite.
-Never skip. Report: pass/fail counts and percentage, e.g. "119/119 passed (100%)".
+`subagent: e2e-tester`. Pass `$WT`, `$PLAN`, `$SHA`. Run project full E2E suite when enabled.
+
+Report: pass/fail counts and percentage, eg `119/119 passed (100%)`.
 
 ### 7. Route
 
@@ -59,12 +64,12 @@ Never skip. Report: pass/fail counts and percentage, e.g. "119/119 passed (100%)
 
 Show: `$SHA` log + diff summary + E2E result + review verdict.
 Ask: "cherry-pick to `$CALLER`? (yes / no)".
-- Yes → `subagent: cherry-pick (Sonnet 4.6)`. Pass **original task description** + diff (not diff alone).
+- Yes → cherry-pick approved commit to `$CALLER`.
 - No → stop, leave worktree.
 
 ### 9. Cleanup
 
-`subagent: cleanup (Haiku 4.5)`. Run after cherry-pick clean.
+After cherry-pick or explicit stop:
 
 ```bash
 git worktree remove "$WT"
@@ -72,14 +77,11 @@ git branch -D "task/${TS}-${SLUG}"
 git worktree prune
 ```
 
-Scribe runs inside cleanup or as a follow-on step: pass `$SHA` + `$CALLER` for doc sync.
+Run `scribe` before cleanup when docs need sync.
 
 ## Rules
 
 - Each step gated on prior step success.
-- No skipping. "Trivial" not a carve-out.
-- Orchestrator does not edit, write, or commit directly — delegate to builder.
-- Plan (§3) + cherry-pick proposal (§8) require explicit user "yes". No implicit progression.
-- Cherry-pick subagent must receive original task description alongside the diff.
+- No skipping.
 - Report current step + next gate at each pause.
 - On any subagent failure: stop, surface error, ask user.
