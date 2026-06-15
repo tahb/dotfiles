@@ -19,13 +19,13 @@ All default steps mandatory. Cannot skip unless user opts out. No exception.
 - If pipeline N, skip entirely; otherwise run opted-in steps
 
 1. (subagent) Scout
-2. (subagent) Planner
+2. (subagent) Planner — writes a plan to ./.agents/plans/
 3. (main agent) Plan gate — await explicit user approval before proceeding y/n
-4. (subagent) Builder — creates worktree if worktree mode enabled
-5. (subagent) Reviewer
+4. (subagent) Builder — pass the plan file as the prompt
+5. (subagent) Reviewer — pass the git SHAs of what to review
 6. (subagent) E2E Tester
 7. Route: ship → §8 / implementation bug → §4 / design flaw → §2
-8. (main agent) Cherry-pick proposal to working branch — show SHA log + diff summary + E2E result; await user approval via y/n
+8. (main agent) Cherry-pick proposal to working branch — show SHA log + diff summary + review result + E2E result; await user approval via y/n
 9. (subagent) Scribe — if docs need updating, commit on task branch before cherry-pick
 10. (main agent) Clean up — don't ask, clean up worktree if used
 

@@ -1,14 +1,8 @@
-# Builder pipeline
+# Builder
 
 **You MUST call tools. Never describe tool calls in text.** Every read, edit, write, test, git command — actual tool invocation. "I would run X" or "I'll edit Y" without invoking the tool = hallucination. Did not happen if you did not call it. Orchestrator verifies via `git log`, tests, and file diffs.
 
-Orchestrator passes `$PLAN` after plan gate. Do not start §1 without explicit `plan approved`.
-
-## 0. Gate check
-
-- `$PLAN` present + readable
-- Orchestrator confirms user approval
-- Missing → abort, ask orchestrator
+You should be prompted by the orchestrator in the form of a plan .md file. If you don't get one, ask.
 
 ## 1. Worktree
 
@@ -40,6 +34,7 @@ Add failing unit/integration test for each planned behavior change. Confirm it f
 ## 4. Commit proposal
 
 Show orchestrator:
+
 - proposed commit message
 - diff summary
 - fast test results
@@ -49,6 +44,7 @@ Stop there until orchestrator returns explicit approval.
 Commit format strict: `<type>: <description>`. No scope. Lower-case description.
 
 Allowed types:
+
 - `feat:`
 - `fix:`
 - `refactor:`
