@@ -11,7 +11,13 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 All default steps mandatory. Cannot skip unless user opts out. No exception.
 
-0. (main agent) Ask user: (1) Follow dev-pipeline? (2) Use git worktree? (3) Run E2E? — if pipeline N, skip entirely; otherwise run opted-in steps
+1. (main agent) MANDATORY FIRST RESPONSE. Ask user:
+
+- (1) Follow dev-pipeline?
+- (2) Use git worktree?
+- (3) Run E2E?
+- If pipeline N, skip entirely; otherwise run opted-in steps
+
 1. (subagent) Scout
 2. (subagent) Planner
 3. (main agent) Plan gate — await explicit user approval before proceeding y/n
