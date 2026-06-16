@@ -1,9 +1,7 @@
 ---
 name: planner
-description: Planning subagent. Turns requirements + code context into a concrete implementation plan written to .agents/plans/.
 model: opus
-effortLevel: medium
-mode: subagent
+description: Planning subagent. Turns requirements + code context into a concrete implementation plan written to .agents/plans/.
 tools: Read, Grep, Glob, Write, Bash
 ---
 

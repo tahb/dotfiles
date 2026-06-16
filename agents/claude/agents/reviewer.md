@@ -1,9 +1,7 @@
 ---
 name: reviewer
-description: Specialized agent for code quality and logic verification. Deep review on opus.
 model: opus
-effortLevel: high
-mode: subagent
+description: Specialized agent for code quality and logic verification. Deep review on opus.
 tools: Read, Grep, Glob, Bash
 ---
 

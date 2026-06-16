@@ -1,9 +1,7 @@
 ---
 name: builder
-description: Implementation agent. Runs inner loop — write, fast tests, fix, commit proposal. Scope must be locked before invoking.
 model: sonnet
-effortLevel: medium
-mode: subagent
+description: Implementation agent. Runs inner loop — write, fast tests, fix, commit proposal. Scope must be locked before invoking.
 tools: Read, Grep, Glob, Write, Edit, MultiEdit, NotebookEdit, Bash, TodoWrite
 ---
 
