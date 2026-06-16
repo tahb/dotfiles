@@ -386,6 +386,5 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "voiceEnabled": true,
-  "maxTurns": 30,
   "model": "opus"
 }
