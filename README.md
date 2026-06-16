@@ -46,6 +46,10 @@ git clone git@github.com:tahb/dotfiles.git
 | OpenCode | `brew install opencode` | `~/.config/opencode/` |
 | Pi | `brew install pi-coding-agent` | `~/.pi/agent/` |
 
+## Agents
+
+The `agents/` directory holds all agent customization shared across Claude Code, OpenCode, and Pi. It contains per-tool subdirs (`claude/`, `opencode/`, `pi/`) for tool-specific config plus shared `prompts/` and `skills/` that are symlinked into each tool's config location by `setup.sh`. Claude Code picks up subagent definitions from `agents/claude/agents/` (symlinked to `~/.claude/agents/`) and global instructions from the root `AGENTS.md` (symlinked to `~/.claude/CLAUDE.md`).
+
 ## Repo layout
 
 ```
