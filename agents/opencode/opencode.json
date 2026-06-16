@@ -49,7 +49,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/plan.md}"
+      "prompt": "{file:./claude-agents/planner.md}"
     },
     "build": {
       "mode": "subagent",
@@ -77,7 +77,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/build.md}"
+      "prompt": "{file:./claude-agents/builder.md}"
     },
     "scout": {
       "mode": "subagent",
@@ -105,7 +105,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/scout.md}"
+      "prompt": "{file:./claude-agents/scout.md}"
     },
     "dev": {
       "mode": "primary",
@@ -190,7 +190,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/plan.md}"
+      "prompt": "{file:./claude-agents/planner.md}"
     },
     "builder": {
       "mode": "subagent",
@@ -218,7 +218,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/build.md}"
+      "prompt": "{file:./claude-agents/builder.md}"
     },
     "reviewer": {
       "mode": "subagent",
@@ -246,7 +246,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/review.md}"
+      "prompt": "{file:./claude-agents/reviewer.md}"
     },
     "e2e-tester": {
       "mode": "subagent",
@@ -274,7 +274,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/e2e-tester.md}"
+      "prompt": "{file:./claude-agents/e2e-tester.md}"
     },
     "scribe": {
       "mode": "subagent",
@@ -302,7 +302,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/scribe.md}"
+      "prompt": "{file:./claude-agents/scribe.md}"
     }
   },
   "skills": {
