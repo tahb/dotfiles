@@ -24,60 +24,10 @@
   "shell": "~/.config/opencode/hooks/block-dangerous-git.sh",
   "agent": {
     "plan": {
-      "mode": "subagent",
-      "color": "#0F6E56",
-      "model": "openai/gpt-5.5",
-      "description": "Planning agent that breaks software engineering goals into ordered task lists.",
-      "permission": {
-        "read": {
-          ".env": "deny",
-          "**/.env": "deny",
-          "*": "allow"
-        },
-        "edit": "deny",
-        "bash": {
-          "git commit*": "ask",
-          "git push*": "deny",
-          "git reset --hard*": "deny",
-          "git clean -f*": "deny",
-          "git branch -D*": "deny",
-          "git branch*": "ask",
-          "git checkout .*": "deny",
-          "git checkout --*": "deny",
-          "git checkout*": "ask",
-          "git restore .*": "deny",
-          "*": "allow"
-        }
-      },
-      "prompt": "{file:./claude-agents/planner.md}"
+     "disable": true
     },
     "build": {
-      "mode": "subagent",
-      "color": "#BA7517",
-      "model": "openai/gpt-5.4",
-      "description": "Implementation agent for code and tests.",
-      "permission": {
-        "read": {
-          ".env": "deny",
-          "**/.env": "deny",
-          "*": "allow"
-        },
-        "edit": "ask",
-        "bash": {
-          "git commit*": "ask",
-          "git push*": "deny",
-          "git reset --hard*": "deny",
-          "git clean -f*": "deny",
-          "git branch -D*": "deny",
-          "git branch*": "ask",
-          "git checkout .*": "deny",
-          "git checkout --*": "deny",
-          "git checkout*": "ask",
-          "git restore .*": "deny",
-          "*": "allow"
-        }
-      },
-      "prompt": "{file:./claude-agents/builder.md}"
+     "disable": true
     },
     "scout": {
       "mode": "subagent",
@@ -105,7 +55,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/scout.md}"
+      "prompt": "{file:./prompts/scout.md}"
     },
     "dev": {
       "mode": "primary",
@@ -190,7 +140,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/planner.md}"
+      "prompt": "{file:./prompts/plan.md}"
     },
     "builder": {
       "mode": "subagent",
@@ -218,7 +168,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/builder.md}"
+      "prompt": "{file:./prompts/build.md}"
     },
     "reviewer": {
       "mode": "subagent",
@@ -246,7 +196,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/reviewer.md}"
+      "prompt": "{file:./prompts/review.md}"
     },
     "e2e-tester": {
       "mode": "subagent",
@@ -274,7 +224,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/e2e-tester.md}"
+      "prompt": "{file:./prompts/e2e-tester.md}"
     },
     "scribe": {
       "mode": "subagent",
@@ -302,7 +252,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./claude-agents/scribe.md}"
+      "prompt": "{file:./prompts/scribe.md}"
     }
   },
   "skills": {
@@ -338,7 +288,5 @@
     "~/.config/opencode/AGENTS.md"
   ],
   "plugin": [
-    "@zilliz/memsearch-opencode",
-    "context-mode"
   ]
 }
