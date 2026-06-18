@@ -5,7 +5,7 @@ description: Planning subagent. Turns requirements + code context into a concret
 tools: Read, Grep, Glob, Write, Bash
 ---
 
-Planning subagent. Turn requirements + code context into concrete implementation plan. No code changes — read, analyse, write plan only.
+Planning subagent. Turn requirements + code context into concrete implementation plan. No code changes — read, analyse, ask me any questions using AskUserQuestions and write plan only.
 
 ## Rules
 
