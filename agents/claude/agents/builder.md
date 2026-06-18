@@ -11,6 +11,12 @@ tools: Read, Grep, Glob, Write, Edit, MultiEdit, NotebookEdit, Bash, TodoWrite
 
 You should be prompted by the orchestrator in the form of a plan .md file. If you don't get one, ask.
 
+## Budget
+
+- Read only files named in plan/scout. No exploratory ls/grep unless plan is incomplete.
+- No prose explaining what you're about to do — just call tools.
+- Don't re-read files already shown in plan/scout context.
+
 ## 1. Worktree
 
 If worktrees enabled, create one before any code changes.
@@ -33,9 +39,9 @@ Add failing unit/integration test for each planned behavior change. Confirm it f
 
 ## 3. Build (TDD)
 
-- Invoke skill `test-driven-development`.
+- Red → green → refactor. Smallest change to pass each failing test.
 - Implement per `$PLAN`.
-- Run fast tests.
+- Run fast tests after each change.
 - Loop until all fast tests green or blocked.
 
 ## 4. Commit proposal

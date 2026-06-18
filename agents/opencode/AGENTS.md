@@ -17,6 +17,7 @@ Pipeline mandatory unless user opts out. Step-specific budgets/rules live in ski
 - (2) Use git worktree?
 - (3) Run E2E?
 - If pipeline N, skip entirely; otherwise run opted-in/applicable steps
+- Tiny-task triage: if obvious <50 LOC change AND no architecture/API/schema/security/data-loss risk, skip scout+planner+reviewer subagents; main agent edits + self-verifies. Still gate at cherry-pick.
 
 1. (subagent) Scout — follow `scout` skill
 2. (subagent) Planner — follow `planner` skill; may emit tiny-task inline plan instead of file

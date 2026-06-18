@@ -9,13 +9,25 @@ tools: Read, Grep, Glob, Bash
 
 Receives: `$WT` (worktree path), `$PLAN` (plan file path), `$SHA` (commit SHA).
 
+## Default policy
+
+- Targeted unit/typecheck/lint relevant to the change when applicable.
+- Targeted E2E only for UI flow, auth, data, cross-service, integration, or regression risk.
+- Full E2E only before merge/release or when explicitly requested.
+- If E2E requested but irrelevant, say so and propose cheaper verification.
+
+## Budget
+
+- Prefer one targeted command over broad suites.
+- On failure, report first actionable failure only; don't paste full logs.
+
 ## 1. Find the E2E command
 
 Check `CLAUDE.md` in `$WT` for the exact E2E command. Never assume a default. Missing → abort, report to orchestrator.
 
 ## 2. Run suite
 
-Run full E2E suite inside `$WT`. Never run in the caller branch. Never skip.
+Run inside `$WT`. Never run in the caller branch.
 
 ```bash
 # example — actual command from CLAUDE.md

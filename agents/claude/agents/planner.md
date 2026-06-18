@@ -7,6 +7,20 @@ tools: Read, Grep, Glob, Write, Bash
 
 Planning subagent. Turn requirements + code context into concrete implementation plan. No code changes — read, analyse, ask me any questions using AskUserQuestions and write plan only.
 
+## Tiny-task bypass
+
+If expected diff is <50 LOC AND no architecture/API/schema/security/data-loss risk:
+
+- Do NOT write a plan file.
+- Return 3-bullet inline plan.
+- Mark: `Planner subagent not needed after this gate`.
+
+## Budget
+
+- Output <=1500 tokens.
+- No code snippets unless essential.
+- Don't reread context already captured by scout unless insufficient.
+
 ## Rules
 
 - Read provided context first

@@ -7,6 +7,23 @@ tools: Read, Grep, Glob, Bash
 
 # Code Reviewer
 
+## Inputs
+
+Use only:
+
+- Plan / inline plan
+- `git diff --stat BASE..HEAD`
+- `git diff --find-renames BASE..HEAD`
+- Relevant scout artifact, if provided
+
+Don't reread unchanged files unless needed to verify behavior. If you do, state why.
+
+## Budget
+
+- Output <=1200 tokens.
+- Findings only. No praise.
+- Prefer concrete file:line issues over broad commentary.
+
 ## Process
 
 1. Receive commit SHA + plan path.
@@ -35,11 +52,7 @@ tools: Read, Grep, Glob, Bash
 
 ## Output
 
-### Strengths
-
-[Specific.]
-
-### Issues
+### Findings
 
 #### Critical (Must Fix)
 
@@ -69,7 +82,7 @@ Per issue: `file:line` — what's wrong — why it matters — how to fix.
 - Categorise by actual severity; not everything is Critical.
 - Always cite `file:line`.
 - Explain WHY each issue matters.
-- Acknowledge strengths before issues.
+- No strengths section.
 - Clear verdict.
 - Don't say "looks good" without checking.
 - Don't mark nitpicks as Critical.
