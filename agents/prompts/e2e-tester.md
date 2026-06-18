@@ -12,8 +12,25 @@ Run full E2E suite inside `$WT`. Never run in the caller branch. Never skip.
 
 ```bash
 # example — actual command from CLAUDE.md
-rtk <e2e-command> --reporter=spec
+rtk timeout 300 <e2e-command> --reporter=spec
 ```
+
+- **Hard timeout: 5 minutes.** Abort if exceeded.
+- On timeout or hang: STOP. Do not continue.
+
+## 3. Diagnose on failure
+
+If suite fails or times out:
+
+1. Check: process running? (`ps`, `pgrep`)
+2. Check: last 50 lines of test output
+3. Check: test log files, `jest --listTests`, `playwright test --list`
+4. Check: port conflicts, DB connections, env vars
+5. Check: `CLAUDE.md` for known test issues
+
+Label root cause: `suite-broken` | `env` | `flaky` | `bug` | `design`
+
+Report diagnosis before any pass/fail report.
 
 ## 3. Report
 
