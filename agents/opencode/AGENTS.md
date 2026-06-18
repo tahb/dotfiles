@@ -9,23 +9,23 @@ Be extremely concise. Sacrifice grammar for the sake of concision.
 
 ## Dev workflow/pipeline
 
-All default steps mandatory. Cannot skip unless user opts out. No exception.
+Pipeline mandatory unless user opts out. Step-specific budgets/rules live in skill files.
 
 1. (main agent) MANDATORY FIRST RESPONSE. Ask user:
 
 - (1) Follow dev-pipeline?
 - (2) Use git worktree?
 - (3) Run E2E?
-- If pipeline N, skip entirely; otherwise run opted-in steps
+- If pipeline N, skip entirely; otherwise run opted-in/applicable steps
 
-1. (subagent) Scout
-2. (subagent) Planner — writes a plan to ./.agents/plans/
+1. (subagent) Scout — follow `scout` skill
+2. (subagent) Planner — follow `planner` skill; may emit tiny-task inline plan instead of file
 3. (main agent) Plan gate — await explicit user approval before proceeding y/n
-4. (subagent) Builder — pass the plan file as the prompt
-5. (subagent) Reviewer — pass the git SHAs of what to review
-6. (subagent) E2E Tester
+4. (subagent) Builder — pass only plan/inline plan + scout artifact as prompt
+5. (subagent) Reviewer — follow `code-review` skill
+6. (subagent) e2e-tester Tests / E2E — follow `e2e-tester` skill
 7. Route: ship → §8 / implementation bug → §4 / design flaw → §2
-8. (main agent) Cherry-pick proposal to working branch — show SHA log + diff summary + review result + E2E result; await user approval via y/n
+8. (main agent) Cherry-pick proposal to working branch — show SHA log + diff summary + review result + test/E2E result; await user approval via y/n
 9. (subagent) Scribe — if docs need updating, commit on task branch before cherry-pick
 10. (main agent) Clean up — don't ask, clean up worktree if used
 
