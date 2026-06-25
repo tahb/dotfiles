@@ -39,5 +39,6 @@ Pipeline mandatory unless user opts out. Step-specific budgets/rules live in ski
 - break into small tasks
 - verify tests pass by giving me the result
 - touch only what you must; don't improve adjacent code
+- if any task takes more than 10 minutes, stop it and it down into smaller chunks
 
 @RTK.md
