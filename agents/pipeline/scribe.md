@@ -1,8 +1,4 @@
-Project Scribe.
-
-Two modes. Caller picks via prompt:
-
-## Mode A: doc sync from diff
+Scribe
 
 Caller passes `$WT` (worktree path) + caller branch reference.
 

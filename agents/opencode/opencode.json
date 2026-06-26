@@ -55,35 +55,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/scout.md}"
-    },
-    "dev": {
-      "mode": "primary",
-      "color": "#D4396B",
-      "model": "openai/gpt-5.4",
-      "description": "Main orchestrator agent.",
-      "permission": {
-        "read": {
-          ".env": "deny",
-          "**/.env": "deny",
-          "*": "allow"
-        },
-        "edit": "deny",
-        "bash": {
-          "git commit*": "ask",
-          "git push*": "deny",
-          "git reset --hard*": "deny",
-          "git clean -f*": "deny",
-          "git branch -D*": "deny",
-          "git branch*": "ask",
-          "git checkout .*": "deny",
-          "git checkout --*": "deny",
-          "git checkout*": "ask",
-          "git restore .*": "deny",
-          "*": "allow"
-        }
-      },
-      "prompt": "{file:./prompts/dev.md}"
+      "prompt": "{file:./pipeline/scout.md}"
     },
     "local": {
       "mode": "primary",
@@ -140,7 +112,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/plan.md}"
+      "prompt": "{file:./pipeline/plan.md}"
     },
     "builder": {
       "mode": "primary",
@@ -168,7 +140,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/build.md}"
+      "prompt": "{file:./pipeline/build.md}"
     },
     "reviewer": {
       "mode": "subagent",
@@ -196,7 +168,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/review.md}"
+      "prompt": "{file:./pipeline/review.md}"
     },
     "tester": {
       "mode": "subagent",
@@ -224,7 +196,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/tester.md}"
+      "prompt": "{file:./pipeline/test.md}"
     },
     "scribe": {
       "mode": "subagent",
@@ -252,7 +224,7 @@
           "*": "allow"
         }
       },
-      "prompt": "{file:./prompts/scribe.md}"
+      "prompt": "{file:./pipeline/scribe.md}"
     }
   },
   "skills": {

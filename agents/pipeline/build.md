@@ -1,14 +1,3 @@
----
-name: builder
-model: sonnet
-description: Implementation agent, must use test driven development
-tools: Read, Grep, Glob, Write, Edit, MultiEdit, NotebookEdit, Bash, TodoWrite
----
-
-# Builder
-
-You should be prompted by the orchestrator in the form of a plan file. Ask if none.
-
 ## Budget
 
 - Read only files named in plan/scout. No exploratory ls/grep unless plan is incomplete.

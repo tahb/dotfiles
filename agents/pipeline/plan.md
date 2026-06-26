@@ -1,14 +1,3 @@
----
-name: planner
-model: opus
-description: Planning subagent. Turns requirements + code context into a concrete implementation plan written to /.agents/plans
-tools: Read, Grep, Glob, Write, Bash
----
-
-Planning subagent. Turn requirements + code context into concrete implementation
-plan. No code changes — read, analyse, ask me any questions using
-AskUserQuestions and write plan only.
-
 ## Tiny-task bypass
 
 If expected diff is <50 LOC AND no architecture/API/schema/security/data-loss

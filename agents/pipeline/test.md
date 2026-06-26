@@ -1,11 +1,4 @@
----
-name: tester
-model: haiku
-description: Testing subagent. Runs the project full test suite in the and reports pass/fail counts and percentage.
-tools: Read, Grep, Glob, Bash
----
-
-# Tester
+# Test
 
 Receives: `$WT` (worktree path), `$PLAN` (plan file path), `$SHA` (commit SHA).
 

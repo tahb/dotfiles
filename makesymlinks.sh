@@ -60,8 +60,8 @@ ln -sfn "$DOTFILES/agents/opencode/opencode.json" "$HOME/.config/opencode/openco
 ln -sfn "$DOTFILES/agents/opencode/AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
 mkdir -p "$HOME/.config/opencode/skills"
 ln -sfn "$DOTFILES/agents/skills" "$HOME/.config/opencode/skills"
-mkdir -p "$HOME/.config/opencode/prompts"
-ln -sfn "$DOTFILES/agents/prompts" "$HOME/.config/opencode/prompts"
+rm -rf "$HOME/.config/opencode/pipeline"
+ln -sfn "$DOTFILES/agents/pipeline" "$HOME/.config/opencode/pipeline"
 mkdir -p "$HOME/.config/opencode/hooks"
 ln -sfn "$DOTFILES/agents/opencode/hooks" "$HOME/.config/opencode/hooks"
 

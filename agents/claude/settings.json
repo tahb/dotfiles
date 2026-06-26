@@ -385,5 +385,6 @@
   "theme": "dark-ansi",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "model": "sonnet"
 }
