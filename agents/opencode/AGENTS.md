@@ -22,7 +22,7 @@ Pipeline mandatory unless user opts out. Step-specific budgets/rules live in ski
 1. (subagent) Scout — follow `scout` skill
 2. (subagent) Planner — follow `planner` skill; may emit tiny-task inline plan instead of file
 3. (main agent) Plan gate — await explicit user approval before proceeding y/n
-4. (subagent) Builder — pass only plan/inline plan + scout artifact as prompt
+4. (main agent) Builder — pass only plan/inline plan + scout artifact as prompt
 5. (subagent) Reviewer — follow `code-review` skill
 6. (subagent) e2e-tester Tests / E2E — follow `e2e-tester` skill
 7. Route: ship → §8 / implementation bug → §4 / design flaw → §2

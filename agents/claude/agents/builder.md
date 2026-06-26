@@ -39,7 +39,7 @@ Add failing unit/integration test for each planned behavior change. Confirm it f
 
 ## 3. Build (TDD)
 
-- Red → green → refactor. Smallest change to pass each failing test.
+- no exception: Red → green → refactor. Smallest change to pass each failing test.
 - Implement per `$PLAN`.
 - Run fast tests after each change.
 - Loop until all fast tests green or blocked.
@@ -75,4 +75,4 @@ SHA=$(git -C "$WT" rev-parse HEAD)
 
 ## 5. Surface
 
-When all fast tests green and commit exists: return `$SHA`, commit message, diff summary, fast test results, `$WT`, `$CALLER`. If stuck: report blocker.
+When all fast tests green and commit exists: return `$SHA`, test coverage for lines added, commit message, diff summary, fast test results, `$WT`, `$CALLER`.
