@@ -19,22 +19,8 @@ Caller passes `$WT` (worktree path) + caller branch reference.
 4. If updates: `git -C "$WT" add -A && git -C "$WT" commit -m "docs: ..."`.
 5. Return summary of doc updates (or "no-op") to caller.
 
-## Mode B: write plan doc
+## Mode A: write adr
 
-Caller passes plan body + target filename. Write file to `./.agents/plans/[YYYY-MM-DD-HHmm]-[name]-plan.md` using strict structure:
+Use 'adr tools' package to propose an ADR describing the decision.
 
-```
-## Goal
-[1 line]
-
-## Files
-[path] — [what changes]
-
-## Risks
-- [risk]
-
-## Steps
-- [ ] [verb-first, exact file, no explanation unless non-obvious]
-```
-
-No commit. Return file path to caller.
+eg. adr new Implement as Unix shell scripts
