@@ -382,7 +382,7 @@
     "enabled": true,
     "mode": "hold"
   },
-  "theme": "dark-ansi",
+  "theme": "light-daltonized",
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "voiceEnabled": true,
