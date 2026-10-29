@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Link agents/skills/*.md into ~/.claude/skills/<name>/SKILL.md; prune stale. Idempotent.
+DOTFILES="${DOTFILES:-$HOME/dotfiles}"
+dest="$HOME/.claude/skills"
+mkdir -p "$dest"
+for f in "$DOTFILES"/agents/skills/*.md; do
+  name=$(basename "$f" .md)
+  mkdir -p "$dest/$name"
+  ln -sfn "$f" "$dest/$name/SKILL.md"
+done
+for d in "$dest"/*/; do
+  name=$(basename "$d")
+  [[ -f "$DOTFILES/agents/skills/$name.md" ]] && continue
+  [[ -L "$d/SKILL.md" ]] || continue
+  echo "removing stale skill: $name"
+  rm -rf "$d"
+done

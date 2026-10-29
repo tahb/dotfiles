@@ -38,20 +38,7 @@ ln -sfn "$DOTFILES/agents/claude/hooks" "$HOME/.claude/hooks"
 
 echo "  claude skills"
 # Claude skills
-mkdir -p "$HOME/.claude/skills"
-for f in "$DOTFILES"/agents/skills/*.md; do
-  name=$(basename "$f" .md)
-  mkdir -p "$HOME/.claude/skills/$name"
-  cp "$f" "$HOME/.claude/skills/$name/SKILL.md"
-done
-# Remove stale skills no longer in dotfiles
-for d in "$HOME"/.claude/skills/*/; do
-  name=$(basename "$d")
-  if [[ ! -f "$DOTFILES/agents/skills/$name.md" ]]; then
-    echo "  removing stale skill: $name"
-    rm -rf "$d"
-  fi
-done
+"$DOTFILES/bin/sync-skills"
 
 echo "  opencode"
 # Opencode

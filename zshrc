@@ -110,3 +110,6 @@ fi
 
 # RTK — ensure Claude and OpenCode integrations stay configured
 command -v rtk >/dev/null && rtk init -g --opencode --auto-patch >/dev/null 2>&1
+
+# Keep ~/.claude/skills in sync with dotfiles/agents/skills
+sync-skills >/dev/null 2>&1
