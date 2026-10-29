@@ -19,6 +19,7 @@ brew "direnv"
 brew "docker", link: false
 brew "git"
 brew "git-absorb"
+brew "gh"
 brew "gnu-sed"
 brew "gnupg"
 brew "jq"
