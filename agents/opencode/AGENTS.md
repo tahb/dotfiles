@@ -39,6 +39,7 @@ SA = sub agent
 - don't re-read files already in context
 - break into small tasks
 - touch only what you must; don't change adjacent code
+- prefer Write/Edit over shell (heredoc, redirect, tee, sed -i) for file changes
 - RED: one commit only. Iterating on tests before test gate → squash into single RED commit (`git reset --soft <base>` + recommit) before showing gate. Never show user RED commit that later gets changed. Same for GREEN: squash fixups before cherry-pick proposal
 - one task must run over 10 minutes, stop it and verify situation with me before continuing
 
