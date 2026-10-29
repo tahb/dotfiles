@@ -22,7 +22,9 @@ SA = sub agent
 1. SA: Scout — follow `scout` skill
 1. SA: Planner — follow `planner` skill; may emit tiny-task inline plan instead of file
 1. MA: Plan gate — await explicit user approval before proceeding y/n
-1. MA: Builder — pass only plan file/inline plan + scout artifacts as prompt
+1. SA: Builder (RED) — `$PHASE=red`; pass only plan file/inline plan + scout artifacts. Writes failing tests only, no prod code, runs them, returns tests + failing output
+1. MA: Test gate — show test list (name + what asserts), trimmed failing output, gaps vs plan's `## Tests`; await user Y/n. Reject → back to RED with feedback. Applies to tiny tasks too (show inline)
+1. SA: Builder (GREEN) — `$PHASE=green`; same worktree, approved tests frozen; implement + refactor
 1. SA: Reviewer — follow `code-review` skill
 1. SA: Tester Tests / E2E — follow `tester` skill
 1. Route: ship → §8 / implementation bug → §4 / design flaw → §2
@@ -37,6 +39,7 @@ SA = sub agent
 - don't re-read files already in context
 - break into small tasks
 - touch only what you must; don't change adjacent code
+- RED: one commit only. Iterating on tests before test gate → squash into single RED commit (`git reset --soft <base>` + recommit) before showing gate. Never show user RED commit that later gets changed. Same for GREEN: squash fixups before cherry-pick proposal
 - one task must run over 10 minutes, stop it and verify situation with me before continuing
 
 @RTK.md

@@ -21,20 +21,26 @@
 
     Store `$WT`, `$CALLER`, `$TS`, `$SLUG`. Use absolute paths or `git -C "$WT"`.
 
-2. Add failing slow test
+2. RED (only if `$PHASE=red`)
 
-    Review current integration/request/e2e tests and identify the best place to add coverage for this task. Tiny tasks and edge cases may not require one.Run the test to confirm it fails before proceeding.
+    - Write failing tests covering every case in the plan's `## Tests` (unit first; integration/e2e if plan says). Find best location from existing tests.
+    - No prod code. Minimum stubs only if needed to compile/import.
+    - Run them. Confirm fail for right reason (feature missing, not typo/import error).
+    - Leave uncommitted. No commit.
+    - STOP. Return: test file paths, one-line intent per test, trimmed raw failing output, plan cases not covered, `$WT`, `$CALLER`.
+    - Do not proceed to implementation. Orchestrator gates with user.
 
-3. Implement
+3. Implement (only if `$PHASE=green`)
 
+    - Tests approved by user + frozen. Edit/delete/weaken a test → stop and ask.
     - Be guided by the inputted `$PLAN`.
-    - No exception: Red → green → refactor (Smallest change to pass each failing test)
+    - Green → refactor (Smallest change to pass each failing test)
     - Run fast tests after each change
     - Loop until all fast tests green or blocked
 
 4. Commit proposal
 
-    - Write small atomic commits
+    - Write small atomic commits; approved tests go in a separate `test:` commit first
     - Show orchestrator: proposed commit message, diff summary, fast test and test cov results
     - Commit format strict: `<type>: <description>`. No scope. Lower-case description. Allowed types: `feat:`,`fix:`,`refactor:`,`test:`,`chore:`,`docs:`
     - Stop there until orchestrator returns explicit approval.

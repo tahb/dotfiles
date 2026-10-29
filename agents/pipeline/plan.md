@@ -21,7 +21,7 @@ risk:
   AskUserQuestion
 - Name exact files where possible
 - Small, ordered, actionable tasks > vague phases
-- Remind the builder to use TDD
+- Plan MUST include `## Tests`: behavior-level cases (happy, edge, error), file location, unit vs integration. Builder writes these first; user reviews them at test gate before any prod code.
 - Written markdown should be ultra concise
 
 ## Output
