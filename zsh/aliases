@@ -1,3 +1,5 @@
+alias aliases="vim ~/dotfiles/.profile"
+
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -56,4 +58,3 @@ function claude() {
   cp ~/dotfiles/agents/claude/settings.json ~/.claude/settings.json
   command claude "$@"
 }
-
