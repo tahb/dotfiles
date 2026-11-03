@@ -28,6 +28,7 @@ SA = sub agent
 1. SA: Reviewer — follow `code-review` skill
 1. SA: Tester Tests / E2E — follow `tester` skill
 1. Route: ship → §8 / implementation bug → §4 / design flaw → §2
+1. SA: Builder (SPLIT) — once green + reviewed, rewrite RED/GREEN commits into small atomic commits, each = code + the test covering it; every commit builds and passes tests; final tree identical to green tree (verify empty diff). Skip for tiny tasks that are already one logical change
 1. MA: Cherry-pick proposal to working branch — show SHA log + diff summary + review result + test/E2E result; await user approval via y/n
 1. MA: Clean up — don't ask, clean up worktree if used
 
@@ -40,7 +41,7 @@ SA = sub agent
 - break into small tasks
 - touch only what you must; don't change adjacent code
 - prefer Write/Edit over shell (heredoc, redirect, tee, sed -i) for file changes
-- RED: one commit only. Iterating on tests before test gate → squash into single RED commit (`git reset --soft <base>` + recommit) before showing gate. Never show user RED commit that later gets changed. Same for GREEN: squash fixups before cherry-pick proposal
+- RED: one commit only. Iterating on tests before test gate → squash into single RED commit (`git reset --soft <base>` + recommit) before showing gate. Never show user RED commit that later gets changed. Same for GREEN: squash fixups before SPLIT. RED/GREEN are working commits only; shipped history is the SPLIT atomic commits (one logical change each, test + code together, never a test-only or code-only commit unless the change has no testable behaviour)
 - one task must run over 10 minutes, stop it and verify situation with me before continuing
 
 @RTK.md
