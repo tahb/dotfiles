@@ -40,6 +40,7 @@ SA = sub agent
 - don't re-read files already in context
 - break into small tasks
 - touch only what you must; don't change adjacent code
+- default to following any existing conventions rather than creating new ones
 - prefer Write/Edit over shell (heredoc, redirect, tee, sed -i) for file changes
 - RED: one commit only. Iterating on tests before test gate → squash into single RED commit (`git reset --soft <base>` + recommit) before showing gate. Never show user RED commit that later gets changed. Same for GREEN: squash fixups before SPLIT. RED/GREEN are working commits only; shipped history is the SPLIT atomic commits (one logical change each, test + code together, never a test-only or code-only commit unless the change has no testable behaviour)
 - one task must run over 10 minutes, stop it and verify situation with me before continuing
