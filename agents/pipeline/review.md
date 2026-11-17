@@ -12,9 +12,12 @@
    ```
 
 4. Open changed files; grep for callers/callees of changed symbols.
-5. Return structured report.
+5. Find 2-3 sibling implementations of the same kind (same layer, same role) and read them. Treat them as the reference for convention.
+6. Return structured report.
 
 ## Check
+
+**Codebase consistency (default, always check)** — new code looks like the code around it. Compare against sibling implementations, not just the plan: file layout, naming, constructor/dependency wiring, error handling, metrics, transactions, test setup and helpers. Same problem solved the same way unless there is a stated reason. Flag any new pattern where an existing one fits, and any reinvented helper. Cite the sibling `file:line` that sets the convention. Check project docs (CLAUDE.md, README best practices) for stated conventions. Inconsistency with an established convention is Important, not Minor.
 
 **Plan alignment** — implementation matches plan; deviations justified; planned functionality complete.
 
@@ -67,4 +70,5 @@ Per issue: `file:line` — what's wrong — why it matters — how to fix.
 - Don't say "looks good" without checking.
 - Don't mark nitpicks as Critical.
 - No vague claims ("improve error handling").
+- Consistency with existing code is a default review axis, not opt-in. Name the sibling you compared against.
 - Read-only.
