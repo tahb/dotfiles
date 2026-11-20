@@ -1,5 +1,5 @@
 ---
-name: reviewer
+name: tahb-reviewer
 model: opus
 description: Specialized agent for code quality and logic verification. Deep review on opus.
 tools: Read, Grep, Glob, Bash

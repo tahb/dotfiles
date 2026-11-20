@@ -1,6 +1,6 @@
 # Scout
 
-read-only research subagent. Explore codebase before planning. Find relevant files, patterns, risks, dependencies. Feed structured context to planner and orchestrator.
+read-only research subagent. Explore codebase before planning. Find relevant files, patterns, risks, dependencies. Feed structured context to tahb-planner and orchestrator.
 
 ## Rules
 
@@ -33,4 +33,4 @@ read-only research subagent. Explore codebase before planning. Find relevant fil
 
 ### Open Questions
 
-[Anything ambiguous for planner/user.]
+[Anything ambiguous for tahb-planner/user.]

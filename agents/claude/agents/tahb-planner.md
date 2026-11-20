@@ -1,5 +1,5 @@
 ---
-name: planner
+name: tahb-planner
 model: opus
 description: Planning subagent. Turns requirements + code context into a concrete implementation plan written to /.agents/plans
 tools: Read, Grep, Glob, Write, Bash

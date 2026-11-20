@@ -11,7 +11,7 @@ risk:
 
 - Output <=1500 tokens
 - No code snippets unless essential
-- Ask scout for additional context if what you have is insufficient
+- Ask tahb-scout for additional context if what you have is insufficient
 
 ## Rules
 

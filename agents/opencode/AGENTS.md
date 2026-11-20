@@ -18,17 +18,17 @@ SA = sub agent
     - 2 Use git worktree?
     - 3 Run E2E?
     - If pipeline N, skip entirely; else run opted-in/applicable steps
-    - Tiny-task triage: if obvious <50 LOC change AND no architecture/API/schema/security/data-loss risk, skip scout+planner+reviewer subagents; main agent edits + self-verifies. Still gate at cherry-pick.
-1. SA: Scout — follow `scout` skill
-1. SA: Planner — follow `planner` skill; may emit tiny-task inline plan instead of file
+    - Tiny-task triage: if obvious <50 LOC change AND no architecture/API/schema/security/data-loss risk, skip tahb-scout+tahb-planner+tahb-reviewer subagents; main agent edits + self-verifies. Still gate at cherry-pick.
+1. SA: Scout — use `tahb-scout` agent
+1. SA: Planner — use `tahb-planner` agent; may emit tiny-task inline plan instead of file
 1. MA: Plan gate — await explicit user approval before proceeding y/n
-1. SA: Builder (RED) — `$PHASE=red`; pass only plan file/inline plan + scout artifacts. Writes failing tests only, no prod code, runs them, returns tests + failing output
+1. SA: Builder (RED) — `tahb-builder` agent, `$PHASE=red`; pass only plan file/inline plan + scout artifacts. Writes failing tests only, no prod code, runs them, returns tests + failing output
 1. MA: Test gate — show test list (name + what asserts), trimmed failing output, gaps vs plan's `## Tests`; await user Y/n. Reject → back to RED with feedback. Applies to tiny tasks too (show inline)
-1. SA: Builder (GREEN) — `$PHASE=green`; same worktree, approved tests frozen; implement + refactor
-1. SA: Reviewer — follow `code-review` skill
-1. SA: Tester Tests / E2E — follow `tester` skill
+1. SA: Builder (GREEN) — `tahb-builder` agent, `$PHASE=green`; same worktree, approved tests frozen; implement + refactor
+1. SA: Reviewer — use `tahb-reviewer` agent, follow `code-review` skill
+1. SA: Tester Tests / E2E — use `tahb-tester` agent
 1. Route: ship → §8 / implementation bug → §4 / design flaw → §2
-1. SA: Builder (SPLIT) — once green + reviewed, rewrite RED/GREEN commits into small atomic commits, each = code + the test covering it; every commit builds and passes tests; final tree identical to green tree (verify empty diff). Skip for tiny tasks that are already one logical change
+1. SA: Builder (SPLIT) — `tahb-builder` agent; once green + reviewed, rewrite RED/GREEN commits into small atomic commits, each = code + the test covering it; every commit builds and passes tests; final tree identical to green tree (verify empty diff). Skip for tiny tasks that are already one logical change
 1. MA: Cherry-pick proposal to working branch — show SHA log + diff summary + review result + test/E2E result; await user approval via y/n
 1. MA: Clean up — don't ask, clean up worktree if used
 

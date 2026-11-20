@@ -1,5 +1,5 @@
 ---
-name: scribe
+name: tahb-scribe
 model: haiku
 description: Documentation specialist.
 tools: Read, Grep, Glob, Write, Edit, MultiEdit, Bash
