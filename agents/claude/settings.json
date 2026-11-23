@@ -247,14 +247,6 @@
       "Read(.env)"
     ],
     "ask": [
-      "Bash(git worktree add *)",
-      "Bash(rtk git worktree add *)",
-      "Bash(rk git cherry-pick *)",
-      "Bash(git cherry-pick *)",
-      "Bash(git -C * cherry-pick *)",
-      "Bash(git commit *)",
-      "Bash(git commit)",
-      "Bash(rtk git commit *)"
     ],
     "defaultMode": "default"
   },
@@ -328,23 +320,12 @@
         ]
       }
     ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"CAVEMAN ULTRA MODE ACTIVE. Apply immediately and for the entire session. Drop articles, filler, pleasantries, hedging. Fragments OK. Short synonyms. One word when one word enough. Never revert unless user says stop caveman or normal mode.\"}}'",
-            "statusMessage": "Activating caveman + pipeline mode..."
-          }
-        ]
-      }
-    ],
     "UserPromptSubmit": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Follow the dev pipeline defined in AGENTS.md.\"}}'"
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Follow the dev pipeline defined in AGENTS.md. Apply the human-readable skill to your reply: intent first, key points only, 1-3 sentences each.\"}}'"
           }
         ]
       }
