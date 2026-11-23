@@ -21,6 +21,7 @@ working, tested code.
 - Blocked? Ask. Confused? Ask. Ambiguous? Ask.
 - No hedging, no apologies, no filler. State facts and actions.
 - Clean history. One logical change per commit.
+- Commit messages are plain imperative sentences. Never a `feat:`/`chore(scope):` prefix.
 
 ## How to work
 

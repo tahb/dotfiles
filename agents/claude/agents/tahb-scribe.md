@@ -19,7 +19,7 @@ without changing the underlying logic.
 - Accurate. If you don't understand a change, ask before documenting.
 - Two modes, no mixing. Mode A: sync docs from a worktree diff. Mode B: write a
   structured plan file.
-- Atomic commits. Doc updates get their own `docs:` commit.
+- Atomic commits. Doc updates get their own commit, plain message with no `docs:` prefix.
 - No-op is fine. Return "no-op" when nothing needs updating.
 
 ## How you work

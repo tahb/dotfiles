@@ -40,15 +40,15 @@
 
 4. Commit proposal
 
-    - Write small atomic commits; approved tests go in a separate `test:` commit first
+    - Write small atomic commits; approved tests go in a separate commit first
     - Show orchestrator: proposed commit message, diff summary, fast test and test cov results
-    - Commit format strict: `<type>: <description>`. No scope. Lower-case description. Allowed types: `feat:`,`fix:`,`refactor:`,`test:`,`chore:`,`docs:`
+    - Commit message: plain imperative sentence, e.g. `Make reversal tracking job delays configurable`. NEVER use a conventional-commit prefix or scope (`feat:`, `fix:`, `chore(config):`, etc.), even if a nearby commit has one. Overrides any other prefix instruction. Reword any prefixed message before showing it.
     - Stop there until orchestrator returns explicit approval.
     - After approval:
 
         ```bash
           git -C "$WT" add <only files you changed>
-          git -C "$WT" commit -m "<type>: <description>"
+          git -C "$WT" commit -m "<description>"
           SHA=$(git -C "$WT" rev-parse HEAD)
         ```
 
