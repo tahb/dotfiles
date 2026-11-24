@@ -28,7 +28,7 @@ SA = sub agent
 1. SA: Builder (GREEN) — `tahb-builder` agent, `$PHASE=green`; same worktree, approved tests frozen; implement + refactor
 1. SA: Reviewer — use `tahb-reviewer` agent, follow `code-review` skill
 1. SA: Tester Tests / E2E — use `tahb-tester` agent
-1. Route: ship → §8 / implementation bug → §4 / design flaw → §2
+1. Route: ship → Builder (SPLIT) / implementation bug → Builder (GREEN) / design flaw → Planner
 1. SA: Builder (SPLIT) — `tahb-builder` agent; once green + reviewed, rewrite RED/GREEN commits into small atomic commits, each = code + the test covering it; every commit builds and passes tests; final tree identical to green tree (verify empty diff). Skip for tiny tasks that are already one logical change
 1. MA: Cherry-pick proposal to working branch — show SHA log + diff summary + review result + test/E2E result; await user approval via y/n
 1. MA: Clean up — don't ask, clean up worktree if used
