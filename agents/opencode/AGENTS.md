@@ -20,8 +20,9 @@ SA = sub agent
     - If pipeline N, skip entirely; else run opted-in/applicable steps
     - Tiny-task triage: if obvious <50 LOC change AND no architecture/API/schema/security/data-loss risk, skip tahb-scout+tahb-planner+tahb-reviewer subagents; main agent edits + self-verifies. Still gate at cherry-pick.
 1. SA: Scout — use `tahb-scout` agent
-1. SA: Planner — use `tahb-planner` agent; may emit tiny-task inline plan instead of file
-1. MA: Plan gate — await explicit user approval before proceeding y/n
+1. SA: Planner — use `tahb-planner` agent; may emit tiny-task inline plan instead of file. Returns `NEEDS_INPUT` (questions) or `PLAN_DRAFT`. Subagents can't ask the user
+1. MA: Question relay — on `NEEDS_INPUT`, put its questions to the user verbatim with `AskUserQuestion` (no added opinions), then resume the same planner via `SendMessage` with the answers. Repeat until `PLAN_DRAFT`
+1. MA: Plan gate — show `PLAN_DRAFT`; await explicit user approval y/n. Approve → `SendMessage` "approved, write the file"; feedback → `SendMessage` it, get a new draft
 1. SA: Builder (RED) — `tahb-builder` agent, `$PHASE=red`; pass only plan file/inline plan + scout artifacts. Writes failing tests only, no prod code, runs them, returns tests + failing output
 1. MA: Test gate — show test list (name + what asserts), trimmed failing output, gaps vs plan's `## Tests`; await user Y/n. Reject → back to RED with feedback. Applies to tiny tasks too (show inline)
 1. SA: Builder (GREEN) — `tahb-builder` agent, `$PHASE=green`; same worktree, approved tests frozen; implement + refactor
