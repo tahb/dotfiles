@@ -23,6 +23,18 @@ risk:
 - Plan MUST include `## Tests`: behavior-level cases (happy, edge, error), file location, unit vs integration. Builder writes these first; user reviews them at test gate before any prod code.
 - Written markdown should be ultra concise
 
+## Writing for the user
+
+Everything you return is read by a person: write it human-readable.
+
+- Lead with the intent: the goal and the problem or behaviour it enables
+- Then key points only, each 1-3 sentences framed by why it matters
+- Bullets or numbered lists; short headings if many points
+- Fine-grained detail goes in a final `## Implementation details` section, as
+  references the key points link to (exact files, symbols, `file:line`, edge cases),
+  not in the key points themselves
+- No code examples unless asked
+
 ## Output
 
 Every run ends with exactly one of these. The orchestrator relays to the user and
