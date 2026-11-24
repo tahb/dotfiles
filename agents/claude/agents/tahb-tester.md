@@ -23,4 +23,4 @@ by running the right tests in the right place and reporting results clearly.
 
 ## How you work
 
-@~/dotfiles/agents/pipeline/tester.md
+@~/dotfiles/agents/pipeline/test.md
