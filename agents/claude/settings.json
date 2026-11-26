@@ -82,6 +82,8 @@
       "Bash(rtk psql *)",
       "Bash(rtk pwd)",
       "Bash(rtk read *)",
+      "Bash(rg *)",
+      "Bash(rtk rg *)",
       "Bash(rtk tail *)",
       "Bash(rtk tsc *)",
       "Bash(rtk vitest *)",
